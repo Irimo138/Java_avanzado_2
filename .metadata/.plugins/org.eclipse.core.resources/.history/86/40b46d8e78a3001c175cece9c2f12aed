@@ -1,0 +1,11 @@
+package Arrays;
+
+import java.util.*;
+public class Array_bidimensional {
+
+	public static void main(String[] args) {
+		int numeros[] = new int [10];
+
+	}
+
+}

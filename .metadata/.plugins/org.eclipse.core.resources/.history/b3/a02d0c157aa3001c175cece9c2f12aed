@@ -1,0 +1,19 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class Ejercicio_9_Sort {
+
+	public static void main(String[] args) {
+		//9 Sort
+		int numeros[] = new int [10];
+		
+		for(int i = 0; i < numeros.length; i++) {
+			numeros[i] = (int) Math.random()*20;
+		}
+		
+		
+		
+
+}
+}

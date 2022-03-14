@@ -1,0 +1,49 @@
+package Arrays;
+
+import java.util.Scanner;
+import java.util.*;
+
+//INCOMPLETO
+public class Ejercicio_10_Pag_2 {
+	
+	
+	
+	/*
+	Leer 5 elementos numéricos que se introducirán ordenados de forma creciente. Éstos los
+	guardaremos en una tabla de tamaño 5. Leer un número N, e insertarlo en el lugar adecuado
+	para que la Array continúe ordenada
+	*/
+	static int numeros[];
+	public static void main(String[] args) {
+
+	Scanner t = new Scanner(System.in);
+	numeros = new int[5];
+	
+	//Creo el array y lo relleno
+	for(int i = 0; i < numeros.length; i++) {
+		System.out.print("El Nº"+i+": ");
+		numeros[i] = t.nextInt();
+	}
+	
+	int intro = t.nextInt();
+	
+	for(int i = 1; i < numeros.length; i++) {
+		if(numeros[i] > intro) {
+			desplazar(i);
+			numeros[i] = intro;
+		}
+	}
+	
+	for(int i = 0; i < numeros.length; i++) {
+		System.out.println(numeros[i]);
+	}
+	
+	}
+	public static void desplazar(int i) {
+		for(int rec = numeros.length - 1; rec > i ; rec--) {
+		numeros[rec] = numeros[rec-1];
+		}
+	}
+	
+	
+}
