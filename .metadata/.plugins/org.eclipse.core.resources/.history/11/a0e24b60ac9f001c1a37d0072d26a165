@@ -1,0 +1,12 @@
+package POO_avanzado;
+
+public class Percusion implements Instrumento{
+
+	public Percusion() {
+		
+	}
+	
+	public static void main(String[] args) {
+		Percusion p = new Percusion();
+	}
+}

@@ -1,0 +1,20 @@
+package POO_avanzado;
+
+public interface Instrumento {
+
+	static void tocar() {
+		System.out.println("Sonido");
+	}
+	
+	static String queEs() {
+		String ins ="";
+		//ins = this.getName();
+		System.out.println("El instrumento es: ");
+		return ins;
+	}
+	
+	static void adjust() {
+		
+	}
+	
+}

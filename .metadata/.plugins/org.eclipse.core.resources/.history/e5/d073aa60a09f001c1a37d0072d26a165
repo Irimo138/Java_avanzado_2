@@ -1,0 +1,7 @@
+package POO;
+
+public class Persona {
+	private String nombre;
+	private String genero;
+	private int edad;
+}

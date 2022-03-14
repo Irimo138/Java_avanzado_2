@@ -1,0 +1,17 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import POO.Palindromo;
+
+class PalindromoTest {
+
+	@Test
+	void testConstructor() {
+		Palindromo p = new Palindromo(2465847651465L);
+		assertEquals();
+	}
+
+}

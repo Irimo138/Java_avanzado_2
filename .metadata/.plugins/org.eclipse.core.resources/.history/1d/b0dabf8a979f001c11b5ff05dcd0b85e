@@ -1,0 +1,18 @@
+package POO;
+
+	
+public class Banco {
+	double saldo;
+	String nombre;
+	public Banco(double saldo, String nombre) {
+		super();
+		this.saldo = saldo;
+		this.nombre = nombre;
+	}
+	
+	
+	
+	
+
+	
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="junit.framework.TestCase"/>
+    <fullyQualifiedTypeName name="POO.Punto"/>
+    <fullyQualifiedTypeName name="POO.Palindromo"/>
+    <fullyQualifiedTypeName name="POO.Banco"/>
+    <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+    <fullyQualifiedTypeName name="POO.Persona"/>
+</qualifiedTypeNameHistroy>

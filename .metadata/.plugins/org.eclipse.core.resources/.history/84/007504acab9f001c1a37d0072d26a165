@@ -1,0 +1,5 @@
+package POO_avanzado;
+
+public class Instrumento implements interfazInstrumento{
+
+}

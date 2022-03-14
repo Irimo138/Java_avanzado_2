@@ -1,0 +1,14 @@
+package Inicio;
+
+public class MKT {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int y = 18;
+		int x = 48;
+		
+		int val = x / y;
+		int val2 = y / (x % y);
+	}
+
+}

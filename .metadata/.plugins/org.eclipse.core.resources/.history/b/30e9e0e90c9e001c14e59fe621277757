@@ -1,0 +1,10 @@
+package Inicio;
+
+public class Bubbles {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int array = new int{1,2,6,9,8};
+	}
+
+}

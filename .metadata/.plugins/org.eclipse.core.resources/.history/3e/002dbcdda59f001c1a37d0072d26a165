@@ -1,0 +1,14 @@
+package POO_avanzado;
+
+public class Animal {
+	 
+	public Animal() {
+		
+		System.out.println(“Creación de un Animal”);
+	 }
+}
+
+
+	 public static void main (String[] args) {
+
+}

@@ -1,0 +1,16 @@
+package POO;
+
+	public interface Instrumento {
+
+		static void tocar() {
+			
+		}
+		
+		static String queEs() {
+			
+		}
+		
+		static void adjust() {
+			
+		}
+}

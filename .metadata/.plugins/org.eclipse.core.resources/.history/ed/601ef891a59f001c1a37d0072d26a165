@@ -1,0 +1,15 @@
+package POO_avanzado;
+
+public class Animal {
+	 public Animal() {
+	 System.out.println(“Creación de un Animal”);
+	 }
+	}
+	public class Hipopótamo extends Animal {
+	 public Hipopótamo() {
+	 System.out.println(“Creación de un Hipopótamo”);
+	 }
+	}
+	public class TestHippo {
+	 public static void main (String[] args) {
+

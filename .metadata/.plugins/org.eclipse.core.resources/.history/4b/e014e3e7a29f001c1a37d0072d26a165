@@ -1,0 +1,14 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestPersona {
+
+	@Test
+	void testConstructor() {
+		Persona p = new persona('Unai',"hombe", 21);
+	}
+
+}

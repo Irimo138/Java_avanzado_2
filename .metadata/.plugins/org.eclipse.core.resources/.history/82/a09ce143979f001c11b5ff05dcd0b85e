@@ -1,0 +1,10 @@
+package POO;
+
+	
+public class Banco {
+	static boolean rojo;
+	
+	static double saldo;
+
+	
+}
