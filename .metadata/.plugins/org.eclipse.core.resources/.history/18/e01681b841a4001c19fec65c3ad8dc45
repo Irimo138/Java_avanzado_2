@@ -1,0 +1,21 @@
+package Colecciones_3;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+public class Array_queue_test {
+
+		static int mikePhone = 699924569;
+		static int paulPhone = 699924888;
+	public static void main(String[] args) {
+		Queue<Integer> taskQueue = new ArrayDeque<Integer>();
+		taskQueue.offer(mikePhone);
+		taskQueue.offer(paulPhone);
+		int nextTask = taskQueue.poll();
+		if (nextTask != null) {
+		// process nextTask
+		}
+
+	}
+
+}

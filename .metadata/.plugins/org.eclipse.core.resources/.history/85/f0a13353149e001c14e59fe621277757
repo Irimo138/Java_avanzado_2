@@ -1,3 +1,0 @@
-module Test_Principio {
-	requires junit;
-}

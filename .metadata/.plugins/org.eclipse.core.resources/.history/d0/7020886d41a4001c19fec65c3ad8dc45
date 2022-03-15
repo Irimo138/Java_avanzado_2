@@ -1,0 +1,16 @@
+package Colecciones_3;
+
+public class Array_queue_test {
+
+	public static void main(String[] args) {
+		Queue<Integer> taskQueue = new ArrayDeque<Integer>();
+		taskQueue.offer(mikePhone);
+		taskQueue.offer(paulPhone);
+		Task nextTask = taskQueue.poll();
+		if (nextTask != null) {
+		// process nextTask
+		}
+
+	}
+
+}
