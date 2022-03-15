@@ -131,7 +131,6 @@ public class Punto {
 	public static void ordenar() {
 		Punto p = new Punto(0,0);
 		//Collections.sort(puntoList, p);
-		//Usar set para cambiar la posición
 	}
 	
 	public static void main(String[] args) {
