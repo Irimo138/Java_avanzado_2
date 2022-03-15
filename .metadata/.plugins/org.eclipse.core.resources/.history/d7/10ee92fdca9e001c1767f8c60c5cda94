@@ -1,8 +1,0 @@
-package Ejercicios;
-
-public class Figura {
-
-	private double perimetro;
-	private double area;
-	
-}

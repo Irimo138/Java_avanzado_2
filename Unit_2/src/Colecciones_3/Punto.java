@@ -129,9 +129,12 @@ public class Punto {
 	}
 	
 	public static void ordenar() {
-		Punto p = new Punto(0,0);
-		//Collections.sort(puntoList, p);
-		//Usar set para cambiar la posición
+		Iterator<Punto> it = puntoList.iterator();
+        while(it.hasNext()) {
+        	Punto p = it.next();
+        	System.out.println(p);
+        }
+		
 	}
 	
 	public static void main(String[] args) {
@@ -150,6 +153,8 @@ public class Punto {
 		eliminaDistancia();
 		eliminaCuatro();
 		mostrar(puntoList);
+		mostrar(puntoList);
+		ordenar();
 		
 		//System.out.println(mostrarDelReves(puntoList));
 		
