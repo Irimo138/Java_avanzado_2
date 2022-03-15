@@ -134,8 +134,7 @@ public class Punto {
 	            	 Punto px = puntoList.get(j-1);
 	            	 Punto px2 = puntoList.get(j);
 	                 if (px.getDistancia() > px2.getDistancia() ) {
-	                	 puntoList.set(j-1, px2);
-	                	 puntoList.set(j, px);
+	                	 puntoList.set(i-1, px2);
 	                 }
 	                 
 	             }

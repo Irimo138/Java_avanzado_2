@@ -133,9 +133,8 @@ public class Punto {
 	            for (int j = 1; j < puntoList.size(); j++) {
 	            	 Punto px = puntoList.get(j-1);
 	            	 Punto px2 = puntoList.get(j);
-	                 if (px.getDistancia() > px2.getDistancia() ) {
-	                	 puntoList.set(j-1, px2);
-	                	 puntoList.set(j, px);
+	                 if (px.getDistancia() < px2.getDistancia() ) {
+	                	 puntoList.set(i-1, px2);
 	                 }
 	                 
 	             }
