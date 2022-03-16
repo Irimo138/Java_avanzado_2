@@ -1,7 +1,0 @@
-package Pruebas;
-
-import org.junit.jupiter.api.Test;
-
-public class TestCircunferencias extends TestCase{
-
-}
