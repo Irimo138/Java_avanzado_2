@@ -1,8 +1,0 @@
-package POO;
-
-	static boolean rojo;
-	
-public class Banco {
-
-	
-}
