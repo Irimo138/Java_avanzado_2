@@ -1,6 +1,0 @@
-package POO_avanzado;
-
-public class Percusion implements Instrumento{
-
-	
-}
