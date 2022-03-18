@@ -2,7 +2,7 @@ package Ejercicio_cinema;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.Scanner;
 public class Cinema {
 	private String nombre;
 	private ArrayList<Movie> Films = new ArrayList<Movie>();
@@ -110,6 +110,33 @@ public class Cinema {
 				}
 			}
 		return salasLibres;
+	}
+	
+	public void changeRoom(Movie peli) {
+		if(salaDePelicula(peli)!= -1) {
+			int sala = salaDePelicula(peli);
+			Scanner t = new Scanner(System.in);
+			System.out.println("quieres cambiar de sala?");
+			String res = t.next();
+			if(res.equalsIgnoreCase("s")) {
+				System.out.println("Que sala?");
+				int cambio = t.nextInt();
+				if(busyRooms[cambio] == null) {
+					busyRooms[cambio] = busyRooms[sala];
+					busyRooms[sala] = null;
+				}else {
+					System.out.println("La sala esta ocupada");
+				}
+			}
+			
+		}
+	}
+	
+	public void resetCinema() {
+		for(int i = 0; i < busyRooms.length; i++) {
+			busyRooms[i] = null;
+		}
+		Films.clear();
 	}
 	
 	@Override

@@ -18,6 +18,9 @@ public class main {
 		urbil.showLibres();
 		System.out.println(urbil.roomOfMovie(p2));
 		System.out.println(urbil.toString());
+		System.out.println(urbil.salasLibres());
+		urbil.changeRoom(p2);
+		System.out.println(urbil.toString());
 	}
 
 }
