@@ -16,4 +16,5 @@
     <fullyQualifiedTypeName name="Try_catch.Fraccion"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="Try_catch.FractionException"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>
