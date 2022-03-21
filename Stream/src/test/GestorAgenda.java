@@ -2,6 +2,7 @@ package test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -56,46 +57,71 @@ public class GestorAgenda {
 				}
 		}
 		
-		public String busquedaPersona(String[] args, Persona p1) throws IOException {
-			String str = ";";
-			int line= nombreEnLinea(args, p1);
-
-			String person = transformation(args, line);
-			
-			return str;
+		public String busquedaPersona(Persona p1) throws IOException {
+			String str = "";
+			//System.out.println(p1);
+			int line = nombreEnLinea(p1);
+			System.out.println(line);
+			String person = transformation(0);
+			return person;
 		}
 
 
 
 
-		private String transformation(String[] args, int line) {
-			
-			return null;
-		}
-
-
-		private int nombreEnLinea(String[] args, Persona p1) throws IOException {
+		private String transformation(int line) throws IOException {
+			String Person = "";
+			int cont = 0;
 			BufferedReader fe = new BufferedReader(new FileReader(this.nombre));
-			//System.out.println(fe.readLine());
-			int line = 0;
-			int n = 0;
 			while(fe.readLine() != null) {
-				if(fe.readLine().contains(p1.nombre)) {
-					line = n;
-					n++;
+				if(cont == line) {
+					Person = fe.readLine();
 				}
-				n++;
+				cont++;
 			}
-			return line;
+			fe.close();
+			return Person;
+		}
+
+
+		private int nombreEnLinea(Persona p1) throws IOException {
+			 	File f1 = new File(this.nombre);
+
+		        int contador = 0;
+
+		        try (BufferedReader b1 = new BufferedReader(new FileReader(f1));) {
+
+		            while (b1.readLine() != null && contador == 0) {
+		            	contador++;
+
+		                if(b1.readLine().contains(p1.nombre)) {
+		                	return contador;
+
+		                }
+
+		            }
+
+		        } catch (FileNotFoundException e){
+
+		            e.printStackTrace();
+
+		        } catch(IOException i) {
+
+		            i.printStackTrace();
+		        }
+				return -1;
+
 		}
 
 
 		public static void main(String[] args) throws IOException {
 			GestorAgenda g1 = new GestorAgenda("agenda.txt");
 			Persona p1 = new Persona("Maik", 659874123, "Ñoñosti");
+			Persona p2 = new Persona("Iri", 688824053, "Tolosa");
 			g1.visualizacion(args);
 			//g1.addPerson(args, p1);
-			g1.busquedaPersona(args, p1);
+			System.out.println(" ");
+			System.out.println(g1.busquedaPersona(p1));
 			
 			
 		}
