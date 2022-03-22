@@ -1,129 +1,146 @@
 package test;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 
 public class GestorAgenda {
-	private String nombre;
 
-		public GestorAgenda(String nombre) {
-		super();
-		this.nombre = nombre;
-	}
-		
-		
-		void visualizacion(String[] args) throws IOException {
-			if (args.length != 1) {
-				 System.out.println("Esta vacio");
-				}
-				else{
-					System.out.println("Examinando");
-					try(FileInputStream file = new FileInputStream (args[0]);){
-						//InputStream ins = new FileInputStream("C:\\Drive\\Learn.txt");
-				        Scanner obj = new Scanner(file);
-				        while (obj.hasNextLine())
-				            System.out.println(obj.nextLine());
+    private String nombreArchivo;
 
-					}catch(FileNotFoundException e) {
-						System.err.println("Erroooor");
-					}
-				}
+    public GestorAgenda(String nombreArchivo) {
 
-		}
-		
-		void addPerson(String[] args, Persona p1) throws IOException {
-			if (args.length != 1) {
-				 System.out.println("Esta vacio");
-				}
-				else{
-					System.out.println("Examinando");
-					try(FileInputStream file = new FileInputStream (args[0]);){
-						FileWriter fileWriter = new FileWriter("agenda.txt", true);
-						BufferedWriter bw = new BufferedWriter(fileWriter);
-						bw.newLine();
-						bw.write(p1.nombre +" "+ p1.numero+" "+ p1.lugar);
-						bw.close();
-					}catch(FileNotFoundException e) {
-						System.err.println("Erroooor");
-					}
-				}
-		}
-		
-		public String busquedaPersona(Persona p1) throws IOException {
-			String str = "";
-			//System.out.println(p1);
-			int line = nombreEnLinea(p1);
-			System.out.println(line);
-			String person = transformation(0);
-			return person;
-		}
+        this.nombreArchivo = nombreArchivo;
 
+    }
 
+    public void visualizacion() {
 
+        File f1 = new File(this.nombreArchivo);
+        
+        String aux;
 
-		private String transformation(int line) throws IOException {
-			String Person = "";
-			int cont = 0;
-			BufferedReader fe = new BufferedReader(new FileReader(this.nombre));
-			while(fe.readLine() != null) {
-				if(cont == line) {
-					Person = fe.readLine();
-				}
-				cont++;
-			}
-			fe.close();
-			return Person;
-		}
+        try (BufferedReader b1 = new BufferedReader(new FileReader(f1));) {
 
+            while ((aux = b1.readLine()) != null) {
+                
+                System.out.println(aux);
+                
+            }
 
-		private int nombreEnLinea(Persona p1) throws IOException {
-			 	File f1 = new File(this.nombre);
+        } catch (FileNotFoundException e){
 
-		        int contador = 0;
+            e.printStackTrace();
 
-		        try (BufferedReader b1 = new BufferedReader(new FileReader(f1));) {
+        } catch(IOException i) {
 
-		            while (b1.readLine() != null && contador == 0) {
-		            	contador++;
+            i.printStackTrace();
+        }
 
-		                if(b1.readLine().contains(p1.nombre)) {
-		                	return contador;
+    }
 
-		                }
+    public void añadirPersona(Persona p1) {
 
-		            }
+        String s1 = p1.getNombre() + "\t" + p1.getNumero() + "\t" + p1.getLugar();
 
-		        } catch (FileNotFoundException e){
+        try (FileWriter fw = new FileWriter(this.nombreArchivo, true); PrintWriter pw = new PrintWriter(fw);){
+            pw.println(s1);
+            System.out.println("Operación realizada con el mayor exito posible :)");
 
-		            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-		        } catch(IOException i) {
+    }
+    
+    public Persona busquedaPersona(String nombre) {
+        
+        Persona p1 = null;
+        File f1 = new File(this.nombreArchivo);
+        
+        int contador = 0;
+        
+        String aux;
 
-		            i.printStackTrace();
-		        }
-				return -1;
+        try (BufferedReader b1 = new BufferedReader(new FileReader(f1));) {
 
-		}
+            while (((aux = b1.readLine()) != null) && (contador == 0)) {
+                
+                if(nombreEnLinea(aux, nombre) == true) {
+                    
+                    p1 = transformacion(aux);
+                    
+                    contador++;
+                    
+                }
+                
+                
+            }
+            
+          
 
+        } catch (FileNotFoundException e){
 
-		public static void main(String[] args) throws IOException {
-			GestorAgenda g1 = new GestorAgenda("agenda.txt");
-			Persona p1 = new Persona("Maik", 659874123, "Ñoñosti");
-			Persona p2 = new Persona("Iri", 688824053, "Tolosa");
-			g1.visualizacion(args);
-			//g1.addPerson(args, p1);
-			System.out.println(" ");
-			System.out.println(g1.busquedaPersona(p1));
-			
-			
-		}
-				
+            e.printStackTrace();
+
+        } catch(IOException i) {
+
+            i.printStackTrace();
+        }
+        
+        return p1;
+        
+    }
+    
+    private boolean nombreEnLinea(String linea, String nombre) {
+        
+        if(linea.contains(nombre)) {
+        	
+        	return true;
+        	
+        }
+        else {
+        	
+        	return false;
+        	
+        }
+        
+    }
+    
+    private Persona transformacion(String aux) {
+        
+        Persona p1 = new Persona(aux, aux, aux);
+        
+        String[] arrayLinea = aux.split("\t");
+        
+        p1.setNombre(arrayLinea[0]);
+        p1.setNumero(arrayLinea[1]);
+        p1.setLugar(arrayLinea[2]);
+        
+        
+        return p1;
+        
+    }
+
+    public static void main(String[] args) {
+
+        Persona p1 = new Persona("Asis", "619469457", "Casa");
+        Persona p2 = new Persona("Mikel", "45996384", "CasaMikel");
+
+        GestorAgenda g1 = new GestorAgenda("PersonaAgenda.txt");
+        g1.añadirPersona(p1);
+        g1.visualizacion();
+        //g1.busquedaPersona("Asis");
+        System.out.println(g1.busquedaPersona("Asis"));
+
+    }
+
 }
