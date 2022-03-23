@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <servlet>
+    <description></description>
+    <display-name>addProfesor</display-name>
+    <servlet-name>addProfesor</servlet-name>
+    <servlet-class>Functions.addProfesor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addProfesor</servlet-name>
+    <url-pattern>/addProfesor</url-pattern>
+  </servlet-mapping>
+  <display-name>Project_alumnos</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
