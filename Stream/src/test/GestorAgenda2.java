@@ -97,7 +97,6 @@ public class GestorAgenda2 {
 
 		            
 
-		            }
 
 		        } catch (FileNotFoundException e){
 
@@ -107,19 +106,19 @@ public class GestorAgenda2 {
 
 		            i.printStackTrace();
 		        }
-				return -1;
+				return false;
 
 		}
 
 
 		public static void main(String[] args) throws IOException {
 			GestorAgenda g1 = new GestorAgenda("agenda.txt");
-			Persona p1 = new Persona("Maik", 659874123, "Ñoñosti");
-			Persona p2 = new Persona("Iri", 688824053, "Tolosa");
-			g1.visualizacion(args);
+			Persona p1 = new Persona("Maik", "659874123", "Ñoñosti");
+			Persona p2 = new Persona("Iri", "688824053", "Tolosa");
+			//g1.visualizacion(args);
 			//g1.addPerson(args, p1);
 			System.out.println(" ");
-			System.out.println(g1.busquedaPersona(p1));
+			//System.out.println(g1.busquedaPersona(p1));
 			
 			
 		}
