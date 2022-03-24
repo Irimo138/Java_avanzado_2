@@ -2,38 +2,54 @@ package SQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+
+import Beans.Profesor;
 
 
 public class conectionDB {
-	
+	Connection conn;
 	public conectionDB(){
 		try {
-			
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Java","root", "");
+		Class.forName("com.mysql.jdbc.Driver");
+		this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Java","root", "");
 		System.err.println("realizado");
-		
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM profesor");
-		
-		while(rs.next()) {
-			String RESULT_NOMBRE = rs.getString(1);
-			String RESULT_ANO = rs.getString("añoInicio");
-			String RESULT_ALUMNOS = rs.getString(3);
-			
-			System.out.println( RESULT_NOMBRE + RESULT_ANO + RESULT_ALUMNOS);
-			
-		}
 		
 		}catch(Exception e) {
 			e.getMessage();
 			
 		}
 	}
-	
-	public static void main(String[] args) {
-		conectionDB c1 = new conectionDB();
+
+		
+
+	public void addProfeDB(Profesor p) throws ClassNotFoundException {
+		PreparedStatement stmt;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Java","root", "");
+			stmt = conn.prepareStatement("insert into profesor (nombre, añoInicio, cantidadAlumnos) values(?,?,?)");
+			stmt.setString(1, p.getNombre());
+			int año = Integer.parseInt(p.getAñoInicio());
+			stmt.setInt(2, año);
+			int alumnos = Integer.parseInt(p.getCantidadAlumnos());
+			stmt.setInt(3, alumnos);
+			stmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
+	
+	/*public static void main(String[] args) throws SQLException {
+		conectionDB c1 = new conectionDB();
+		c1.addProfeDB(null, 0, 0);
+	}*/
 
 }

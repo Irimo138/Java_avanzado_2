@@ -19,4 +19,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>añadirProfe</display-name>
+    <servlet-name>añadirProfe</servlet-name>
+    <servlet-class>Functions.añadirProfe</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>añadirProfe</servlet-name>
+    <url-pattern>/añadirProfe</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>funcionesProfeDB</display-name>
+    <servlet-name>funcionesProfeDB</servlet-name>
+    <servlet-class>Functions.funcionesProfeDB</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>funcionesProfeDB</servlet-name>
+    <url-pattern>/funcionesProfeDB</url-pattern>
+  </servlet-mapping>
 </web-app>

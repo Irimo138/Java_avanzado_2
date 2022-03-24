@@ -7,10 +7,14 @@
 <title>Index</title>
 </head>
 <body>
-	<form action="addProfesor.java" method="POST">
-		<input type="text" name="nombre">
-		<input type="number" name="añoInicio">
-		<input type="text" name="nombre">
+<h2>Añadir Profesor</h2>
+	<form action="addProfe" method="POST">
+		Nombre: <input type="text" name="nombre">
+		<br>
+		Año inicio<input type="text" name="añoInicio">
+		<br>
+		CantidaD alumnos<input type="text" name="alumnos">
+		<br>
 		<input type="submit" value="Enviar">
 	</form>
 </body>

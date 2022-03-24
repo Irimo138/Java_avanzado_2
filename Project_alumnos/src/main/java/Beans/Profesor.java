@@ -2,27 +2,37 @@ package Beans;
 
 import Interfaces.Interfaz_Profesor;
 
-public class Profesor implements Interfaz_Profesor{
+public class Profesor {
 	private String nombre;
-	private int añoInicio;
-	private int cantidadAlumnos;
+	private String añoInicio;
+	private String cantidadAlumnos;
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getAñoInicio() {
+		return añoInicio;
+	}
+
+	public void setAñoInicio(String añoInicio) {
+		this.añoInicio = añoInicio;
+	}
+
+	public String getCantidadAlumnos() {
+		return cantidadAlumnos;
+	}
+
+	public void setCantidadAlumnos(String cantidadAlumnos) {
+		this.cantidadAlumnos = cantidadAlumnos;
+	}
+
 	
-	@Override
-	public void porcentajeAprobado() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
-	@Override
-	public void mostrarDatos() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void expulsarAlumno() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
