@@ -31,12 +31,17 @@ public class funcionesProfeDB extends HttpServlet {
 			
 			
 			//Statement stmt = conn.createStatement();
+			c1 = new conectionDB();
 			String nombre = request.getParameter("nombre");
-			String añoInicio = request.getParameter("añoInicio");
+			String añoInicio = request.getParameter("inicio");
 			String cantidadAlumnos = request.getParameter("alumnos");
 			
-			
-			Profesor p = new Profesor(nombre, añoInicio, cantidadAlumnos);
+			Profesor p = new Profesor();
+			p.setNombre(nombre);
+			Integer ano = Integer.parseInt(añoInicio);
+			p.setAñoInicio(ano);
+			int alumnos = Integer.parseInt(cantidadAlumnos);
+			p.setAñoInicio(alumnos);
 			try {
 				c1.addProfeDB(p);
 			} catch (ClassNotFoundException e) {

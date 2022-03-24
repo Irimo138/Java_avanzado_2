@@ -11,9 +11,9 @@
 	<form action="addProfe" method="POST">
 		Nombre: <input type="text" name="nombre">
 		<br>
-		Año inicio<input type="text" name="añoInicio">
+		Año inicio<input type="text" name="inicio">
 		<br>
-		CantidaD alumnos<input type="text" name="alumnos">
+		Cantidad alumnos<input type="text" name="alumnos">
 		<br>
 		<input type="submit" value="Enviar">
 	</form>

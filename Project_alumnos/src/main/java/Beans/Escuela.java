@@ -2,41 +2,37 @@ package Beans;
 
 import Interfaces.Interfaz_escuela;
 
-public class Escuela implements Interfaz_escuela{
-	
+public class Escuela{
 	private String nombre;
 	private int añoInicio;
 	private int cantidadAlumno;
 	private int cantidadProfesor;
-
-	@Override
-	public void agregarAlumno() {
-		// TODO Auto-generated method stub
-		
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public int getAñoInicio() {
+		return añoInicio;
+	}
+	public void setAñoInicio(int añoInicio) {
+		this.añoInicio = añoInicio;
+	}
+	public int getCantidadAlumno() {
+		return cantidadAlumno;
+	}
+	public void setCantidadAlumno(int cantidadAlumno) {
+		this.cantidadAlumno = cantidadAlumno;
+	}
+	public int getCantidadProfesor() {
+		return cantidadProfesor;
+	}
+	public void setCantidadProfesor(int cantidadProfesor) {
+		this.cantidadProfesor = cantidadProfesor;
 	}
 
-	@Override
-	public void eliminarAlumno() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void agregarProfesor() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void eliminarProfesor() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mostrarDatos() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

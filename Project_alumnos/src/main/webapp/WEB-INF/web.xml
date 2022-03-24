@@ -39,4 +39,14 @@
     <servlet-name>funcionesProfeDB</servlet-name>
     <url-pattern>/funcionesProfeDB</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>funcionesEscuelaDB</display-name>
+    <servlet-name>funcionesEscuelaDB</servlet-name>
+    <servlet-class>Functions.funcionesEscuelaDB</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>funcionesEscuelaDB</servlet-name>
+    <url-pattern>/funcionesEscuelaDB</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -4,8 +4,8 @@ import Interfaces.Interfaz_Profesor;
 
 public class Profesor {
 	private String nombre;
-	private String añoInicio;
-	private String cantidadAlumnos;
+	private int añoInicio;
+	private int cantidadAlumnos;
 
 	public String getNombre() {
 		return nombre;
@@ -15,19 +15,19 @@ public class Profesor {
 		this.nombre = nombre;
 	}
 
-	public String getAñoInicio() {
+	public int getAñoInicio() {
 		return añoInicio;
 	}
 
-	public void setAñoInicio(String añoInicio) {
+	public void setAñoInicio(int añoInicio) {
 		this.añoInicio = añoInicio;
 	}
 
-	public String getCantidadAlumnos() {
+	public int getCantidadAlumnos() {
 		return cantidadAlumnos;
 	}
 
-	public void setCantidadAlumnos(String cantidadAlumnos) {
+	public void setCantidadAlumnos(int cantidadAlumnos) {
 		this.cantidadAlumnos = cantidadAlumnos;
 	}
 

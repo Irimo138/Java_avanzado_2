@@ -33,10 +33,8 @@ public class conectionDB {
 			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Java","root", "");
 			stmt = conn.prepareStatement("insert into profesor (nombre, añoInicio, cantidadAlumnos) values(?,?,?)");
 			stmt.setString(1, p.getNombre());
-			int año = Integer.parseInt(p.getAñoInicio());
-			stmt.setInt(2, año);
-			int alumnos = Integer.parseInt(p.getCantidadAlumnos());
-			stmt.setInt(3, alumnos);
+			stmt.setInt(2, p.getAñoInicio());
+			stmt.setInt(3, p.getCantidadAlumnos());
 			stmt.executeUpdate();
 			
 			
