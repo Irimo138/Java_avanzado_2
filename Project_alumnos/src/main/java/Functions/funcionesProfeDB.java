@@ -41,7 +41,7 @@ public class funcionesProfeDB extends HttpServlet {
 			Integer ano = Integer.parseInt(añoInicio);
 			p.setAñoInicio(ano);
 			int alumnos = Integer.parseInt(cantidadAlumnos);
-			p.setAñoInicio(alumnos);
+			p.setCantidadAlumnos(alumnos);
 			try {
 				c1.addProfeDB(p);
 			} catch (ClassNotFoundException e) {
