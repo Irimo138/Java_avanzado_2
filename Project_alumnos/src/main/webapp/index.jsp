@@ -17,5 +17,15 @@
 		<br>
 		<input type="submit" value="Enviar">
 	</form>
+	<br>
+	<form action="addCole" method="POST">
+		Nombre: <input type="text" name="nombre">
+		<br>
+		Año inicio<input type="text" name="inicio">
+		<br>
+		Cantidad Profesor<input type="text" name="profes">
+		<br>
+		<input type="submit" value="Enviar">
+	</form>
 </body>
 </html>

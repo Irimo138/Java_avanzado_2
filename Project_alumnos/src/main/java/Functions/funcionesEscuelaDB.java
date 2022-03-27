@@ -7,13 +7,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import Beans.Escuela;
 import Beans.Profesor;
 import SQL.conectionDB;
 
 /**
  * Servlet implementation class funcionesEscuelaDB
  */
-@WebServlet("/addEscuela")
+@WebServlet("/addCole")
 public class funcionesEscuelaDB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private conectionDB c1;
@@ -24,19 +25,19 @@ public class funcionesEscuelaDB extends HttpServlet {
 		c1 = new conectionDB();
 		String nombre = request.getParameter("nombre");
 		String añoInicio = request.getParameter("inicio");
-		String cantidadAlumnos = request.getParameter("alumnos");
+		String cantidadProfes = request.getParameter("profes");
 		
-		Profesor p = new Profesor();
-		p.setNombre(nombre);
+		Escuela e = new Escuela();
+		e.setNombre(nombre);
 		Integer ano = Integer.parseInt(añoInicio);
-		p.setAñoInicio(ano);
-		int alumnos = Integer.parseInt(cantidadAlumnos);
-		p.setAñoInicio(alumnos);
+		e.setAñoInicio(ano);
+		int alumnos = Integer.parseInt(cantidadProfes);
+		e.setCantidadProfesor(alumnos);
 		try {
-			c1.addProfeDB(p);
-		} catch (ClassNotFoundException e) {
+			c1.addEscuelaDB(e);
+		} catch (ClassNotFoundException ex) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ex.printStackTrace();
 		}
 		
 	}

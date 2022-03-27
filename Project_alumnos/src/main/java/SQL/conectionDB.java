@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Beans.Escuela;
 import Beans.Profesor;
 
 
@@ -41,6 +42,25 @@ public class conectionDB {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+	}
+	
+	public void addEscuelaDB(Escuela e) throws ClassNotFoundException {
+		PreparedStatement stmt;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Java","root", "");
+			stmt = conn.prepareStatement("insert into escuela (nombre, añoInicio, cantidadProfes) values(?,?,?)");
+			stmt.setString(1, e.getNombre());
+			stmt.setInt(2, e.getAñoInicio());
+			stmt.setInt(3, e.getCantidadProfesor());
+			stmt.executeUpdate();
+			
+			
+		} catch (SQLException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
 		}
 		
 	}
