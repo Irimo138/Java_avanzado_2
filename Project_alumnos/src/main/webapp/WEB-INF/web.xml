@@ -49,4 +49,10 @@
     <servlet-name>funcionesEscuelaDB</servlet-name>
     <url-pattern>/funcionesEscuelaDB</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>mostrarProfes</display-name>
+    <servlet-name>mostrarProfes</servlet-name>
+    <servlet-class>Functions.mostrarProfes</servlet-class>
+  </servlet>
 </web-app>

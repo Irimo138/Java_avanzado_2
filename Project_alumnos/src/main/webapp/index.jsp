@@ -27,5 +27,6 @@
 		<br>
 		<input type="submit" value="Enviar">
 	</form>
+	<a href="/mostrarProfes">Mostrar</a>
 </body>
 </html>
