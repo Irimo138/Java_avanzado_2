@@ -84,7 +84,7 @@ public class conectionDB {
 				Profesor addp = new Profesor();
 				addp.setNombre(rs.getNString(1));
 				addp.setAñoInicio(rs.getInt(2));
-				addp.setAñoInicio(rs.getInt(3));
+				addp.setCantidadAlumnos(rs.getInt(3));
 				lista.add(addp);
 			}
 			
@@ -96,9 +96,33 @@ public class conectionDB {
 		
 	}
 	
+	public ArrayList<Escuela> mostrarEscuela() throws ClassNotFoundException {
+		PreparedStatement stmt;
+		ArrayList<Escuela> listaEscuela = new ArrayList<Escuela>();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Java","root", "");
+			stmt = conn.prepareStatement("select * from escuela");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Escuela addp = new Escuela();
+				addp.setNombre(rs.getNString(1));
+				addp.setAñoInicio(rs.getInt(2));
+				addp.setCantidadProfesor(rs.getInt(3));
+				listaEscuela.add(addp);
+			}
+			
+		} catch (SQLException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+		return listaEscuela;
+		
+	}
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		conectionDB c1 = new conectionDB();
 		c1.mostrarProfes();
+		System.out.println(c1.mostrarEscuela().get(1).getNombre());
 	}
 
 }

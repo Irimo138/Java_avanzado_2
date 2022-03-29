@@ -27,6 +27,7 @@ pageEncoding="ISO-8859-1"%>
 		<br>
 		<input type="submit" value="Enviar">
 	</form>
-	<a href="/mostrarProfes">Mostrar</a>
+	<a href="showAllProfes">Mostrar Profesores</a>
+	<a href="showAllEscuelas">Mostrar Escuelas</a>
 </body>
 </html>

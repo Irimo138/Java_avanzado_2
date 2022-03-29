@@ -55,4 +55,38 @@
     <servlet-name>mostrarProfes</servlet-name>
     <servlet-class>Functions.mostrarProfes</servlet-class>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>mostrarProfes</servlet-name>
+    <url-pattern>/mostrarProfes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>showProfes</display-name>
+    <servlet-name>showProfes</servlet-name>
+    <servlet-class>Functions.showProfes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>showProfes</servlet-name>
+    <url-pattern>/showProfes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowAllProfes</display-name>
+    <servlet-name>ShowAllProfes</servlet-name>
+    <servlet-class>Functions.ShowAllProfes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAllProfes</servlet-name>
+    <url-pattern>/ShowAllProfes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowAllEscuelas</display-name>
+    <servlet-name>ShowAllEscuelas</servlet-name>
+    <servlet-class>Functions.ShowAllEscuelas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAllEscuelas</servlet-name>
+    <url-pattern>/ShowAllEscuelas</url-pattern>
+  </servlet-mapping>
 </web-app>
