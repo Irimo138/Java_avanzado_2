@@ -1,14 +1,8 @@
-package com.example.demo;
+package com.example.demo.beans;
 
 public class ProfesorMas {
 	int curso;
-	private Profesor p;
-	
-	public ProfesorMas(int curso,Profesor p) {
-
-		this.curso = curso;
-		this.p = p;
-	}
+	Profesor p;
 	
 	public int getcurso() {
 		return curso;

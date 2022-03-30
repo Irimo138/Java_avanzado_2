@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.connections;
 
 import java.sql.*;
 public class DBconection {

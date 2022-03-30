@@ -6,24 +6,27 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-     <bean id="Profesor" class="com.example.demo.Profesor">
-    		<constructor-arg name="nombre" value="Unai"/>
+     <bean id="Profesor" class="com.example.demo.beans.Profesor">
     		<constructor-arg name="edad" value="2"/>
+    		<constructor-arg name="nombre" value="Unai"/>
     </bean>
-    <!-- 
-     <bean id="ProfesorMas" class="com.example.demo.ProfesorMas">
-    		<property name="Profesor">
+
+
+   <bean id="myDataSource" class="com.example.demo.connections.DBconection"
+    destroy-method="close">
+    	<constructor-arg name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    	<constructor-arg name="url" value="jdbc:mysql://localhost:3306/Java"/>
+		<constructor-arg name="username" value="root"/>
+		<constructor-arg name="password" value=""/>
+    </bean>
+        
+     <bean id="ProfesorMas" class="com.example.demo.beans.ProfesorMas">
+    		<property name="curso" value="5"/>
+    		<property name="p"><!-- Nombre de variable NO TIPO -->
     			<ref bean="Profesor"/>
     		</property>
-    		<constructor-arg name="curso" value="5"/>
     </bean>
-     --> 
-   <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
-    destroy-method="close">
-    	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    	<property name="url" value="jdbc:mysql://localhost:3306/mydb"/>
-		<property name="username" value="root"/>
-		<property name="password" value=""/>
-    </bean>
+
+    
     
 </beans>

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.connections;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
