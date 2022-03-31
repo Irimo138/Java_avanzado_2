@@ -9,6 +9,9 @@ public class Profesor {
 		this.edad = edad;
 		this.nombre = nombre;
 	}
+	public Profesor() {
+		
+	}
 	public int getEdad() {
 		return edad;
 	}

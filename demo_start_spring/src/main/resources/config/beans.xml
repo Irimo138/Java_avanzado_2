@@ -25,7 +25,9 @@
     		<property name="p"><!-- Nombre de variable NO TIPO -->
     			<ref bean="Profesor"/>
     		</property>
-    </bean>
+     </bean>
+     <bean id="pojo" class="com.example.demo.beans.Pojo"/>
+     
 
     
     
