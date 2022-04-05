@@ -24,8 +24,7 @@ public class DBconection {
 	
 	try {
 		Class.forName(driverClassName);
-		this.c1 = DriverManager.getConnection(url, username, password);
-		//System.err.println("realizado");
+		c1 = DriverManager.getConnection(url, username, password);
 		
 		}catch(Exception e) {
 			e.getMessage();
