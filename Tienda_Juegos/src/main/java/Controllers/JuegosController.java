@@ -17,7 +17,7 @@ public class JuegosController {
 	}
 
 	
-	@GetMapping("/showJuegos")
+	@GetMapping("/")
 	public String listaJuegos() {
 		ArrayList<Juego> lista;
 		try {
@@ -31,6 +31,6 @@ public class JuegosController {
 			e.printStackTrace();
 		}
 		
-		return("MostrarJuegos.jsp");
+		return("showJuegos");
 	}
 }
