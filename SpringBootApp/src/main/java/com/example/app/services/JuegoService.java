@@ -12,16 +12,17 @@ import com.zubiri.app.beans.Juego;
 @Service
 public class JuegoService implements JuegosInterface{
 	
-	private DBManagerJuegos dbManagerJuegos;
+	private DBManagerJuegos dBManagerJuegos;
 	
 	@Autowired
-	public JuegoService(DBManagerJuegos dbManagerJuegos) {
-		this.dbManagerJuegos = dbManagerJuegos;
+	public JuegoService(DBManagerJuegos dBManagerJuegos) {
+		this.dBManagerJuegos = dBManagerJuegos;
+		System.err.println("JuegoService creado");
 	}
 
 	@Override
 	public boolean insertarJuego(Juego j) {
-		dbManagerJuegos.insertarJuegoDB(j);
+		dBManagerJuegos.insertarJuegoDB(j);
 		return false;		
 	}
 

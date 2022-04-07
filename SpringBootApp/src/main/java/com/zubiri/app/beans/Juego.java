@@ -1,5 +1,8 @@
 package com.zubiri.app.beans;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Juego {
 	String nombre;
 	String genero;

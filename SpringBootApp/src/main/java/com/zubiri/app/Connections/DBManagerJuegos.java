@@ -19,12 +19,11 @@ public class DBManagerJuegos {
 			@Value("${conection.password}") String password) {
 
 		try {
-			Class.forName(driverClassName);
+			//Class.forName(driverClassName);
 			c1 = DriverManager.getConnection(url, username, password);
-
+			System.err.println("Conexión creada.");
 		} catch (Exception e) {
-			e.getMessage();
-
+			e.printStackTrace();
 		}
 	}
 
@@ -46,7 +45,7 @@ public class DBManagerJuegos {
 	}
 
 	public void insertarJuegoDB(Juego j) {
-
+		
 	}
 
 	public void close() throws SQLException {

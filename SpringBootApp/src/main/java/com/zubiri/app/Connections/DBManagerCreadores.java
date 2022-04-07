@@ -22,7 +22,7 @@ public class DBManagerCreadores {
 			c1 = DriverManager.getConnection(url, username, password);
 
 		} catch (Exception e) {
-			e.getMessage();
+			e.printStackTrace();
 
 		}
 	}

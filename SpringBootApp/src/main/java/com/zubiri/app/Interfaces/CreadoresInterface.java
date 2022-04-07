@@ -1,10 +1,12 @@
 package com.zubiri.app.Interfaces;
 
+import java.util.List;
+
 import com.zubiri.app.beans.Creador;
 
 public interface CreadoresInterface {
-	public abstract void crearCreador(Creador c);
-	public abstract void mostrarCreadores();
-	public abstract void eliminarCreador(Creador c);
-	public abstract void editarCreador(Creador c);
+	boolean insertarCreador(Creador c);
+	List<Creador> mostrarCreadores();
+	boolean eliminarCreador(Creador c);
+	boolean editarCreador(Creador c);
 }
