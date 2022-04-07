@@ -3,20 +3,27 @@ package com.zubiri.app.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import com.zubiri.app.Connections.DBconnection;
+import com.example.app.services.JuegoService;
+import com.zubiri.app.Connections.DBManagerJuegos;
 import com.zubiri.app.beans.Juego;
+
 
 @Controller
 public class HomeController {
 	
-	DBconnection c1;
-	public HomeController(DBconnection c) {
-		c1 = c;
+	//@Autowired
+	private JuegoService juegoService;
+	
+	@Autowired
+	public void setJuegoService(JuegoService juegoService) {
+		this.juegoService = juegoService;
 	}
-	ArrayList<Juego> Lista;
 	
 	@GetMapping("/")
 	public String home() {
@@ -25,20 +32,20 @@ public class HomeController {
 	
 	@GetMapping("/insertJuego")
 	public String introducirJuego() {
-		return "juegosForm";
+		return "form";
 	}
 	
 	@GetMapping("/mostrarJuegos")
 	public String showjuegos() {
-		try {
-			Lista = c1.mostrarJuegos();
-			System.out.println(Lista);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "showJuegos";
-		
+		juegoService.obtenerJuegos();
+		return "showJuegos";	
+	}
+	
+	//Funciona si pones RestController
+	@PostMapping("/guardaJuego")
+	public String guardaJuego(@ModelAttribute Juego J) {
+		juegoService.insertarJuego(J);
+		return "index";
 	}
 
 }

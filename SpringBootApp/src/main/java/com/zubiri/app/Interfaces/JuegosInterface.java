@@ -1,11 +1,13 @@
 package com.zubiri.app.Interfaces;
 
+import java.util.List;
+
 import com.zubiri.app.beans.Juego;
 
 public interface JuegosInterface {
 
-	public abstract void crearJuego(Juego j);
-	public abstract void mostrarJuegos();
-	public abstract void borrarJuego(Juego j);
-	public abstract void editarJuego(Juego j);
+	boolean insertarJuego(Juego j);
+	List<Juego>  obtenerJuegos();
+	boolean borrarJuego(Juego j);
+	boolean editarJuego(Juego j);
 }
