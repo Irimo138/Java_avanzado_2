@@ -3,6 +3,7 @@ package com.zubiri.app.Connections;
 import java.sql.*;
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +14,7 @@ public class DBManagerJuegos {
 
 	private Connection c1;
 	PreparedStatement stmt;
-
+	
 	public DBManagerJuegos(@Value("${conection.driverClassName}") String driverClassName,
 			@Value("${conection.url}") String url, @Value("${conection.username}") String username,
 			@Value("${conection.password}") String password) {

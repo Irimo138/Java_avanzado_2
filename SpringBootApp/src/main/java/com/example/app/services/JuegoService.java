@@ -9,41 +9,44 @@ import com.zubiri.app.Connections.DBManagerJuegos;
 import com.zubiri.app.Interfaces.JuegosInterface;
 import com.zubiri.app.beans.Juego;
 
-@Service
+@Service 
 public class JuegoService implements JuegosInterface{
+	
 	
 	private DBManagerJuegos dBManagerJuegos;
 	
 	@Autowired
-	public JuegoService(DBManagerJuegos dBManagerJuegos) {
-		this.dBManagerJuegos = dBManagerJuegos;
-		System.err.println("JuegoService creado");
+	public void setDBManagerJuegos(DBManagerJuegos dBManagerJuegos) {
+		try {
+			this.dBManagerJuegos = dBManagerJuegos;
+			System.err.println("JuegoService creado");
+			
+		}catch(Exception e) {
+			System.err.println("err");
+			e.printStackTrace();
+		}
 	}
 
-	@Override
 	public boolean insertarJuego(Juego j) {
 		dBManagerJuegos.insertarJuegoDB(j);
 		return false;		
 	}
 
-	@Override
 	public List<Juego> obtenerJuegos() {
 		return null;
+		
+	}
+	
+	public boolean editarJuego(Juego j) {
+		return false;
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public boolean borrarJuego(Juego j) {
-		return false;
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean editarJuego(Juego j) {
 		return false;
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
