@@ -1,16 +1,26 @@
 package com.zubiri.app.beans;
 
-import org.springframework.stereotype.Repository;
+import javax.validation.constraints.NotNull;
 
-@Repository
 public class Juego {
+	
+	@NotNull
+	int id;
+	@NotNull
 	String nombre;
+	@NotNull
 	String genero;
+	@NotNull
 	int precio;
-	int creador_id;
 	
-	public Juego() {}
+	int creador_id;	
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}

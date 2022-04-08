@@ -9,6 +9,6 @@ public interface JuegosInterface {
 
 	boolean insertarJuego(Juego j);
 	List<Juego>  obtenerJuegos();
-	boolean borrarJuego(Juego j);
+	boolean borrarJuego(int i);
 	boolean editarJuego(Juego j);
 }

@@ -11,6 +11,13 @@
 <body>
 
 	<p>Aqui el listado de juegos</p>
+	<div th:each="juego : ${listaJuegos}">
+		<p th:text="${juego.nombre}">jaja</p>
+		<form action="/eliminaJuego" method="POST">
+			<input type="hidden" value="${juego.id}" name="idJuego">
+			<input type="submit" value="Borrar">
+		</form>
+	</div>
 
 </body>
 
