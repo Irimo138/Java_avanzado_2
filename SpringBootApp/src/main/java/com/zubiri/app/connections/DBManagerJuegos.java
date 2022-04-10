@@ -37,6 +37,7 @@ public class DBManagerJuegos {
 			ResultSet rs = stmt.executeQuery();) { 
 			while (rs.next()) {
 				Juego j = new Juego();
+				j.setId(rs.getInt(1));
 				j.setNombre(rs.getString(2));
 				j.setGenero(rs.getString(3));
 				j.setPrecio(rs.getInt(4));

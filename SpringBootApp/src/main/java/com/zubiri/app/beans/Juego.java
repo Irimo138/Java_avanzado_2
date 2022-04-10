@@ -2,6 +2,8 @@ package com.zubiri.app.beans;
 
 import javax.validation.constraints.NotNull;
 
+import groovyjarjarantlr4.v4.runtime.misc.Nullable;
+
 public class Juego {
 	
 	@NotNull
@@ -12,7 +14,7 @@ public class Juego {
 	String genero;
 	@NotNull
 	int precio;
-	
+	@Nullable
 	int creador_id;	
 	
 	public int getId() {

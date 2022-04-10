@@ -38,7 +38,14 @@ public class HomeController {
 	@GetMapping("/mostrarJuegos")
 	public String showjuegos(Model j) {
 		j.addAttribute("listaJuegos", juegoService.obtenerJuegos());
+		//System.out.println(juegoService.obtenerJuegos().get(0).getId());
 		return "showJuegos";	
+	}
+	
+	@GetMapping("/editaJuego")
+	public String editarJuego(Juego j, Model m) {
+		m.addAttribute("Juego", j);
+		return "index";
 	}
 	
 	@PostMapping("/guardaJuego")
@@ -48,9 +55,8 @@ public class HomeController {
 	}
 
 	@PostMapping("/eliminaJuego")
-	public String eliminarJuego(@RequestParam String idJuego) {
-		System.err.println(idJuego);
-		//juegoService.borrarJuego(J.getId());
+	public String eliminarJuego(@RequestParam int idJuego) {
+		juegoService.borrarJuego(idJuego);
 		return "index";
 	}
 }
