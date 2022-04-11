@@ -19,20 +19,21 @@ public class JuegoService implements JuegosInterface{
 		System.err.println("JuegoService creado");
 	}
 	
-
+	@Override
 	public boolean insertarJuego(Juego j) {
 		dBManagerJuegos.insertarJuegoDB(j);
 		return false;		
 	}
 
+	@Override
 	public List<Juego> obtenerJuegos() {	
 		return dBManagerJuegos.mostrarJuegos();
 		
 	}
 	
-	public boolean editarJuego(Juego j) {
-		return false;
-		// TODO Auto-generated method stub
+	@Override
+	public void editarJuego(Juego j) {
+		dBManagerJuegos.editarJuego(j);
 		
 	}
 
@@ -40,6 +41,11 @@ public class JuegoService implements JuegosInterface{
 	public boolean borrarJuego(int i) {
 		dBManagerJuegos.borrarJuego(i);
 		return false;
+	}
+
+	@Override
+	public Juego buscarJuego(int i) {
+		return dBManagerJuegos.buscarJuego(i);
 	}
 	
 }
