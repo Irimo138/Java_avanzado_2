@@ -1,5 +1,6 @@
 package com.zubiri.app.Interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,5 +12,6 @@ public interface JuegosInterface {
 	List<Juego>  obtenerJuegos();
 	boolean borrarJuego(int i);
 	void editarJuego(Juego j);
-	Juego buscarJuego(int i); 
+	Juego buscarJuego(int i);
+	ArrayList<Juego> buscarJuegoNombre(String n);
 }

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Form Creador</title>
+</head>
+<body>
+<p>Buscar Juego </p>
+
+<form action="/buscar" method="GET" th:object="${juego}">
+		Nombre: <input type="text" name="nombre">
+		<br>
+		<br>
+		<input type="Submit" value="Enviar">
+	</form>
+</body>
+</html>

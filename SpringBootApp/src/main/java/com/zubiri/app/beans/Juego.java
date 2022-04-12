@@ -1,6 +1,7 @@
 package com.zubiri.app.beans;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import groovyjarjarantlr4.v4.runtime.misc.Nullable;
 
@@ -8,11 +9,15 @@ public class Juego {
 	
 	@NotNull
 	int id;
-	@NotNull
+	
+	@Size(min = 3)
+	@NotNull(message = "El nombre de de tener como minimo 3 caracteres")
 	String nombre;
 	@NotNull
+	@Size(min = 3, max = 50, message = "Este campo debe contener un minimo de 3 y un maximo de 50 caracteres")
 	String genero;
-	@NotNull
+	
+	@NotNull(message = "{typeMismatch.juego.precio}")
 	int precio;
 	@Nullable
 	int creador_id;	

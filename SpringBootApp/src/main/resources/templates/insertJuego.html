@@ -8,16 +8,18 @@
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
 </head>
 <body>
-	<form action="/guardaJuego" method="POST" th:object="juego">
-		Nombre<input type="text" name="nombre" th:.....>
-		<br>
-		Genero<input type="text" name="genero">
-		<br>
-		Precio <input type="number" name="precio">
-		<br>
-		Creador ID<input type="number" name="creador_Id">
-		<br>
-		<input type="Submit" value="Enviar">
+	<form action="/guardaJuego" method="POST" th:object="${juego}">
+		Nombre<input type="text" name="nombre"> <br> Genero
+		<input type="text" name="genero"> <br> 
+		Precio 
+		<input type="number" name="precio">
+		<td th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}">Precio
+			Error</td> <br> 
+		Creador <select name="creadorId">
+			<th:block th:each="creador : ${creadores}">
+				<option th:value="${creador.id}" th:text="${creador.nombre}" />
+			</th:block>
+		</select> <br> <input type="Submit" value="Enviar">
 	</form>
 </body>
 </html>

@@ -52,10 +52,16 @@ public class DBManagerJuegos {
 	}
 	
 	public void editarJuego(Juego j) {
-		String query = "update juegos set Nombre = "+j.getNombre()+", Genero = "+j.getGenero()+", precio = "+ j.getGenero()+", creador_id = "+ j.getCreador_id()+" where id = "+j.getId()+";";
+		String query = "UPDATE juegos set Nombre = ?, Genero = ?, precio = ?, creador_id = ? WHERE id = ?;";
+		
 		try(
 				PreparedStatement stmt = c1.prepareStatement(query);
 				){
+			stmt.setString(1, j.getNombre());
+			stmt.setString(2, j.getGenero());
+			stmt.setInt(3, j.getPrecio());
+			stmt.setInt(4, j.getCreador_id());
+			stmt.setInt(5, j.getId());
 			int updated = stmt.executeUpdate();	
 			
 		}catch (SQLException e) {
@@ -112,5 +118,26 @@ public class DBManagerJuegos {
 		}
 		return j;
 		
+	}
+
+	public ArrayList<Juego> buscarJuegoNombre(String nombre) {
+		ArrayList<Juego> lista = new ArrayList<Juego>();
+		try (
+				PreparedStatement stmt = c1.prepareStatement("Select * from juegos where nombre like '%"+nombre+"%'");
+				ResultSet rs = stmt.executeQuery();) { 
+				while (rs.next()) {
+					Juego j = new Juego();
+					j.setId(rs.getInt(1));
+					j.setNombre(rs.getString(2));
+					j.setGenero(rs.getString(3));
+					j.setPrecio(rs.getInt(4));
+					j.setCreador_id(rs.getInt(5));
+					//System.err.println("jaja");
+					lista.add(j);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		return lista;
 	}
 }
