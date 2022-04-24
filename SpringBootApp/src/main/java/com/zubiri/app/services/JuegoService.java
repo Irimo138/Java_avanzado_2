@@ -54,5 +54,16 @@ public class JuegoService implements JuegosInterface{
 		// TODO Auto-generated method stub
 		
 	}
+	public void jugarPartida(int juego, int puntuacion) {
+		dBManagerJuegos.jugarPartida(juego, puntuacion);
+		
+		
+	}
+
+	@Override
+	public void jugarPartida(int juego) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -14,4 +14,6 @@ public interface JuegosInterface {
 	void editarJuego(Juego j);
 	Juego buscarJuego(int i);
 	ArrayList<Juego> buscarJuegoNombre(String n);
+	void jugarPartida(int juego);
+	void jugarPartida(int juego, int puntuacion);
 }

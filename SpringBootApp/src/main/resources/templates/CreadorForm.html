@@ -7,10 +7,9 @@
 <body>
 <p>Formulario del creador</p>
 
-<form action="/guardaCreador" method="POST">
+<form action="/guardaJugador" method="POST" th:object="${jugador}">
 		Nombre<input type="text" name="nombre">
-		<br>
-		Empresa<input type="text" name="Empresa">
+		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
 		<input type="Submit" value="Enviar">
 	</form>

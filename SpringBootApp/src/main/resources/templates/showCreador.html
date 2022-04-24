@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+</head>
+
+<body>
+
+	<p>Aqui el listado de Jugadores</p>
+	<div th:each="creador : ${listaJugadores}">
+		<p th:text="${creador.nombre}">jaja</p>
+		<form action="/editarJugador" method="GET">
+			<input type="hidden" th:value="${creador.id}" name="idCreador">
+			<input type="submit" value="editar">
+		</form>
+		<form action="/eliminarJugador" method="POST">
+			<input type="hidden" th:value="${creador.id}" name="idCreador">
+			<input type="submit" value="Eliminar">
+		</form>
+		
+	</div>
+
+</body>
+
+</html>

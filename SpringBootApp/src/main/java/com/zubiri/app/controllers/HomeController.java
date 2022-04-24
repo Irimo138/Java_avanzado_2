@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zubiri.app.beans.Juego;
-import com.zubiri.app.services.CreadorService;
+import com.zubiri.app.services.JugadorService;
 import com.zubiri.app.services.JuegoService;
 
 

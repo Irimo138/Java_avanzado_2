@@ -1,23 +1,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
 
 <head>
 <title>Index</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{styles.css}">
 </head>
 
 <body>
-
-	<p>Welcome to Juego gestor</p>
-
+	<section layout:fragment="content">
+	<article>
+	<h3>Juegos</h3>
 	<a th:href="@{/insertJuego}">Insertar Juego</a>
 	<br>
 	<a th:href="@{/mostrarJuegos}">Mostrar lista de Juegos</a>
 	<br>
 	<a th:href="@{/buscarJuego}">Buscar Juego</a>
+	</article>
+	<article>
+	<h3>Creadores</h3>
+	<a th:href="@{/insertJugador}">Añadir Creador</a>
+	<br>
+	<a th:href="@{/mostrarJugador}">Mostrar Creadores</a>
 	
+	<br>
+	<a th:href="@{/jugarPartida}">Jugar partida</a>
+	</article>
+	<section/>
 </body>
 
 </html>

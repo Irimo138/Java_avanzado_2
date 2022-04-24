@@ -1,5 +1,7 @@
 package com.zubiri.app.beans;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -9,18 +11,16 @@ public class Juego {
 	
 	@NotNull
 	int id;
-	
-	@Size(min = 3)
-	@NotNull(message = "El nombre de de tener como minimo 3 caracteres")
-	String nombre;
 	@NotNull
-	@Size(min = 3, max = 50, message = "Este campo debe contener un minimo de 3 y un maximo de 50 caracteres")
-	String genero;
+	@Size(min = 3, message ="No cumple con los minimos caracteres necesarios (3)")
+	String nombre;
 	
-	@NotNull(message = "{typeMismatch.juego.precio}")
-	int precio;
+	@NotNull(message="Minimo debe de ser 0")
+	@Min(value = 0, message="Minimo debe de ser 0")
+	int puntuacionMax;
+	
 	@Nullable
-	int creador_id;	
+	int partidasJugadas;
 	
 	public int getId() {
 		return id;
@@ -34,22 +34,16 @@ public class Juego {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getGenero() {
-		return genero;
+	public int getPuntuacionMax() {
+		return puntuacionMax;
 	}
-	public void setGenero(String genero) {
-		this.genero = genero;
+	public void setPuntuacionMax(int puntuacionMax) {
+		this.puntuacionMax = puntuacionMax;
 	}
-	public int getPrecio() {
-		return precio;
+	public int getPartidasJugadas() {
+		return partidasJugadas;
 	}
-	public void setPrecio(int precio) {
-		this.precio = precio;
-	}
-	public int getCreador_id() {
-		return creador_id;
-	}
-	public void setCreador_id(int creador_id) {
-		this.creador_id = creador_id;
-	}
+	public void setPartidasJugadas(int partidasJugadas) {
+		this.partidasJugadas = partidasJugadas;
+	}	
 }

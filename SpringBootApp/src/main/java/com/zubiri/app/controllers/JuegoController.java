@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zubiri.app.beans.Juego;
-import com.zubiri.app.services.CreadorService;
+import com.zubiri.app.services.JugadorService;
 import com.zubiri.app.services.JuegoService;
 
 @Controller
 public class JuegoController {
 
 	private JuegoService juegoService;
-	private CreadorService creadorService;
+	private JugadorService creadorService;
 
 	@Autowired
 	public void setJuegoService(JuegoService juegoService) {
@@ -28,14 +28,13 @@ public class JuegoController {
 	}
 
 	@Autowired
-	public void setCreadorService(CreadorService creadorService) {
+	public void setCreadorService(JugadorService creadorService) {
 		this.creadorService = creadorService;
 	}
 
 	@GetMapping("/insertJuego")
 	public String introducirJuego(Model m) {
 		m.addAttribute("juego", new Juego());
-		m.addAttribute("creadores", creadorService.mostrarCreadores());
 		return "insertJuego";
 	}
 
@@ -56,7 +55,6 @@ public class JuegoController {
 	public String editarJuego(@RequestParam int idJuego, Model m) {
 		// int x =Integer.parseInt(idJuego);
 		Juego j = juegoService.buscarJuego(idJuego);
-		m.addAttribute("listaCreadores", creadorService.mostrarCreadores());
 		m.addAttribute("juego", j);
 		return "editJuego";
 	}
@@ -66,19 +64,34 @@ public class JuegoController {
 		m.addAttribute("juegos", juegoService.buscarJuegoNombre(nombre));
 		return "mostrarJuegosBuscados";
 	}
+	
+	@GetMapping("/jugarPartida")
+	public String prepararPartida(Model j) {
+		j.addAttribute("jugadores", creadorService.mostrarJugador());
+		j.addAttribute("juegos", juegoService.obtenerJuegos());
+		return "seleccionarPartida";
+	}
+	
+	@PostMapping("/simularPartida")
+	public String jugarPartida(@RequestParam int jugador, int juego) {
+		int puntuacion = (int) ((int) 1 + Math.random()*10000);
+		System.err.println(puntuacion);
+		if(puntuacion > 5000) {
+			creadorService.ganaJuego(jugador);
+		}
+		juegoService.jugarPartida(juego, puntuacion);
+		return "index";
+	}
 
 	@PutMapping("/modificarJuego")
-	public String modificarJuego(@RequestParam String juegoNombre, int juegoId, String juegoGenero, int juegoPrecio,
-			int creadorId) {
-		Juego j = new Juego();
-		System.err.println(juegoId);
-		j.setId(juegoId);
-		j.setNombre(juegoNombre);
-		j.setGenero(juegoGenero);
-		j.setPrecio(juegoPrecio);
-		j.setCreador_id(creadorId);
-		juegoService.editarJuego(j);
+	public String modificarJuego(@Valid @ModelAttribute Juego juego,  BindingResult thebindingresult, Model m) {
+		if (thebindingresult.hasErrors()) {
+			m.addAttribute("juego",juego);
+			return "editJuego";
+		}else {	
+		juegoService.editarJuego(juego);
 		return "index";
+			}
 	}
 
 	@PostMapping("/guardaJuego")

@@ -1,0 +1,38 @@
+@charset "ISO-8859-1";
+*{
+	padding:0;
+	margin:0;
+}
+
+nav{
+	background-color:silver;
+	width:100vw;
+	height:5vh;
+	text-align: center;
+}
+h2{
+	padding-top:1vh;
+}
+
+h3{
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	text-align: center;
+	
+}
+article{
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	display: flex;
+	flex-direction: column;
+	width: 10vw;
+	height: 20vh;
+	margin-left: 2vw;
+	
+}
+section{
+	justify-content: around;
+	display: flex;
+	flex-direction: row;
+}

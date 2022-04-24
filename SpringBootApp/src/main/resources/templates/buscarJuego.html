@@ -9,6 +9,7 @@
 
 <form action="/buscar" method="GET" th:object="${juego}">
 		Nombre: <input type="text" name="nombre">
+		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
 		<br>
 		<input type="Submit" value="Enviar">

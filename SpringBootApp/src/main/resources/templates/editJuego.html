@@ -13,21 +13,17 @@
 	<h2>Editar juego: <h2 th:text="${juego.nombre}"></h2></h2>
 		
 	<form th:action="@{/modificarJuego}" th:method="PUT" th:object="${juego}">
-		<input type="hidden" th:value="${juego.id}" name="juegoId">
-		<label>Nombre<input type="text" th:placeholder="${juego.nombre}" name="juegoNombre"> </label>
+	<input type="hidden" th:value="${juego.id}" name="id">
+		Nombre<input type="text" name="nombre"> 
+		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
-		<label>Genero<input type="text" th:placeholder="${juego.genero}" name="juegoGenero"> </label>
+		Partidas Jugadas<input type="number" name="partidasJugadas"> 
+		<td th:if="${#fields.hasErrors('partidasJugadas')}" th:errors="*{partidasJugadas}"/>
 		<br>
-		<label>Precio<input type="number" th:placeholder="${juego.precio}" name="juegoPrecio"> </label>
-		<br>
-		<label>Creador</label>
-			<select name="creadorId">
-				<th:block th:each="creador : ${listaCreadores}">
-					<option th:value="${creador.id}" th:text="${creador.nombre}"/>
-				</th:block>
-			</select>
-		<br>
-		<input type="Submit" value="Editar">
+		Puntuación Maxima<input type="number" name="puntuacionMax"> 
+		<td th:if="${#fields.hasErrors('puntuacionMax')}" th:errors="*{puntuacionMax}"/>
+		<br>  
+		<input type="submit" value="Enviar">
 	</form>
 </body>
 </html>

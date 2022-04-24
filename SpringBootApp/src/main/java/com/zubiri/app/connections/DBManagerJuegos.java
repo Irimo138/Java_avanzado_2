@@ -39,9 +39,8 @@ public class DBManagerJuegos {
 				Juego j = new Juego();
 				j.setId(rs.getInt(1));
 				j.setNombre(rs.getString(2));
-				j.setGenero(rs.getString(3));
-				j.setPrecio(rs.getInt(4));
-				j.setCreador_id(rs.getInt(5));
+				j.setPuntuacionMax(rs.getInt(3));
+				j.setPartidasJugadas(rs.getInt(4));
 				lista.add(j);
 			}
 		} catch (SQLException e) {
@@ -52,17 +51,18 @@ public class DBManagerJuegos {
 	}
 	
 	public void editarJuego(Juego j) {
-		String query = "UPDATE juegos set Nombre = ?, Genero = ?, precio = ?, creador_id = ? WHERE id = ?;";
+		String query = "UPDATE juegos set Nombre = ?, puntuacionMax = ?, partidasJugadas= ? WHERE id = ?;";
 		
 		try(
 				PreparedStatement stmt = c1.prepareStatement(query);
 				){
 			stmt.setString(1, j.getNombre());
-			stmt.setString(2, j.getGenero());
-			stmt.setInt(3, j.getPrecio());
-			stmt.setInt(4, j.getCreador_id());
-			stmt.setInt(5, j.getId());
+			stmt.setInt(2, j.getPuntuacionMax());
+			stmt.setInt(3, j.getPartidasJugadas());
+			stmt.setInt(4, j.getId());
 			int updated = stmt.executeUpdate();	
+			System.err.println(j.getNombre());
+			System.err.println(j.getId());
 			
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -72,10 +72,10 @@ public class DBManagerJuegos {
 	}
 	
 	public void insertarJuegoDB(Juego j) {
-		try (PreparedStatement stmt = c1.prepareStatement("insert into juegos (Nombre, Genero, Precio) values(?,?,?)");){			
+		try (PreparedStatement stmt = c1.prepareStatement("insert into juegos (Nombre, puntuacionMax, partidasJugadas) values(?,?,?)");){			
 			stmt.setString(1, j.getNombre());
-			stmt.setString(2, j.getGenero());
-			stmt.setInt(3, j.getPrecio());
+			stmt.setInt(2, j.getPuntuacionMax());
+			stmt.setInt(3, j.getPartidasJugadas());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -106,9 +106,8 @@ public class DBManagerJuegos {
 				if(rs.getInt(1) == i) {
 					j.setId(rs.getInt(1));
 					j.setNombre(rs.getString(2));
-					j.setGenero(rs.getString(3));
-					j.setPrecio(rs.getInt(4));
-					j.setCreador_id(rs.getInt(5));
+					j.setPartidasJugadas(rs.getInt(3));
+					j.setPuntuacionMax(rs.getInt(4));
 					return j;
 				}
 			}
@@ -129,15 +128,40 @@ public class DBManagerJuegos {
 					Juego j = new Juego();
 					j.setId(rs.getInt(1));
 					j.setNombre(rs.getString(2));
-					j.setGenero(rs.getString(3));
-					j.setPrecio(rs.getInt(4));
-					j.setCreador_id(rs.getInt(5));
-					//System.err.println("jaja");
+					j.setPuntuacionMax(rs.getInt(3));
+					j.setPartidasJugadas(rs.getInt(4));
 					lista.add(j);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		return lista;
+	}
+
+	public void jugarPartida(int juego, int p) {
+		Juego j = buscarJuego(juego);
+		System.err.println(j.getNombre());
+		System.err.println("Partidas: "+j.getPartidasJugadas());
+		String query = "UPDATE juegos set Nombre = ?,  partidasJugadas= ?, puntuacionMax = ? WHERE id = ?;";
+		
+		try(PreparedStatement stmt = c1.prepareStatement(query);){
+			stmt.setString(1, j.getNombre());
+			stmt.setInt(2, j.getPartidasJugadas()+1);
+			if(p > j.getPuntuacionMax() ) {
+				stmt.setInt(3, p);
+			}else {
+				stmt.setInt(3, j.getPuntuacionMax());
+			}
+			stmt.setInt(4, j.getId());
+			
+			
+			int updated = stmt.executeUpdate();	
+			
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 }
