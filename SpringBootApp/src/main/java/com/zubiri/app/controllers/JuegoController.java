@@ -50,6 +50,12 @@ public class JuegoController {
 		// System.out.println(juegoService.obtenerJuegos().get(0).getId());
 		return "showJuegos";
 	}
+	
+	@GetMapping("/mostrarJuegosJDBC")
+	public String showjuegosJDBC(Model j) {
+		j.addAttribute("listaJuegos", juegoService.obtenerJuegosJDBC());
+		return "showJuegos";
+	}
 
 	@GetMapping("/editaJuego")
 	public String editarJuego(@RequestParam int idJuego, Model m) {
@@ -58,6 +64,15 @@ public class JuegoController {
 		m.addAttribute("juego", j);
 		return "editJuego";
 	}
+	
+	@GetMapping("/editaJuegoJDBC")
+	public String editarJuegoJDBC(@RequestParam int idJuego, Model m) {
+		// int x =Integer.parseInt(idJuego);
+		Juego j = juegoService.buscarJuegoJDBC(idJuego);
+		m.addAttribute("juego", j);
+		return "editJuego";
+	}
+	
 
 	@GetMapping("/buscar")
 	public String buscarJuego(@RequestParam String nombre, Model m) {

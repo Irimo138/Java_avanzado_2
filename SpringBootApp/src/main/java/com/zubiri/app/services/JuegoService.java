@@ -5,18 +5,22 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.zubiri.app.Interfaces.DBJuegosInterface;
 import com.zubiri.app.Interfaces.JuegosInterface;
 import com.zubiri.app.beans.Juego;
 import com.zubiri.app.connections.DBManagerJuegos;
+import com.zubiri.app.connections.JdbcJuegoRepository;
 
 @Service 
 public class JuegoService implements JuegosInterface{
 	
 	
 	private DBManagerJuegos dBManagerJuegos;
+	private DBJuegosInterface jdbc;
 
-	public JuegoService(DBManagerJuegos dBManagerJuegos) {
+	public JuegoService(DBManagerJuegos dBManagerJuegos, JdbcJuegoRepository jdbc) {
 		this.dBManagerJuegos = dBManagerJuegos;
+		this.jdbc = jdbc;
 		System.err.println("JuegoService creado");
 	}
 	
@@ -32,6 +36,9 @@ public class JuegoService implements JuegosInterface{
 		
 	}
 	
+	public Iterable<Juego> obtenerJuegosJDBC(){
+		return jdbc.mostrarJuego();
+	}
 	@Override
 	public void editarJuego(Juego j) {
 		dBManagerJuegos.editarJuego(j);
@@ -65,5 +72,11 @@ public class JuegoService implements JuegosInterface{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public Juego buscarJuegoJDBC(int idJuego) {
+		return jdbc.buscarJuego(idJuego);
+	}
+
+	
 	
 }

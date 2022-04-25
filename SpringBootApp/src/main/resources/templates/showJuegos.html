@@ -21,6 +21,11 @@
 			<input type="hidden" th:value="${juego.id}" name="idJuego">
 			<input type="submit" value="Editar">
 		</form>
+		
+		<form action="/editaJuegoJDBC" method="GET">
+			<input type="hidden" th:value="${juego.id}" name="idJuego">
+			<input type="submit" value="Editar con JDBC">
+		</form>
 	</div>
 
 </body>
