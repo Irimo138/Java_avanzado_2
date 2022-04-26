@@ -3,6 +3,8 @@ package com.zubiri.app.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import com.zubiri.app.Interfaces.DBJuegosInterface;
@@ -27,6 +29,12 @@ public class JuegoService implements JuegosInterface{
 	@Override
 	public boolean insertarJuego(Juego j) {
 		dBManagerJuegos.insertarJuegoDB(j);
+		return false;		
+	}
+	
+	@Override
+	public boolean insertarJuegoJDBC(Juego j) {
+		jdbc.insertJuego(j);
 		return false;		
 	}
 
@@ -61,8 +69,8 @@ public class JuegoService implements JuegosInterface{
 		// TODO Auto-generated method stub
 		
 	}
-	public void jugarPartida(int juego, int puntuacion) {
-		dBManagerJuegos.jugarPartida(juego, puntuacion);
+	public void jugarPartida(int juego, int puntuacion, int jugador) {
+		dBManagerJuegos.jugarPartida(juego, puntuacion, jugador);
 		
 		
 	}
@@ -75,6 +83,24 @@ public class JuegoService implements JuegosInterface{
 
 	public Juego buscarJuegoJDBC(int idJuego) {
 		return jdbc.buscarJuego(idJuego);
+	}
+	
+	@Override
+	public void editarJuegoJDBC(Juego juego) {
+		jdbc.editJuego(juego);
+		
+	}
+	
+	@Override
+	public void eliminaJuegoJDBC(int idJuego) {
+		jdbc.eliminarJuego(idJuego);
+		
+	}
+
+	@Override
+	public void jugarPartida(int juego, int puntuacion) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

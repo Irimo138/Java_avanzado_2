@@ -53,9 +53,8 @@ public class DBManagerJugadores {
 	}
 
 	public void insertarJugadorDb(Jugador c) {
-		try (PreparedStatement stmt = c1.prepareStatement("insert into jugador (Nombre, partidasGanadas) values(?,?)");){			
+		try (PreparedStatement stmt = c1.prepareStatement("insert into jugador (Nombre) values(?)");){			
 			stmt.setString(1, c.getNombre());
-			stmt.setInt(2, c.getPartidasGanadas());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

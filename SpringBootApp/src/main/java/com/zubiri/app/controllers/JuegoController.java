@@ -94,7 +94,7 @@ public class JuegoController {
 		if(puntuacion > 5000) {
 			creadorService.ganaJuego(jugador);
 		}
-		juegoService.jugarPartida(juego, puntuacion);
+		juegoService.jugarPartida(juego, puntuacion, jugador);
 		return "index";
 	}
 
@@ -108,9 +108,30 @@ public class JuegoController {
 		return "index";
 			}
 	}
+	
+	@PutMapping("/modificarJuegoJDBC")
+	public String modificarJuegoJDBC(@Valid @ModelAttribute Juego juego,  BindingResult thebindingresult, Model m) {
+		if (thebindingresult.hasErrors()) {
+			m.addAttribute("juego",juego);
+			return "editJuego";
+		}else {	
+		juegoService.editarJuegoJDBC(juego);
+		return "index";
+			}
+	}
 
 	@PostMapping("/guardaJuego")
 	public String guardaJuego(@Valid @ModelAttribute Juego juego, BindingResult thebindingresult) {
+		if (thebindingresult.hasErrors()) {
+			return "insertJuego";
+		} else {
+			juegoService.insertarJuego(juego);
+			return "index";
+		}
+	}
+	
+	@PostMapping("/guardaJuegoJDBC")
+	public String guardaJuegoJDBC(@Valid @ModelAttribute Juego juego, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "insertJuego";
 		} else {
@@ -122,6 +143,12 @@ public class JuegoController {
 	@PostMapping("/eliminaJuego")
 	public String eliminarJuego(@RequestParam int idJuego) {
 		juegoService.borrarJuego(idJuego);
+		return "index";
+	}
+	
+	@PostMapping("/eliminaJuegoJDBC")
+	public String eliminaJuegoJDBC(@RequestParam int idJuego) {
+		juegoService.eliminaJuegoJDBC(idJuego);
 		return "index";
 	}
 }

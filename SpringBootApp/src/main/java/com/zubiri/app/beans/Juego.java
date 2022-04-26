@@ -22,6 +22,15 @@ public class Juego {
 	@Nullable
 	int partidasJugadas;
 	
+	@Nullable
+	int id_jugador;
+	
+	public int getId_jugador() {
+		return id_jugador;
+	}
+	public void setId_jugador(int id_jugador) {
+		this.id_jugador = id_jugador;
+	}
 	public int getId() {
 		return id;
 	}
@@ -45,5 +54,6 @@ public class Juego {
 	}
 	public void setPartidasJugadas(int partidasJugadas) {
 		this.partidasJugadas = partidasJugadas;
-	}	
+	}
+	
 }

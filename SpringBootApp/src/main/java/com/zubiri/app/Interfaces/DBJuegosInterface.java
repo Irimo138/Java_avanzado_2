@@ -6,7 +6,8 @@ import com.zubiri.app.beans.Juego;
 
 public interface DBJuegosInterface {
 	Iterable<Juego> mostrarJuego();
-	void editarJuego(int i);
 	Juego buscarJuego(int i);
-	
+	Juego insertJuego(Juego j);
+	void editJuego(Juego j);
+	void eliminarJuego(int idJuego);
 }

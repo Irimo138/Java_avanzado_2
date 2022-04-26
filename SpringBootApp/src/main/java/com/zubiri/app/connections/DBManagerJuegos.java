@@ -138,21 +138,22 @@ public class DBManagerJuegos {
 		return lista;
 	}
 
-	public void jugarPartida(int juego, int p) {
+	public void jugarPartida(int juego, int p, int jugador_id) {
 		Juego j = buscarJuego(juego);
 		System.err.println(j.getNombre());
 		System.err.println("Partidas: "+j.getPartidasJugadas());
-		String query = "UPDATE juegos set Nombre = ?,  partidasJugadas= ?, puntuacionMax = ? WHERE id = ?;";
+		String query = "UPDATE juegos set Nombre = ?,  partidasJugadas= ?, puntuacionMax = ?, id_jugador =? WHERE id = ?;";
 		
 		try(PreparedStatement stmt = c1.prepareStatement(query);){
 			stmt.setString(1, j.getNombre());
 			stmt.setInt(2, j.getPartidasJugadas()+1);
 			if(p > j.getPuntuacionMax() ) {
 				stmt.setInt(3, p);
+				stmt.setInt(4, jugador_id);
 			}else {
 				stmt.setInt(3, j.getPuntuacionMax());
 			}
-			stmt.setInt(4, j.getId());
+			stmt.setInt(5, j.getId());
 			
 			
 			int updated = stmt.executeUpdate();	

@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import com.zubiri.app.Interfaces.DBJuegosInterface;
@@ -27,12 +27,6 @@ public class JdbcJuegoRepository implements DBJuegosInterface{
 	public Iterable<Juego> mostrarJuego() {
 		
 		return jdbc.query("select * from juegos", this::mapRowToJuego);
-	}
-	
-	@Override
-	public void editarJuego(int i) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -54,6 +48,32 @@ public class JdbcJuegoRepository implements DBJuegosInterface{
 		}
 		return j;
 		
+	}
+
+	@Override
+	public Juego insertJuego(Juego j) {
+		jdbc.update(
+				"insert into Juego (id, nombre, puntuacionMax, partidasJugadas) values (?, ?, ?,?)",
+				j.getId(),
+				j.getNombre(),
+				j.getPuntuacionMax(),
+				j.getPartidasJugadas());
+				return j;
+
+	}
+
+	@Override
+	public void editJuego(Juego j) {
+		jdbc.update(
+				"UPDATE juegos set Nombre = ?, puntuacionMax= ?, partidasJugadas =? WHERE id = ?;",
+				j.getNombre(),
+				j.getPuntuacionMax(),
+				j.getPartidasJugadas(),
+				j.getId());
+	}
+	@Override
+	public void eliminarJuego(int i) {
+		 jdbc.query("delete from juegos where id=?",this::mapRowToJuego, i);
 	}
 	
 }
