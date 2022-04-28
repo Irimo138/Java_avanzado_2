@@ -13,6 +13,7 @@ public class JDBC_Controller implements JDBC_Interface{
 	@Override
 	public Juego saveGame(Juego j) {
 		j.setId_jugador(new Jugador().getId());
+		
 		return null;
 	}
 

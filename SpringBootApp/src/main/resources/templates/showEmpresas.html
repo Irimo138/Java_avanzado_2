@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+</head>
+
+<body>
+
+	<p>Aqui el listado de Empresas</p>
+	<div th:each="emp : ${listaEmpresas}">
+		<h2 th:text="${emp.nombre}"></h2>
+	</div>
+
+</body>
+
+</html>
