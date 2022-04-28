@@ -1,5 +1,7 @@
 package com.zubiri.app.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Getter
 @Table(name="Empresa")
-public class Empresa {
+public class Empresa implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
