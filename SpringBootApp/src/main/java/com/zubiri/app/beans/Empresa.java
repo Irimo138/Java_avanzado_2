@@ -1,7 +1,7 @@
 package com.zubiri.app.beans;
 
-import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Getter
 @Table(name="Empresa")
-public class Empresa implements Serializable{
+public class Empresa{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,6 +30,7 @@ public class Empresa implements Serializable{
 	
 	@NotNull
 	@Size(min = 5, message="Minimo 5 caracteres")
+	@Column(name  = "nombre")
 	private String nombre;
 
 	public Long getId() {

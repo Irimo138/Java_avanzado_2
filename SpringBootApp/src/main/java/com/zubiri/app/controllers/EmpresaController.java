@@ -27,7 +27,7 @@ public class EmpresaController{
 	
 	@GetMapping("/showAllEmp")
 	public String MuestraAllEmpresas(Model m) {
-		m.addAttribute("listaEmpresas", empServ.allEmpresas());
+		m.addAttribute("listaEmpresas", empServ.showEmpresaQuery());
 		return "showEmpresas";
 	}
 	

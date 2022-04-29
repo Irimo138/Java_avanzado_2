@@ -1,5 +1,6 @@
 package com.zubiri.app.connections;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import com.zubiri.app.Interfaces.EmpresaRepository;
@@ -76,6 +77,17 @@ public class JPADBManagerEmpresa implements EmpresaRepository{
 	@Override
 	public void deleteAll() {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<Empresa> showEmpresaQuery() {
+		
+		return null;
+	}
+
+	@Override
+	public void editEmpresaQuery(Long id, String nombre) {
 		
 	}
 

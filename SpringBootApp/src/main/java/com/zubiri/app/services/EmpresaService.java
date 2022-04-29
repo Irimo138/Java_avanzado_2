@@ -1,5 +1,6 @@
 package com.zubiri.app.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,11 @@ public class EmpresaService{
 		
 		return lista;
 	}
+	
+	public ArrayList<Empresa> showEmpresaQuery(){
+		return empService.showEmpresaQuery();
+	}
+	
+	
 	
 }
