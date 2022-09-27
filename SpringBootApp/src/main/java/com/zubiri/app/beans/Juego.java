@@ -27,18 +27,18 @@ public class Juego {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+	private int id;
 	
 	@NotNull
 	@Size(min = 3, message ="No cumple con los minimos caracteres necesarios (3)")
-	String nombre;
+	private String nombre;
 	
 	@NotNull(message="Minimo debe de ser 0")
 	@Min(value = 0, message="Minimo debe de ser 0")
-	int puntuacionMax;
+	private int puntuacionMax;
 	
 	@Nullable
-	int partidasJugadas;
+	private int partidasJugadas;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "id_jugador", nullable = false)

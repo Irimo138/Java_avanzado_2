@@ -18,7 +18,7 @@ public interface EmpresaRepository extends CrudRepository<Empresa, Long>{
 	
 	@Modifying
 	@Transactional
-	@Query("UPDATE Empresa e SET c.nombre = :nombre WHERE c.id = :id")
+	@Query("UPDATE Empresa c SET c.nombre = :nombre WHERE c.id = :id")
 	void editEmpresaQuery(Long id, String nombre);
 
 	
