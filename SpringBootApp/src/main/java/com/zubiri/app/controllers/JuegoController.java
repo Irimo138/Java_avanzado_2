@@ -17,7 +17,7 @@ import com.zubiri.app.services.JugadorService;
 import com.zubiri.app.services.JuegoService;
 
 @Controller
-public class JuegoController {
+public class JuegoController  {
 
 	private JuegoService juegoService;
 	private JugadorService creadorService;
@@ -51,11 +51,6 @@ public class JuegoController {
 		return "showJuegos";
 	}
 	
-	@GetMapping("/mostrarJuegosJDBC")
-	public String showjuegosJDBC(Model j) {
-		j.addAttribute("listaJuegos", juegoService.obtenerJuegosJDBC());
-		return "showJuegos";
-	}
 
 	@GetMapping("/editaJuego")
 	public String editarJuego(@RequestParam int idJuego, Model m) {
@@ -65,13 +60,6 @@ public class JuegoController {
 		return "editJuego";
 	}
 	
-	@GetMapping("/editaJuegoJDBC")
-	public String editarJuegoJDBC(@RequestParam int idJuego, Model m) {
-		// int x =Integer.parseInt(idJuego);
-		Juego j = juegoService.buscarJuegoJDBC(idJuego);
-		m.addAttribute("juego", j);
-		return "editJuego";
-	}
 	
 
 	@GetMapping("/buscar")
@@ -87,6 +75,7 @@ public class JuegoController {
 		return "seleccionarPartida";
 	}
 	
+	/*
 	@PostMapping("/simularPartida")
 	public String jugarPartida(@RequestParam int jugador, int juego) {
 		int puntuacion = (int) ((int) 1 + Math.random()*10000);
@@ -96,7 +85,7 @@ public class JuegoController {
 		}
 		juegoService.jugarPartida(juego, puntuacion, jugador);
 		return "index";
-	}
+	}*/
 
 	@PutMapping("/modificarJuego")
 	public String modificarJuego(@Valid @ModelAttribute Juego juego,  BindingResult thebindingresult, Model m) {
@@ -119,23 +108,13 @@ public class JuegoController {
 		return "index";
 			}
 	}
-
-	@PostMapping("/guardaJuego")
-	public String guardaJuego(@Valid @ModelAttribute Juego juego, BindingResult thebindingresult) {
-		if (thebindingresult.hasErrors()) {
-			return "insertJuego";
-		} else {
-			juegoService.insertarJuego(juego);
-			return "index";
-		}
-	}
 	
 	@PostMapping("/guardaJuegoJDBC")
 	public String guardaJuegoJDBC(@Valid @ModelAttribute Juego juego, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "insertJuego";
 		} else {
-			juegoService.insertarJuego(juego);
+			juegoService.insertarJuegoJDBC(juego);
 			return "index";
 		}
 	}

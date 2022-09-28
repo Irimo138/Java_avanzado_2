@@ -3,14 +3,16 @@ package com.zubiri.app.Interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
+import javax.persistence.Id;
+
+import org.springframework.data.repository.CrudRepository;
 
 import com.zubiri.app.beans.Juego;
 
-public interface JuegosInterface {
+public interface JuegosInterface{
 
 	boolean insertarJuego(Juego j);
-	List<Juego>  obtenerJuegos();
+	List<Juego> obtenerJuegos();
 	boolean borrarJuego(int i);
 	void editarJuego(Juego j);
 	Juego buscarJuego(int i);
@@ -20,4 +22,5 @@ public interface JuegosInterface {
 	boolean insertarJuegoJDBC(Juego j);
 	void editarJuegoJDBC(Juego juego);
 	void eliminaJuegoJDBC(int idJuego);
+	Iterable<Juego> mostrarJuego();	
 }
