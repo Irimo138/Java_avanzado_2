@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.beans.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="Beans.Escuela"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="com.zubiri.app.beans.Empresa"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.zubiri.app.Interfaces.DBJugadorInterface"/>
+    <fullyQualifiedTypeName name="com.zubiri.app.connections.DBManagerJuegos"/>
 </qualifiedTypeNameHistroy>

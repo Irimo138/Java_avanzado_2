@@ -2,6 +2,7 @@ package com.zubiri.app.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,18 +10,18 @@ import org.springframework.stereotype.Service;
 import com.zubiri.app.Interfaces.DBJuegosInterface;
 import com.zubiri.app.Interfaces.JuegosInterface;
 import com.zubiri.app.beans.Juego;
+import com.zubiri.app.connections.DBManagerJuegos;
 import com.zubiri.app.connections.JdbcJuegoRepository;
 
 @Service 
 public class JuegoService implements JuegosInterface{
 	
-	private JdbcJuegoRepository jdbc;
+	private DBManagerJuegos jdbc;
 	
-	public JuegoService (JdbcJuegoRepository jdbc) {
+	public JuegoService (DBManagerJuegos jdbc) {
 		this.jdbc = jdbc;
 		System.err.println("JuegoService creado");
 	}
-	
 	@Autowired
 	DBJuegosInterface jdbc2;
 
@@ -33,61 +34,36 @@ public class JuegoService implements JuegosInterface{
 
 	@Override
 	public List<Juego> obtenerJuegos() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (List<Juego>) jdbc2.findAll();
 	}
 
 	@Override
-	public boolean borrarJuego(int i) {
-		// TODO Auto-generated method stub
-		return false;
+	public void borrarJuego(int i) {
+		jdbc2.deleteById(i);
 	}
 
 	@Override
 	public void editarJuego(Juego j) {
-		// TODO Auto-generated method stub
+		jdbc.editarJuego(j);
 		
 	}
 
 	@Override
 	public Juego buscarJuego(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		Juego j = jdbc.buscarJuego(i);
+		return j;
 	}
 
 	@Override
 	public ArrayList<Juego> buscarJuegoNombre(String n) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return jdbc.buscarJuegoNombre(n);
+		 
+}
 
 	@Override
-	public void jugarPartida(int juego) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void jugarPartida(int juego, int puntuacion) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean insertarJuegoJDBC(Juego j) {
-		jdbc2.save(j);
-		return false;
-	}
-
-	@Override
-	public void editarJuegoJDBC(Juego juego) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void eliminaJuegoJDBC(int idJuego) {
-		// TODO Auto-generated method stub
+	public void jugarPartida(int juego, int puntuacion, int jugador) {
+		jdbc.jugarPartida(juego, puntuacion, jugador);
 		
 	}
 
@@ -96,5 +72,8 @@ public class JuegoService implements JuegosInterface{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
 
 }

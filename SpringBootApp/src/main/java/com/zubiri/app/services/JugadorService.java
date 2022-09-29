@@ -1,15 +1,14 @@
 package com.zubiri.app.services;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zubiri.app.Interfaces.DBJugadorInterface;
 import com.zubiri.app.Interfaces.JugadorInterface;
 import com.zubiri.app.beans.Jugador;
-import com.zubiri.app.beans.Juego;
 import com.zubiri.app.connections.DBManagerJugadores;
-import com.zubiri.app.connections.DBManagerJuegos;
 
 @Service
 public class JugadorService implements JugadorInterface{
@@ -19,10 +18,13 @@ public class JugadorService implements JugadorInterface{
 	public JugadorService(DBManagerJugadores dbManagerCreadores) {
 		this.dbManagerCreadores = dbManagerCreadores;
 	}
+	
+	@Autowired
+	private DBJugadorInterface jpa;
 
 	@Override
-	public boolean insertarJugador(Jugador c) {
-		dbManagerCreadores.insertarJugadorDb(c);
+	public boolean insertarJugador(Jugador j) {
+		jpa.save(j);
 		return false;
 	}
 

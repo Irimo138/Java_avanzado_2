@@ -17,18 +17,9 @@
 			<input type="hidden" th:value="${juego.id}" name="idJuego">
 			<input type="submit" value="Borrar">
 		</form>
-		<form action="/eliminaJuegoJDBC" method="POST">
-			<input type="hidden" th:value="${juego.id}" name="idJuego">
-			<input type="submit" value="eliminaJuegoJDBC">
-		</form>
 		<form action="/editaJuego" method="GET">
 			<input type="hidden" th:value="${juego.id}" name="idJuego">
 			<input type="submit" value="Editar">
-		</form>
-		
-		<form action="/editaJuegoJDBC" method="GET">
-			<input type="hidden" th:value="${juego.id}" name="idJuego">
-			<input type="submit" value="Editar con JDBC">
 		</form>
 	</div>
 

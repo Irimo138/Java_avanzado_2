@@ -10,7 +10,7 @@
 <body>	
 	<h5>JDBC</h5>
 	
-	<form action="/guardaJuegoJDBC" method="POST" th:object="${juego}">
+	<form action="/guardaJuego" method="POST" th:object="${juego}">
 		Nombre<input type="text" name="nombre"> 
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>

@@ -1,5 +1,7 @@
 package com.zubiri.app.controllers;
 
+import java.util.ArrayList;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +66,8 @@ public class JuegoController  {
 
 	@GetMapping("/buscar")
 	public String buscarJuego(@RequestParam String nombre, Model m) {
-		m.addAttribute("juegos", juegoService.buscarJuegoNombre(nombre));
+		ArrayList<Juego> lista = juegoService.buscarJuegoNombre(nombre);
+		m.addAttribute("juegos", lista);
 		return "mostrarJuegosBuscados";
 	}
 	
@@ -104,17 +107,17 @@ public class JuegoController  {
 			m.addAttribute("juego",juego);
 			return "editJuego";
 		}else {	
-		juegoService.editarJuegoJDBC(juego);
+		juegoService.editarJuego(juego);
 		return "index";
 			}
 	}
 	
-	@PostMapping("/guardaJuegoJDBC")
+	@PostMapping("/guardaJuego")
 	public String guardaJuegoJDBC(@Valid @ModelAttribute Juego juego, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "insertJuego";
 		} else {
-			juegoService.insertarJuegoJDBC(juego);
+			juegoService.insertarJuego(juego);
 			return "index";
 		}
 	}
@@ -125,9 +128,4 @@ public class JuegoController  {
 		return "index";
 	}
 	
-	@PostMapping("/eliminaJuegoJDBC")
-	public String eliminaJuegoJDBC(@RequestParam int idJuego) {
-		juegoService.eliminaJuegoJDBC(idJuego);
-		return "index";
-	}
 }

@@ -26,18 +26,5 @@
 		<input type="submit" value="Enviar">
 	</form>
 	
-	<form th:action="@{/modificarJuegoJDBC}" th:method="PUT" th:object="${juego}">
-	<input type="hidden" th:value="${juego.id}" name="id">
-		Nombre<input type="text" name="nombre"> 
-		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
-		<br>
-		Partidas Jugadas<input type="number" name="partidasJugadas"> 
-		<td th:if="${#fields.hasErrors('partidasJugadas')}" th:errors="*{partidasJugadas}"/>
-		<br>
-		Puntuación Maxima<input type="number" name="puntuacionMax"> 
-		<td th:if="${#fields.hasErrors('puntuacionMax')}" th:errors="*{puntuacionMax}"/>
-		<br>  
-		<input type="submit" value="Enviar">
-	</form>
 </body>
 </html>
