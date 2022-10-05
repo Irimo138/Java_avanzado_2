@@ -20,13 +20,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
 @Entity
-@Getter
 @Table(name="Empresa")
 public class Empresa{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	
 	@NotNull
 	@Size(min = 5, message="Minimo 5 caracteres")
@@ -47,7 +47,7 @@ public class Empresa{
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}	
+	}
 	
 	
 }

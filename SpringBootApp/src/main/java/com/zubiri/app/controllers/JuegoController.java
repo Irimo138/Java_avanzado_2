@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,9 +15,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.zubiri.app.beans.Juego;
 import com.zubiri.app.services.JugadorService;
+
+import antlr.collections.List;
+
 import com.zubiri.app.services.JuegoService;
 
 @Controller
@@ -69,6 +75,14 @@ public class JuegoController  {
 		ArrayList<Juego> lista = juegoService.buscarJuegoNombre(nombre);
 		m.addAttribute("juegos", lista);
 		return "mostrarJuegosBuscados";
+	}
+	
+	@GetMapping("/ooo")
+	public ModelAndView obtenerPorNombre(ModelAndView m) {
+		Page<Juego> lista = juegoService.obtenerTodosPorNombre();
+		m.addObject("juegos", lista);
+		m.setViewName("mostrarJuegosPaginacion");
+		return m;
 	}
 	
 	@GetMapping("/jugarPartida")

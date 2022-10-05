@@ -1,17 +1,21 @@
 package com.zubiri.app.services;
 
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import com.zubiri.app.Interfaces.DBJuegosInterface;
 import com.zubiri.app.Interfaces.JuegosInterface;
 import com.zubiri.app.beans.Juego;
 import com.zubiri.app.connections.DBManagerJuegos;
-import com.zubiri.app.connections.JdbcJuegoRepository;
 
 @Service 
 public class JuegoService implements JuegosInterface{
@@ -74,6 +78,10 @@ public class JuegoService implements JuegosInterface{
 	}
 
 
-
-
+	@Override
+	public Page<Juego> obtenerTodosPorNombre() {
+		Pageable pageable = PageRequest.of(0, 4);
+		Page<Juego> page =  (Page<Juego>) jdbc2.findAll(pageable);
+		return page;
+	}
 }

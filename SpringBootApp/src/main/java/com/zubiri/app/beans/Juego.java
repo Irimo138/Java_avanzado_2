@@ -2,17 +2,16 @@ package com.zubiri.app.beans;
 
 
 import javax.persistence.Entity;
-
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.OnDelete;
@@ -43,9 +42,8 @@ public class Juego {
 	@Nullable
 	private int partidasJugadas;
 	
-	@Nullable
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id_jugador", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "id_jugador", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Jugador j;
 	

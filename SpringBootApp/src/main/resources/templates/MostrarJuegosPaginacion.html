@@ -2,22 +2,21 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Form</title>
+<title>Paginacion</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
 </head>
 <body>
 	<div th:each="juego : ${juegos}">
-		<p th:text="${juego.nombre}">jaja</p>
-		<form action="/eliminaJuego" method="POST">
-			<input type="submit" value="Borrar">
-			<input type="hidden" th:value="${juego.id}" name="idJuego">
-		</form>
+		<p th:text="${juego.nombre}"></p>
 		<form action="/editaJuego" method="GET">
 			<input type="submit" value="Editar">
 			<input type="hidden" th:value="${juego.id}" name="idJuego">
 		</form>
+		<form action="/eliminaJuego" method="POST">
+			<input type="submit" value="Borrar">
+			<input type="hidden" th:value="${juego.id}" name="idJuego">
+		</form>
 	</div>
+	<p th:text="${juegos}"></p>
 </body>
 </html>
