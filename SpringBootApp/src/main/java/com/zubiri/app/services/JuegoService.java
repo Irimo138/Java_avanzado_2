@@ -12,7 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
-import com.zubiri.app.Interfaces.DBJuegosInterface;
+import com.zubiri.app.Interfaces.DBJuegosRepository;
 import com.zubiri.app.Interfaces.JuegosInterface;
 import com.zubiri.app.beans.Juego;
 import com.zubiri.app.connections.DBManagerJuegos;
@@ -27,7 +27,7 @@ public class JuegoService implements JuegosInterface{
 		System.err.println("JuegoService creado");
 	}
 	@Autowired
-	DBJuegosInterface jdbc2;
+	DBJuegosRepository jdbc2;
 
 	@Override
 	public boolean insertarJuego(Juego j) {

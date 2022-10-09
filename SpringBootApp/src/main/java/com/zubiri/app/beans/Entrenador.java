@@ -23,8 +23,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 @Entity
-@Table(name = "Jugador")
-public class Jugador {
+@Table(name = "Entrenador")
+public class Entrenador {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,6 +39,22 @@ public class Jugador {
 	
 	@Nullable
 	private int idEquipo;
+
+	public int getPartidasGanadas() {
+		return partidasGanadas;
+	}
+
+	public void setPartidasGanadas(int partidasGanadas) {
+		this.partidasGanadas = partidasGanadas;
+	}
+
+	public int getIdEquipo() {
+		return idEquipo;
+	}
+
+	public void setIdEquipo(int idEquipo) {
+		this.idEquipo = idEquipo;
+	}
 
 	public int getId() {
 		return id;
@@ -56,13 +72,6 @@ public class Jugador {
 		this.nombre = nombre;
 	}
 
-	public int getPartidasGanadas() {
-		return partidasGanadas;
-	}
-
-	public void setPartidasGanadas(int partidasJugadas) {
-		this.partidasGanadas = partidasJugadas;
-	}
 	
 	
 }

@@ -5,12 +5,13 @@
 <title>Form Creador</title>
 </head>
 <body>
-<p>Formulario del creador</p>
+<link rel="stylesheet" th:href="@{JuegoForm.css}">
+<h2>Insertar creador</h2>
 
 <form action="/saveEmpresa" method="POST" th:object="${Empresa}">
 		Nombre<input type="text" name="nombre">
 		<br>
-		<input type="Submit" value="Enviar">
+		<input id="enviar" type="Submit" value="Enviar">
 	</form>
 </body>
 </html>

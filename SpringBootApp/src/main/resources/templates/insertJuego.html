@@ -6,10 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{Form.css}">
 </head>
 <body>	
-	<h5>JDBC</h5>
-	
+	<h2>Insertar juego</h2>
+	<div class="container">
 	<form action="/guardaJuego" method="POST" th:object="${juego}">
 		Nombre<input type="text" name="nombre"> 
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
@@ -20,8 +21,9 @@
 		Puntuación Maxima<input type="number" name="puntuacionMax"> 
 		<td th:if="${#fields.hasErrors('puntuacionMax')}" th:errors="*{puntuacionMax}"/>
 		<br>  
-		<input type="submit" value="Enviar">
+		<input id="enviar" type="submit" value="Enviar">
 	</form>
+</div>
 	
 </body>
 </html>

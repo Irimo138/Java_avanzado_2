@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zubiri.app.Interfaces.DBJugadorInterface;
+import com.zubiri.app.Interfaces.DBJugadorRepository;
 import com.zubiri.app.Interfaces.JugadorInterface;
 import com.zubiri.app.beans.Jugador;
 import com.zubiri.app.connections.DBManagerJugadores;
@@ -20,7 +20,7 @@ public class JugadorService implements JugadorInterface{
 	}
 	
 	@Autowired
-	private DBJugadorInterface jpa;
+	private DBJugadorRepository jpa;
 
 	@Override
 	public boolean insertarJugador(Jugador j) {

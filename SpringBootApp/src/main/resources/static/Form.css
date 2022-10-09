@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+
+h2{
+	text-align: center;
+}
+body{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items: center;
+}
+
+form{
+	padding: 2vh;
+	margin-top: 10vh;
+	width: 40vw;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+#enviar{
+	width: 3vw;
+	display:flex;
+	align-self:end;
+	text-align: center;
+}

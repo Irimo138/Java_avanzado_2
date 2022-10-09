@@ -5,18 +5,13 @@
 <title>Paginacion</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+<script type="text/javascript">
+	function changePage(){
+		console.log(document,getElementById("page").value);
+	}
+</script>
 <body>
-	<div th:each="juego : ${juegos}">
-		<p th:text="${juego.nombre}"></p>
-		<form action="/editaJuego" method="GET">
-			<input type="submit" value="Editar">
-			<input type="hidden" th:value="${juego.id}" name="idJuego">
-		</form>
-		<form action="/eliminaJuego" method="POST">
-			<input type="submit" value="Borrar">
-			<input type="hidden" th:value="${juego.id}" name="idJuego">
-		</form>
-	</div>
-	<p th:text="${juegos}"></p>
+
+	<p id="page" th:text="${juegos}"></p>
 </body>
 </html>

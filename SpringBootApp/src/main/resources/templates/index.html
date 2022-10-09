@@ -12,33 +12,26 @@
 
 <body>
 	<section layout:fragment="content">
-	<article>
-	<h3>Juegos</h3>
-	<a th:href="@{/insertJuego}">Insertar Juego</a>
-	<br>
-	<a th:href="@{/mostrarJuegos}">Mostrar lista de Juegos</a>
-	<br>
-	<a th:href="@{/buscarJuego}">Buscar Juego</a>
-	</article>
-	<article>
-	<h3>Creadores</h3>
-	<a th:href="@{/insertJugador}">Añadir Creador</a>
-	<br>
-	<a th:href="@{/mostrarJugador}">Mostrar Creadores</a>
-	</article>
-	<br>
-	<a th:href="@{/jugarPartida}">Jugar partida</a>
-	</article>
-	<article>
-	<h3>JDBC</h4>
-	<br>
-	<a th:href="@{/mostrarJuegosJDBC}">Mostrar lista de Juegos</a>
-	<br>
-	<a href="/emp">Empresa Form</a>
-	<a href="/showAllEmp">Mostrar Empresas</a>
-	</article>
-	<section/>
-	<a href="/obtenerPorNombre">Obtener por nombre</a>
+		<article class="containers">
+		<h3>Juegos</h3>
+			<a th:href="@{/insertJuego}">Insertar Juego</a>
+			<br>
+			<a th:href="@{/mostrarJuegos}">Mostrar lista de Juegos</a>
+			<br>
+			<a th:href="@{/buscarJuego}">Buscar Juego</a>
+		</article>
+		<article class="containers">
+			<h3>Creadores</h3>
+			<a th:href="@{/insertJugador}">Añadir Creador</a>
+			<br>
+			<a th:href="@{/mostrarJugador}">Mostrar Creadores</a>
+			</article>
+			<br>
+			<a th:href="@{/jugarPartida}">Jugar partida</a>
+			<a href="/obtenerJuegosPaginados">Obtener por nombre Paginacion</a>
+		</section>
+	
+	
 </body>
 
 </html>

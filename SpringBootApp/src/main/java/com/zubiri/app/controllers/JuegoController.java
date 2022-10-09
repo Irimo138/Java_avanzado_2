@@ -73,17 +73,17 @@ public class JuegoController  {
 	@GetMapping("/buscar")
 	public String buscarJuego(@RequestParam String nombre, Model m) {
 		ArrayList<Juego> lista = juegoService.buscarJuegoNombre(nombre);
-		m.addAttribute("juegos", lista);
-		return "mostrarJuegosBuscados";
+		m.addAttribute("listaJuegos", lista);
+		return "showJuegos";
 	}
 	
-	@GetMapping("/ooo")
+	/*@GetMapping("/obtenerJuegosPaginados")
 	public ModelAndView obtenerPorNombre(ModelAndView m) {
 		Page<Juego> lista = juegoService.obtenerTodosPorNombre();
 		m.addObject("juegos", lista);
 		m.setViewName("mostrarJuegosPaginacion");
 		return m;
-	}
+	}*/
 	
 	@GetMapping("/jugarPartida")
 	public String prepararPartida(Model j) {

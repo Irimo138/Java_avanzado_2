@@ -6,21 +6,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{ListadoJuegos.css}">
 </head>
 
 <body>
 
-	<p>Aqui el listado de juegos</p>
-	<div th:each="juego : ${listaJuegos}">
-		<p th:text="${juego.nombre}">jaja</p>
-		<form action="/eliminaJuego" method="POST">
-			<input type="hidden" th:value="${juego.id}" name="idJuego">
-			<input type="submit" value="Borrar">
-		</form>
-		<form action="/editaJuego" method="GET">
-			<input type="hidden" th:value="${juego.id}" name="idJuego">
-			<input type="submit" value="Editar">
-		</form>
+	<h2>Listado de Juegos</h2>
+	<div class="container">
+		<div th:each="juego : ${listaJuegos}">
+			<div class="juegoMostrar">
+				<h4 th:text="${juego.nombre}"></h4>
+				<p>Partidas Jugadas: <span th:text="${juego.partidasJugadas}"></span></p>
+				<p>Puntuación máxima: <span th:text="${juego.puntuacionMax}"></span></p>
+				<div class="formContainer">
+					<form action="/editaJuego" method="GET">
+						<input type="hidden" th:value="${juego.id}" name="idJuego">
+						<input type="submit" value="Editar">
+					</form>
+					<form action="/eliminaJuego" method="POST">
+						<input type="hidden" th:value="${juego.id}" name="idJuego">
+						<input type="submit" value="Borrar">
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>
