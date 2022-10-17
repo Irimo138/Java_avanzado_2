@@ -23,9 +23,8 @@ public class JugadorService implements JugadorInterface{
 	private DBJugadorRepository jpa;
 
 	@Override
-	public boolean insertarJugador(Jugador j) {
+	public void insertarJugador(Jugador j) {
 		jpa.save(j);
-		return false;
 	}
 
 	@Override

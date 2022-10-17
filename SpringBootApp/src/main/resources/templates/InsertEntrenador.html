@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Form Creador</title>
+</head>
+<body>
+<link rel="stylesheet" th:href="@{JuegoForm.css}">
+<h2>Insertar creador</h2>
+
+<form action="/guardarEntrenador" method="POST" th:object="${Entrenador}">
+		Nombre<input type="text" name="nombre">
+		Equipo<input type="text" name="equipo">
+		Partidas ganadas<input type="text" name="partidasGanadas">
+		<input id="enviar" type="Submit" value="Enviar">
+	</form>
+</body>
+</html>

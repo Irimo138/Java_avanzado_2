@@ -16,15 +16,13 @@ public class Direccion {
 	public Direccion() {   							
 	}
 	
-	@NotNull   								
-    @Column(nullable = false)   						
+	@NotNull   
+    @Column(nullable = false) 
     private String pais;
 	
 	@NotNull   								
     @Column(nullable = false)   						
     private String calle;
-	
-	
 
     @NotNull
     @Column(nullable = false, length = 5)   					

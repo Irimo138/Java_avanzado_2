@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{Listadoents.css}">
+</head>
+
+<body>
+
+	<h2>Listado de ents</h2>
+	<div class="container">
+		<div th:each="ent : ${listaEntrenador}">
+			<div class="entMostrar">
+				<h4 th:text="${ent.nombre}"></h4>
+				<p>Partidas Ganadas: <span th:text="${ent.partidasGanadas}"></span></p>
+				<div class="formContainer">
+					<form action="/editaent" method="GET">
+						<input type="hidden" th:value="${ent.id}" name="ident">
+						<input type="submit" value="Editar">
+					</form>
+					<form action="/eliminaent" method="POST">
+						<input type="hidden" th:value="${ent.id}" name="ident">
+						<input type="submit" value="Borrar">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

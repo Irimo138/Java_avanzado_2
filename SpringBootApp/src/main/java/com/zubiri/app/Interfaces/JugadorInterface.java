@@ -5,7 +5,7 @@ import java.util.List;
 import com.zubiri.app.beans.Jugador;
 
 public interface JugadorInterface {
-	boolean insertarJugador(Jugador c);
+	void insertarJugador(Jugador c);
 	List<Jugador> mostrarJugador();
 	void eliminarJugador(int i);
 	void editarJugador(Jugador c);

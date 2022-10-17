@@ -13,6 +13,10 @@
 		Nombre<input type="text" name="nombre">
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
+		CP<input type="text" name="CP" id="CP">
+		Calle<input type="text" name="calle">
+		Ciudad<input type="text" name="ciudad">
+		Pais<input type="text" name="pais">
 		<input type="Submit" id="enviar" value="Enviar">
 	</form>
 </body>

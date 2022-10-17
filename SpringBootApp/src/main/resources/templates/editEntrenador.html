@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Editar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+
+</head>
+<body>
+	
+	<h2>Editar Creador: <h2 th:text="${entrenador.nombre}"></h2></h2>
+		
+	<form th:action="@{/modificarentrenador}" th:method="POST" th:object="${entrenador}">
+		<input type="hidden" th:value="${entrenador.id}" name="id">
+		Nombre<input type="text" name="nombre" th:placeholder="${entrenador.nombre}">
+		<br>
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>

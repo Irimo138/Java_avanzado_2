@@ -68,11 +68,11 @@ public class JugadorController {
 	}
 	
 	@PostMapping("/guardaJugador")
-	public String guardaCreador(@Valid @ModelAttribute Jugador creador, BindingResult thebindingresult) {
+	public String guardaCreador(@Valid @ModelAttribute Jugador j, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "CreadorForm";
 		} else {
-			creadorService.insertarJugador(creador);
+			creadorService.insertarJugador(j);
 			return "index";
 		}	
 	}

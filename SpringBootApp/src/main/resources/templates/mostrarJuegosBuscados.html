@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+</head>
+<body>
+	<div th:each="juego : ${juegos}">
+		<p th:text="${juego.nombre}">jaja</p>
+		<form action="/eliminaJuego" method="POST">
+			<input type="hidden" th:value="${juego.id}" name="idJuego">
+			<input type="submit" value="Borrar">
+		</form>
+		<form action="/editaJuego" method="GET">
+			<input type="hidden" th:value="${juego.id}" name="idJuego">
+			<input type="submit" value="Editar">
+		</form>
+	</div>
+</body>
+</html>

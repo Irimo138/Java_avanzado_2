@@ -28,8 +28,7 @@ public class EntrenadorService implements EntrenadorInterface{
 
 	@Override
 	public void editarEntrenador(Entrenador e) {
-		// TODO Auto-generated method stub
-		
+		DBEntrenador.save(e);
 	}
 
 	@Override
