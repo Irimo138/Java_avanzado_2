@@ -92,17 +92,16 @@ public class JuegoController  {
 		return "seleccionarPartida";
 	}
 	
-	/*
+	
 	@PostMapping("/simularPartida")
 	public String jugarPartida(@RequestParam int jugador, int juego) {
 		int puntuacion = (int) ((int) 1 + Math.random()*10000);
-		System.err.println(puntuacion);
 		if(puntuacion > 5000) {
 			creadorService.ganaJuego(jugador);
 		}
 		juegoService.jugarPartida(juego, puntuacion, jugador);
 		return "index";
-	}*/
+	}
 
 	@PutMapping("/modificarJuego")
 	public String modificarJuego(@Valid @ModelAttribute Juego juego,  BindingResult thebindingresult, Model m) {

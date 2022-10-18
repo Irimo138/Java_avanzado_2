@@ -1,6 +1,7 @@
 package com.zubiri.app.services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,9 +29,9 @@ public class JugadorService implements JugadorInterface{
 	}
 
 	@Override
-	public ArrayList<Jugador> mostrarJugador() {
+	public List<Jugador> mostrarJugador() {
 		
-		return dbManagerCreadores.mostrarJugadores();
+		return jpa.findAll();
 	}
 
 	@Override

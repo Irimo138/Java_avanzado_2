@@ -10,9 +10,8 @@
 <link rel="stylesheet" th:href="@{Form.css}">
 
 <form action="/guardaJugador" method="POST" th:object="${jugador}">
-		Nombre<input type="text" name="nombre">
-		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
-		<br>
+		Nombre<input type="text" name="nombre" id="nombre">
+		DNI<input type="text" name="DNI" id="DNI">
 		CP<input type="text" name="CP" id="CP">
 		Calle<input type="text" name="calle">
 		Ciudad<input type="text" name="ciudad">

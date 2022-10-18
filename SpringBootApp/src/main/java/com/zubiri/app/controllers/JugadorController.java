@@ -1,6 +1,6 @@
 package com.zubiri.app.controllers;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.zubiri.app.beans.Direccion;
 import com.zubiri.app.beans.Jugador;
 import com.zubiri.app.services.JugadorService;
 
@@ -35,7 +36,7 @@ public class JugadorController {
 	
 	@GetMapping("/mostrarJugador")
 	public String mostrarCreador(Model m) {
-		ArrayList<Jugador> lista = creadorService.mostrarJugador();
+		List<Jugador> lista = creadorService.mostrarJugador();
 		m.addAttribute("listaJugadores", lista);
 		return "showCreador";
 	}
@@ -61,17 +62,22 @@ public class JugadorController {
 			m.addAttribute("jugador",j);
 			return "editCreador";
 		}else{
-		System.out.println(j.getNombre());
 		creadorService.editarJugador(j);
 		return "index";
 		}
 	}
 	
 	@PostMapping("/guardaJugador")
-	public String guardaCreador(@Valid @ModelAttribute Jugador j, BindingResult thebindingresult) {
+	public String guardaCreador(@Valid @ModelAttribute Jugador j,@RequestParam String CP, String calle, String ciudad, String pais, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "CreadorForm";
 		} else {
+			Direccion d = new Direccion();
+			d.setCP(CP);
+			d.setCalle(calle);
+			d.setCiudad(ciudad);
+			d.setPais(pais);
+			j.setDireccion(d);
 			creadorService.insertarJugador(j);
 			return "index";
 		}	

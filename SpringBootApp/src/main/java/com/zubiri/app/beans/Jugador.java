@@ -1,10 +1,13 @@
 package com.zubiri.app.beans;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -20,20 +23,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 @Entity
 @Table(name = "Jugador")
-public class Jugador {
+public class Jugador extends Persona{
+
+	public Jugador() {
 	
-	@NotNull
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	}
+
+	public Jugador(@NotNull int id,
+			@NotBlank @Size(min = 3, max = 50, message = "No cumple con los minimos caracteres necesarios (3)") String nombre,
+			@NotNull String dNI, @NotNull String nombre2) {
+		super(id, nombre, dNI);
+		// TODO Auto-generated constructor stub
+	}
+
 	
-	@NotBlank
-	@Size(min = 3, max = 50, message ="No cumple con los minimos caracteres necesarios (3)")
-	private String nombre;
-	
+
 	@Nullable
 	@Min(value = 0, message = "El valor minimo debe de ser de 0")
 	private int partidasGanadas;
+	
+	@ManyToMany(cascade = CascadeType.PERSIST)	
+	@JoinTable(
+			  name = "Juegos_Partida", 
+			  joinColumns = @JoinColumn(name = "Jugador_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "Juego_id"))
+    Set<Partida> partidasJugadas;
 	
 	@Embedded
 	private Direccion direccion;
@@ -44,22 +58,6 @@ public class Jugador {
 	
 	public void setDireccion(Direccion direccion) { 
 		this.direccion = direccion; 
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public int getPartidasGanadas() {
