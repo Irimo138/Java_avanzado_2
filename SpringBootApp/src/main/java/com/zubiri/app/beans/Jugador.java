@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -42,12 +43,8 @@ public class Jugador extends Persona{
 	@Min(value = 0, message = "El valor minimo debe de ser de 0")
 	private int partidasGanadas;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)	
-	@JoinTable(
-			  name = "Juegos_Partida", 
-			  joinColumns = @JoinColumn(name = "Jugador_id"), 
-			  inverseJoinColumns = @JoinColumn(name = "Juego_id"))
-    Set<Partida> partidasJugadas;
+	@OneToMany(mappedBy = "jugador")
+    Set<Partida> partidas;
 	
 	@Embedded
 	private Direccion direccion;

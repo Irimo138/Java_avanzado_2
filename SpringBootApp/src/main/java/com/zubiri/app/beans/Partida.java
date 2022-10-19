@@ -26,7 +26,14 @@ public class Partida {
 	@Nullable
 	@Min(value = 0, message = "El valor minimo debe de ser de 0")
 	private int Puntuacion;
+	
+	@ManyToOne
+    @JoinColumn(name = "jugador_id")
+    Jugador jugador;
 
+    @ManyToOne
+    @JoinColumn(name = "juego_id")
+    Juego juego;
 
 	public int getId() {
 		return id;
