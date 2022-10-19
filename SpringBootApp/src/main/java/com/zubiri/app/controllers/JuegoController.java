@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,14 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.zubiri.app.beans.Juego;
-import com.zubiri.app.services.JugadorService;
-
-import antlr.collections.List;
-
+import com.zubiri.app.beans.Partida;
 import com.zubiri.app.services.JuegoService;
+import com.zubiri.app.services.JugadorService;
 
 @Controller
 public class JuegoController  {
@@ -88,18 +83,22 @@ public class JuegoController  {
 	@GetMapping("/jugarPartida")
 	public String prepararPartida(Model j) {
 		j.addAttribute("jugadores", creadorService.mostrarJugador());
+		j.addAttribute("partida", new Partida());
 		j.addAttribute("juegos", juegoService.obtenerJuegos());
 		return "seleccionarPartida";
 	}
 	
 	
 	@PostMapping("/simularPartida")
-	public String jugarPartida(@RequestParam int jugador, int juego) {
+	public String jugarPartida(@ModelAttribute Partida p, int jugador_id, int juego_id) {
 		int puntuacion = (int) ((int) 1 + Math.random()*10000);
+		juegoService.jugarPartida(juego_id, puntuacion, jugador_id);
 		if(puntuacion > 5000) {
-			creadorService.ganaJuego(jugador);
+			p.setJuego(juegoService.buscarJuego(juego_id));
+			p.setJugador(creadorService.buscarCreador(jugador_id));
+			p.setPuntuacion(puntuacion);
+			creadorService.ganaJuego(p);
 		}
-		juegoService.jugarPartida(juego, puntuacion, jugador);
 		return "index";
 	}
 

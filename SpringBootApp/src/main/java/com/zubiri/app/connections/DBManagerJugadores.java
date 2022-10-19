@@ -72,8 +72,8 @@ public class DBManagerJugadores {
 			while (rs.next()) {
 				if(rs.getInt(1) == idCreador) {
 					c.setId(rs.getInt(1));
-					c.setNombre(rs.getString(2));
-					c.setPartidasGanadas(rs.getInt(3));
+					c.setNombre(rs.getString(3));
+					c.setPartidasGanadas(rs.getInt(8));
 					return c;
 				}
 			}

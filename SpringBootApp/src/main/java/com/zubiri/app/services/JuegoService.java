@@ -67,7 +67,7 @@ public class JuegoService implements JuegosInterface{
 
 	@Override
 	public void jugarPartida(int juego, int puntuacion, int jugador) {
-		jdbc.jugarPartida(juego, puntuacion, jugador);
+		jdbc.anadirPartida(juego, puntuacion, jugador);
 		
 	}
 

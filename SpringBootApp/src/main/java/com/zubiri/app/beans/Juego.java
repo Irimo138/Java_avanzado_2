@@ -76,5 +76,18 @@ public class Juego {
 	public void setPartidasJugadas(int partidasJugadas) {
 		this.partidasJugadas = partidasJugadas;
 	}
+	public Jugador getJ() {
+		return j;
+	}
+	public void setJ(Jugador j) {
+		this.j = j;
+	}
+	public Set<Partida> getPartidas() {
+		return partidas;
+	}
+	public void setPartidas(Set<Partida> partidas) {
+		this.partidas = partidas;
+	}
+	
 	
 }

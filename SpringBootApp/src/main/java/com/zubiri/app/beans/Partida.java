@@ -53,6 +53,26 @@ public class Partida {
 	public void setPuntuacion(int puntuacion) {
 		Puntuacion = puntuacion;
 	}
+
+
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+
+
+	public Juego getJuego() {
+		return juego;
+	}
+
+
+	public void setJuego(Juego juego) {
+		this.juego = juego;
+	}
 	
 	
 

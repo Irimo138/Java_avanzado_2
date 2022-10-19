@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zubiri.app.beans.Direccion;
 import com.zubiri.app.beans.Jugador;
+import com.zubiri.app.beans.Partida;
 import com.zubiri.app.services.JugadorService;
 
 
@@ -30,6 +31,7 @@ public class JugadorController {
 	
 	@GetMapping("/insertJugador")
 	public String introducirCreador(Model m) {
+		m.addAttribute("direccion", new Direccion());
 		m.addAttribute("jugador", new Jugador());
 		return "CreadorForm";
 	}
@@ -68,19 +70,13 @@ public class JugadorController {
 	}
 	
 	@PostMapping("/guardaJugador")
-	public String guardaCreador(@Valid @ModelAttribute Jugador j,@RequestParam String CP, String calle, String ciudad, String pais, BindingResult thebindingresult) {
+	public String guardaCreador(@Valid @ModelAttribute Jugador j, Direccion d, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "CreadorForm";
 		} else {
-			Direccion d = new Direccion();
-			d.setCP(CP);
-			d.setCalle(calle);
-			d.setCiudad(ciudad);
-			d.setPais(pais);
 			j.setDireccion(d);
 			creadorService.insertarJugador(j);
 			return "index";
 		}	
 	}
 }
-

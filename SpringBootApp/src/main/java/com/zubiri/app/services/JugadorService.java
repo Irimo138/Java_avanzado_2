@@ -1,14 +1,16 @@
 package com.zubiri.app.services;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zubiri.app.Interfaces.DBJugadorRepository;
+import com.zubiri.app.Interfaces.DBPartidasRepository;
 import com.zubiri.app.Interfaces.JugadorInterface;
 import com.zubiri.app.beans.Jugador;
+import com.zubiri.app.beans.Partida;
 import com.zubiri.app.connections.DBManagerJugadores;
 
 @Service
@@ -22,6 +24,9 @@ public class JugadorService implements JugadorInterface{
 	
 	@Autowired
 	private DBJugadorRepository jpa;
+	
+	@Autowired
+	private DBPartidasRepository partidasJPA;
 
 	@Override
 	public void insertarJugador(Jugador j) {
@@ -54,9 +59,10 @@ public class JugadorService implements JugadorInterface{
 		dbManagerCreadores.editarJugador(j);
 		
 	}
+	
 	@Override
-	public void ganaJuego(int jugador) {
-		dbManagerCreadores.ganaJuego(jugador);
+	public void ganaJuego(Partida p) {
+		partidasJPA.save(p);
 		
 	}
 

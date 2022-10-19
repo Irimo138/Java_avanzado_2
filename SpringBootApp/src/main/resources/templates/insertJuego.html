@@ -11,7 +11,7 @@
 <body>	
 	<h2>Insertar juego</h2>
 	<div class="container">
-	<form action="/guardaJuego" method="POST" th:object="${juego}">
+	<form action="/guardaJuego" method="POST" th:object="${juego} ">
 		Nombre<input type="text" name="nombre"> 
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
