@@ -99,7 +99,7 @@ public class JuegoController  {
 			p.setPuntuacion(puntuacion);
 			creadorService.ganaJuego(p);
 		}
-		return "index";
+		return "redirect:/";
 	}
 
 	@PutMapping("/modificarJuego")
@@ -109,18 +109,7 @@ public class JuegoController  {
 			return "editJuego";
 		}else {	
 		juegoService.editarJuego(juego);
-		return "index";
-			}
-	}
-	
-	@PutMapping("/modificarJuegoJDBC")
-	public String modificarJuegoJDBC(@Valid @ModelAttribute Juego juego,  BindingResult thebindingresult, Model m) {
-		if (thebindingresult.hasErrors()) {
-			m.addAttribute("juego",juego);
-			return "editJuego";
-		}else {	
-		juegoService.editarJuego(juego);
-		return "index";
+		return "redirect:/";
 			}
 	}
 	
@@ -130,14 +119,14 @@ public class JuegoController  {
 			return "insertJuego";
 		} else {
 			juegoService.insertarJuego(juego);
-			return "index";
+			return "redirect:/";
 		}
 	}
 
 	@PostMapping("/eliminaJuego")
 	public String eliminarJuego(@RequestParam int idJuego) {
 		juegoService.borrarJuego(idJuego);
-		return "index";
+		return "redirect:/";
 	}
 	
 }

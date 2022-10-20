@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import groovyjarjarantlr4.v4.runtime.misc.Nullable;
 
 @Entity
-@Table(name = "Partida")
+@Table(name = "Partidas")
 @org.hibernate.annotations.Immutable   
 public class Partida {
 	

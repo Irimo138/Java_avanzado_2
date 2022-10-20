@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 @Entity
-@Table(name = "Jugador")
+@Table(name = "Jugadores")
 public class Jugador extends Persona{
 
 	public Jugador() {

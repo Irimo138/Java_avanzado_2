@@ -50,9 +50,12 @@ public class JugadorService implements JugadorInterface{
 		dbManagerCreadores.editarJugador(c);
 	}
 
-	public Jugador buscarCreador(int idCreador) {
+	public Jugador buscarCreador(int jugador) {
 		
-		return dbManagerCreadores.buscarJugador(idCreador);
+		
+		Jugador j =	jpa.findById(jugador).get();
+				
+		return j;
 	}
 
 	public void editarJuego(Jugador j) {

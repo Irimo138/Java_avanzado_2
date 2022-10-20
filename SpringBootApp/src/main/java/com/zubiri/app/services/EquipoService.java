@@ -32,7 +32,7 @@ public class EquipoService implements EquipoInterface{
 
 	@Override
 	public void editarEquipo(Equipo e) {
-		
+		dbEquipo.save(e);
 	}
 
 	@Override

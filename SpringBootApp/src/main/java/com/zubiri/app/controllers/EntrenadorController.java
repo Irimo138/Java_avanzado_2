@@ -35,7 +35,6 @@ public class EntrenadorController {
 	@GetMapping("/editaent")
 	public String editarEntrenador(@RequestParam int ident, Model m) {
 			Entrenador entre = entrenadorService.buscarEntrenadorId(ident);
-			System.out.println();
 			m.addAttribute("entrenador",entre);
 			return "editEntrenador";
 		
@@ -43,25 +42,25 @@ public class EntrenadorController {
 	
 	
 	@PostMapping("/guardarEntrenador")
-	public String guardaEntrenador(@Valid @ModelAttribute Entrenador e, BindingResult thebindingresult) {
+	public String guardaEntrenador(@ModelAttribute Entrenador e, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "insertEntrenador";
 		} else {
 			entrenadorService.añadirEntrenador(e);
-			return "index";
+			return "redirect:/";
 		}
 	}
 	
 	@PostMapping("/modificarentrenador")
 	public String EditarDBEntrenador(@Valid @ModelAttribute Entrenador e, BindingResult thebindingresult) {
 		entrenadorService.editarEntrenador(e);
-		return "index";
+		return "redirect:/";
 	}
 	
 	
 	@PostMapping("/eliminaent")
 	public String eliminarEntrenador(@RequestParam int ident, Model m)  {
 			entrenadorService.borrarEntrenador(ident);
-			return "index";
+			return "redirect:/";
 	}
 }

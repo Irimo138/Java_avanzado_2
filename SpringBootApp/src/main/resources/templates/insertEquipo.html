@@ -6,10 +6,12 @@
 </head>
 <body>
 <link rel="stylesheet" th:href="@{JuegoForm.css}">
+<link rel="stylesheet" th:href="@{Form.css}">
 <h2>Insertar creador</h2>
 
-<form action="/saveEmpresa" method="POST" th:object="${Empresa}">
+<form action="/saveEquipo" method="POST" th:object="${equipo}">
 		Nombre<input type="text" name="nombre">
+		Partidas Ganadas<input type="text" name="partidasGanadas">
 		<br>
 		<input id="enviar" type="Submit" value="Enviar">
 	</form>

@@ -33,7 +33,7 @@ public class EntrenadorService implements EntrenadorInterface{
 
 	@Override
 	public Entrenador buscarEntrenadorId(int i) {
-		Entrenador e = DBEntrenador.getById(i);
+		Entrenador e = DBEntrenador.findById(i).get();
 		return e;
 	}
 

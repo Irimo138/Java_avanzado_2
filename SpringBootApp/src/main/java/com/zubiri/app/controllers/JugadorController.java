@@ -54,7 +54,7 @@ public class JugadorController {
 	@PostMapping("/eliminarJugador")
 	public String eliminarJugador(@RequestParam int idCreador) {
 		creadorService.eliminarJugador(idCreador);
-		return "index";
+		return "redirect:/";
 	}
 
 	
@@ -65,7 +65,7 @@ public class JugadorController {
 			return "editCreador";
 		}else{
 		creadorService.editarJugador(j);
-		return "index";
+		return "redirect:/";
 		}
 	}
 	
@@ -76,7 +76,7 @@ public class JugadorController {
 		} else {
 			j.setDireccion(d);
 			creadorService.insertarJugador(j);
-			return "index";
+			return "redirect:/";
 		}	
 	}
 }

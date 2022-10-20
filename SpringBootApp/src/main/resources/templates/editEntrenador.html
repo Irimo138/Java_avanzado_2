@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-
+<link rel="stylesheet" th:href="@{Form.css}">
 </head>
 <body>
 	
@@ -15,8 +15,14 @@
 	<form th:action="@{/modificarentrenador}" th:method="POST" th:object="${entrenador}">
 		<input type="hidden" th:value="${entrenador.id}" name="id">
 		Nombre<input type="text" name="nombre" th:placeholder="${entrenador.nombre}">
+		DNI<input type="text" name="DNI" th:placeholder="${entrenador.DNI}">
+		Equipo<input type="number" name="idEquipo" th:placeholder="${entrenador.idEquipo}">
+		CP<input type="text" th:value="${entrenador.direccion.CP}" name="CP" id="CP">
+		Calle<input type="text" th:value="${entrenador.direccion.calle}" name="calle">
+		Ciudad<input type="text" th:value="${entrenador.direccion.ciudad}" name="ciudad">
+		Pais<input type="text" th:value="${entrenador.direccion.pais}" name="pais">
 		<br>
-		<input type="submit" value="Enviar">
+		<input type="submit" id="enviar" value="Enviar">
 	</form>
 </body>
 </html>

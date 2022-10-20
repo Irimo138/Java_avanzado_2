@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+</head>
+
+<body>
+
+	<p>Aqui el listado de Empresas</p>
+	<h2>Listado de Juegos</h2>
+	<div class="container">
+	<div th:each="equipo : ${listaEquipos}">
+			<div class="juegoMostrar">
+				<h4 th:text="equipo"></h4>
+				<p>Partidas Jugadas: <span th:text="${equipo.partidasGanadas}"></span></p>
+				<div class="formContainer">
+					<form action="/editaFormEquipo" method="GET">
+						<input type="hidden" th:value="${equipo.id}" name="idEquipo">
+						<input type="submit" value="Editar">
+					</form>
+					<form action="/eliminarEquipo" method="POST">
+						<input type="hidden" th:value="${equipo.id}" name="idEquipo">
+						<input type="submit" value="Borrar">
+					</form>
+				</div>
+			</div>
+		</div>
+</body>
+
+</html>
