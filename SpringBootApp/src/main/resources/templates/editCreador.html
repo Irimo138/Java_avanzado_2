@@ -17,7 +17,7 @@
 		Nombre<input type="text" th:value="${jugador.nombre}" name="nombre" id="nombre">
 		DNI<input type="text" th:value="${jugador.DNI}" name="DNI" id="DNI">
 		Equipo<select name="Equipo_Id" id="Equipo_Id">
-			<option th:value="${jugador.equipo.id}" th:text="${jugador.equipo.nombre}"></option>
+			<option th:value="${jugador.equipo.id }" th:text="${jugador.equipo.nombre}"></option>
 			<div th:each="equipo : ${equipos}">
 				<option th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
 			</div>
