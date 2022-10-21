@@ -45,9 +45,9 @@ public class JugadorService implements JugadorInterface{
 	}
 
 	@Override
-	public void editarJugador(Jugador c) {
+	public void editarJugador(Jugador j) {
 		
-		dbManagerCreadores.editarJugador(c);
+		jpa.save(j);
 	}
 
 	public Jugador buscarCreador(int jugador) {

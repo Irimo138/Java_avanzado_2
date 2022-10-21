@@ -26,8 +26,8 @@ public class EquipoService implements EquipoInterface{
 
 	@Override
 	public Equipo buscarEquipoId(int i) {
-		Equipo e = dbEquipo.getById(i);
-		return e;
+		return dbEquipo.findById(i).get();
+		
 	}
 
 	@Override

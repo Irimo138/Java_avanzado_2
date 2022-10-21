@@ -10,8 +10,17 @@
 
 <form action="/guardarEntrenador" method="POST" th:object="${Entrenador}">
 		Nombre<input type="text" name="nombre">
-		DNI<input type="text" name="DNI">
-		Equipo<input type="text" name="equipo">
+		DNI<input type="text" name="DNI" id="DNI">
+		CP<input type="text" name="CP" id="CP">
+		Calle<input type="text" name="calle">
+		Ciudad<input type="text" name="ciudad">
+		Pais<input type="text" name="pais">
+		Equipo<select name="idEquipo" id="idEquipo">
+			<option th:value="0" th:text="Ninguno"></option>
+			<div th:each="equipo : ${equipos}">
+				<option th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
+			</div>
+			</select>
 		Partidas ganadas<input type="text" name="partidasGanadas">
 		<input id="enviar" type="Submit" value="Enviar">
 	</form>

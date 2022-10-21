@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.zubiri.app.beans.Direccion;
 import com.zubiri.app.beans.Jugador;
 import com.zubiri.app.beans.Partida;
+import com.zubiri.app.services.EquipoService;
 import com.zubiri.app.services.JugadorService;
 
 
@@ -29,8 +30,12 @@ public class JugadorController {
 		this.creadorService = creadorService;
 	}
 	
+	@Autowired
+	EquipoService equipoService;
+	
 	@GetMapping("/insertJugador")
 	public String introducirCreador(Model m) {
+		m.addAttribute("equipos", equipoService.mostrarTodosLosEquipos());
 		m.addAttribute("direccion", new Direccion());
 		m.addAttribute("jugador", new Jugador());
 		return "CreadorForm";
@@ -47,6 +52,7 @@ public class JugadorController {
 	public String editarCreador(@RequestParam int idCreador, Model m) {
 		// int x =Integer.parseInt(idJuego);
 		Jugador j = creadorService.buscarCreador(idCreador);
+		m.addAttribute("equipos", equipoService.mostrarTodosLosEquipos());
 		m.addAttribute("jugador", j);
 		return "editCreador";
 	}
@@ -59,22 +65,25 @@ public class JugadorController {
 
 	
 	@PutMapping("/modificarJugador")
-	public String modificarJuego(@Valid @ModelAttribute Jugador j, BindingResult thebindingresult, Model m) {
+	public String modificarJuego(@Valid @ModelAttribute Jugador j, Direccion d,@RequestParam int Equipo_Id, BindingResult thebindingresult, Model m) {
 		if (thebindingresult.hasErrors()) {
 			m.addAttribute("jugador",j);
 			return "editCreador";
 		}else{
+		j.setDireccion(d);
+		j.setEquipo(equipoService.buscarEquipoId(Equipo_Id));
 		creadorService.editarJugador(j);
 		return "redirect:/";
 		}
 	}
 	
 	@PostMapping("/guardaJugador")
-	public String guardaCreador(@Valid @ModelAttribute Jugador j, Direccion d, BindingResult thebindingresult) {
+	public String guardaCreador(@Valid @ModelAttribute Jugador j, Direccion d,@RequestParam int idEquipo, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "CreadorForm";
 		} else {
 			j.setDireccion(d);
+			j.setEquipo(equipoService.buscarEquipoId(idEquipo));
 			creadorService.insertarJugador(j);
 			return "redirect:/";
 		}	

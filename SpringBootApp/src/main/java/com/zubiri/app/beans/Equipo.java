@@ -1,19 +1,15 @@
 package com.zubiri.app.beans;
 
-import java.awt.Image;
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -47,6 +43,10 @@ public class Equipo {
 			nullable = true
 	)
 	Set<Jugador> listaJugadores;
+	
+	@OneToOne
+    @JoinColumn(name = "idEquipo", referencedColumnName = "id")
+    private Entrenador entrenador;
 	
 	public int getPartidasGanadas() {
 		return partidasGanadas;

@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.zubiri.app.beans.Direccion;
 import com.zubiri.app.beans.Entrenador;
 import com.zubiri.app.services.EntrenadorService;
+import com.zubiri.app.services.EquipoService;
 
 @Controller
 public class EntrenadorController {
@@ -20,9 +22,13 @@ public class EntrenadorController {
 	@Autowired
 	private EntrenadorService entrenadorService;
 	
+	@Autowired
+	private EquipoService equipoService;
+	
 	@GetMapping("/insertEntrenador")
 	public String introducirEntrenador(Model m) {
 		m.addAttribute("entrenador", new Entrenador());
+		m.addAttribute("equipos", equipoService.mostrarTodosLosEquipos());
 		return "InsertEntrenador";
 	}
 	
@@ -35,6 +41,7 @@ public class EntrenadorController {
 	@GetMapping("/editaent")
 	public String editarEntrenador(@RequestParam int ident, Model m) {
 			Entrenador entre = entrenadorService.buscarEntrenadorId(ident);
+			m.addAttribute("equipos", equipoService.mostrarTodosLosEquipos());
 			m.addAttribute("entrenador",entre);
 			return "editEntrenador";
 		
@@ -42,17 +49,20 @@ public class EntrenadorController {
 	
 	
 	@PostMapping("/guardarEntrenador")
-	public String guardaEntrenador(@ModelAttribute Entrenador e, BindingResult thebindingresult) {
+	public String guardaEntrenador(@ModelAttribute Entrenador e, Direccion d, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "insertEntrenador";
 		} else {
+			e.setDireccion(d);
 			entrenadorService.añadirEntrenador(e);
 			return "redirect:/";
 		}
 	}
 	
 	@PostMapping("/modificarentrenador")
-	public String EditarDBEntrenador(@Valid @ModelAttribute Entrenador e, BindingResult thebindingresult) {
+	public String EditarDBEntrenador(@Valid @ModelAttribute Entrenador e, Direccion d,@RequestParam int idEquipo, BindingResult thebindingresult) {
+		e.setDireccion(d);
+		e.setEquipo(equipoService.buscarEquipoId(idEquipo));
 		entrenadorService.editarEntrenador(e);
 		return "redirect:/";
 	}

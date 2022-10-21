@@ -1,11 +1,10 @@
 package com.zubiri.app.beans;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -21,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "Entrenador")
+@Table(name = "entrenadores")
 public class Entrenador extends Persona{
 	
 	public Entrenador() {}
@@ -36,8 +35,19 @@ public class Entrenador extends Persona{
 	@Min(value = 0, message = "El valor minimo debe de ser de 0")
 	private int partidasGanadas;
 	
-	@Nullable
-	private int idEquipo;
+	@OneToOne(mappedBy = "entrenador")
+    private Equipo equipo;
+	
+	@Embedded
+	private Direccion direccion;
+	
+	public Direccion getDireccion() { 
+		return direccion; 
+	}
+	
+	public void setDireccion(Direccion direccion) { 
+		this.direccion = direccion; 
+	}
 
 	public int getPartidasGanadas() {
 		return partidasGanadas;
@@ -46,13 +56,13 @@ public class Entrenador extends Persona{
 	public void setPartidasGanadas(int partidasGanadas) {
 		this.partidasGanadas = partidasGanadas;
 	}
-
-	public int getIdEquipo() {
-		return idEquipo;
+	public Equipo getEquipo() {
+		return equipo;
+	}
+	public void setEquipo(Equipo equipo) {
+		this.equipo = equipo;
 	}
 
-	public void setIdEquipo(int idEquipo) {
-		this.idEquipo = idEquipo;
-	}
+	
 	
 }

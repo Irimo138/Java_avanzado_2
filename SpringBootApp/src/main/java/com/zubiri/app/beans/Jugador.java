@@ -2,12 +2,10 @@ package com.zubiri.app.beans;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
@@ -46,6 +44,21 @@ public class Jugador extends Persona{
 	@OneToMany(mappedBy = "jugador")
     Set<Partida> partidas;
 	
+	@ManyToOne
+    @JoinColumn(name="Equipo_Id")
+    private Equipo equipo;
+	
+	
+	public Equipo getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(Equipo equipo) {
+		this.equipo = equipo;
+	}
+
+
+
 	@Embedded
 	private Direccion direccion;
 	

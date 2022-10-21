@@ -14,9 +14,14 @@
 		
 	<form th:action="@{/modificarentrenador}" th:method="POST" th:object="${entrenador}">
 		<input type="hidden" th:value="${entrenador.id}" name="id">
-		Nombre<input type="text" name="nombre" th:placeholder="${entrenador.nombre}">
-		DNI<input type="text" name="DNI" th:placeholder="${entrenador.DNI}">
-		Equipo<input type="number" name="idEquipo" th:placeholder="${entrenador.idEquipo}">
+		Nombre<input type="text" name="nombre" th:value="${entrenador.nombre}">
+		DNI<input type="text" name="DNI" th:value="${entrenador.DNI}">
+		Equipo<select name="idEquipo" id="idEquipo">
+			<option th:value="0" th:text="Ninguno"></option>
+			<div th:each="equipo : ${equipos}">
+				<option th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
+			</div>
+			</select>
 		CP<input type="text" th:value="${entrenador.direccion.CP}" name="CP" id="CP">
 		Calle<input type="text" th:value="${entrenador.direccion.calle}" name="calle">
 		Ciudad<input type="text" th:value="${entrenador.direccion.ciudad}" name="ciudad">
