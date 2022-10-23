@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Form Creador</title>
+<title>Insertar Creador</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{styles.css}">
 </head>
+
 <body>
+	<section layout:fragment="content">
 <h2>Insertar creador</h2>
 
 <link rel="stylesheet" th:href="@{Form.css}">
@@ -24,5 +31,6 @@
 		Pais<input type="text" name="pais">
 		<input type="Submit" id="enviar" value="Enviar">
 	</form>
+	</section>
 </body>
 </html>

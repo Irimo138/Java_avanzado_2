@@ -1,14 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
 
 <head>
-<title>Form</title>
+<title>Insertar Juego</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{Form.css}">
+	<link rel="stylesheet" th:href="@{styles.css}">
+<link rel="stylesheet" th:href="@{Form.css}">
 </head>
-<body>	
+
+<body>
+	<section layout:fragment="content">
 	<h2>Insertar juego</h2>
 	<div class="container">
 	<form action="/guardaJuego" method="POST" th:object="${juego} ">
@@ -24,6 +28,6 @@
 		<input id="enviar" type="submit" value="Enviar">
 	</form>
 </div>
-	
+	</section>
 </body>
 </html>

@@ -1,14 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
 
 <head>
-<title>Index</title>
+<title>Mostrar Jugadores</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{styles.css}">
+<link rel="stylesheet" th:href="@{Form.css}">
 </head>
 
 <body>
+	<section layout:fragment="content">
 
 	<p>Aqui el listado de Jugadores</p>
 	<div th:each="creador : ${listaJugadores}">
@@ -23,7 +27,7 @@
 		</form>
 		
 	</div>
-
+</section>
 </body>
 
 </html>

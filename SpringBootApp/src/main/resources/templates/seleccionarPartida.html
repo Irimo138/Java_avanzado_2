@@ -1,14 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
 
 <head>
-<title>Editar</title>
+<title>Seleccionar Partida</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-
+	<link rel="stylesheet" th:href="@{styles.css}">
+<link rel="stylesheet" th:href="@{Form.css}">
 </head>
+
 <body>
+	<section layout:fragment="content">
 <p>Jugar partida</p>
 
 	<form action="/simularPartida" method="POST" th:object="${partida}">
@@ -25,5 +29,6 @@
 		</select>	
 		<input type="submit" value="Jugar">	
 	</form>
+	</section>
 </body>
 </html>

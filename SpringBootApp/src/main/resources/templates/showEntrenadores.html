@@ -1,15 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
 
 <head>
-<title>Index</title>
+<title>Mostrar Entrenadores</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{Listadoents.css}">
+	<link rel="stylesheet" th:href="@{styles.css}">
+<link rel="stylesheet" th:href="@{Form.css}">
 </head>
 
 <body>
+	<section layout:fragment="content"><body>
 
 	<h2>Listado de ents</h2>
 	<div class="container">
@@ -30,7 +33,7 @@
 			</div>
 		</div>
 	</div>
-
+</section>
 </body>
 
 </html>

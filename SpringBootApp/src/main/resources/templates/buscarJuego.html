@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Form Creador</title>
-</head>
-<body>
-<p>Buscar Juego </p>
+<title>Buscar Juegos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{styles.css}">
 <link rel="stylesheet" th:href="@{Form.css}">
+</head>
+
+<body>
+	<section layout:fragment="content">
+<p>Buscar Juego </p>
 <form action="/buscar" method="GET" th:object="${juego}">
 		Nombre: <input type="text" name="nombre">
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
@@ -14,5 +21,6 @@
 		<br>
 		<input type="Submit" id="enviar" value="Enviar">
 	</form>
+</section>
 </body>
 </html>

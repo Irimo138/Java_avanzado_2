@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Form Creador</title>
+<title>Insertar Entrenador</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{styles.css}">
+<link rel="stylesheet" th:href="@{Form.css}">
 </head>
+
 <body>
-<link rel="stylesheet" th:href="@{JuegoForm.css}">
-<h2>Insertar creador</h2>
+	<section layout:fragment="content">
 
 <form action="/guardarEntrenador" method="POST" th:object="${Entrenador}">
 		Nombre<input type="text" name="nombre">
@@ -24,5 +30,6 @@
 		Partidas ganadas<input type="text" name="partidasGanadas">
 		<input id="enviar" type="Submit" value="Enviar">
 	</form>
+	</section>
 </body>
 </html>

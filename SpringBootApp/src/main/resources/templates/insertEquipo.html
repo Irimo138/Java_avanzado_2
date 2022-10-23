@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Form Creador</title>
-</head>
-<body>
-<link rel="stylesheet" th:href="@{JuegoForm.css}">
+<title>Insertar Equipo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+	<link rel="stylesheet" th:href="@{styles.css}">
 <link rel="stylesheet" th:href="@{Form.css}">
-<h2>Insertar creador</h2>
+</head>
+
+<body>
+	<section layout:fragment="content">
 
 <form action="/saveEquipo" method="POST" th:object="${equipo}">
 		Nombre<input type="text" name="nombre">
@@ -15,5 +20,6 @@
 		<br>
 		<input id="enviar" type="Submit" value="Enviar">
 	</form>
+	</section>
 </body>
 </html>
