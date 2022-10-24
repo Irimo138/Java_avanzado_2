@@ -1,5 +1,7 @@
 package com.zubiri.app.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zubiri.app.beans.Direccion;
 import com.zubiri.app.beans.Entrenador;
+import com.zubiri.app.beans.Equipo;
 import com.zubiri.app.services.EntrenadorService;
 import com.zubiri.app.services.EquipoService;
 
@@ -49,12 +52,22 @@ public class EntrenadorController {
 	
 	
 	@PostMapping("/guardarEntrenador")
-	public String guardaEntrenador(@ModelAttribute Entrenador e, Direccion d, BindingResult thebindingresult) {
+	public String guardaEntrenador(@ModelAttribute Entrenador e, Direccion d, @RequestParam String idEquipo, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "insertEntrenador";
 		} else {
 			e.setDireccion(d);
+			if(idEquipo.equalsIgnoreCase("Ninguno")) {
+				e.setEquipo(null);
+			}else {				
+				e.setEquipo(equipoService.buscarEquipoId(Integer.parseInt(idEquipo)));
+			}
 			entrenadorService.añadirEntrenador(e);
+			List<Entrenador> listaEntrenadores = entrenadorService.mostrarTodosLosEntrenadors();
+			Entrenador ent = listaEntrenadores.get(listaEntrenadores.size()-1);
+			Equipo equipoAñadir = equipoService.buscarEquipoId(Integer.parseInt(idEquipo));
+			equipoAñadir.setEntrenador(ent);
+			equipoService.editarEquipo(equipoAñadir);
 			return "redirect:/";
 		}
 	}

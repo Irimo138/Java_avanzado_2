@@ -22,7 +22,7 @@
 		Ciudad<input type="text" name="ciudad">
 		Pais<input type="text" name="pais">
 		Equipo<select name="idEquipo" id="idEquipo">
-			<option th:value="0" th:text="Ninguno"></option>
+			<option th:text="Ninguno"></option>
 			<div th:each="equipo : ${equipos}">
 				<option th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
 			</div>

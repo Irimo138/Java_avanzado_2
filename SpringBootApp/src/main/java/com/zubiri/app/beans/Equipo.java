@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 @Entity
-@Table(name = "Equipo")
+@Table(name = "Equipos")
 public class Equipo {
 	
 	@Id
@@ -44,8 +44,9 @@ public class Equipo {
 	)
 	Set<Jugador> listaJugadores;
 	
+	@Nullable
 	@OneToOne
-    @JoinColumn(name = "idEquipo", referencedColumnName = "id")
+    @JoinColumn(name = "idEntrenador", referencedColumnName = "id")
     private Entrenador entrenador;
 	
 	public int getPartidasGanadas() {
@@ -70,6 +71,22 @@ public class Equipo {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Set<Jugador> getListaJugadores() {
+		return listaJugadores;
+	}
+
+	public void setListaJugadores(Set<Jugador> listaJugadores) {
+		this.listaJugadores = listaJugadores;
+	}
+
+	public Entrenador getEntrenador() {
+		return entrenador;
+	}
+
+	public void setEntrenador(Entrenador entrenador) {
+		this.entrenador = entrenador;
 	}
 
 	

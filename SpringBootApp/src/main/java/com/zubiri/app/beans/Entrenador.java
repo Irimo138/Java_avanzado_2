@@ -4,6 +4,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
@@ -35,7 +36,9 @@ public class Entrenador extends Persona{
 	@Min(value = 0, message = "El valor minimo debe de ser de 0")
 	private int partidasGanadas;
 	
-	@OneToOne(mappedBy = "entrenador")
+	@Nullable
+	@OneToOne
+	@JoinColumn(name = "idEquipo", referencedColumnName = "id")
     private Equipo equipo;
 	
 	@Embedded

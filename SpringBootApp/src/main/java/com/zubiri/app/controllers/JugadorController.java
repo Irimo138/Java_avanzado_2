@@ -78,12 +78,17 @@ public class JugadorController {
 	}
 	
 	@PostMapping("/guardaJugador")
-	public String guardaCreador(@Valid @ModelAttribute Jugador j, Direccion d,@RequestParam int idEquipo, BindingResult thebindingresult) {
+	public String guardaCreador(@Valid @ModelAttribute Jugador j, Direccion d, @RequestParam String idEquipo, BindingResult thebindingresult) {
 		if (thebindingresult.hasErrors()) {
 			return "CreadorForm";
 		} else {
 			j.setDireccion(d);
-			j.setEquipo(equipoService.buscarEquipoId(idEquipo));
+			if(idEquipo.equalsIgnoreCase("Ninguno")) {
+				j.setEquipo(null);
+			}else {				
+				j.setEquipo(equipoService.buscarEquipoId(Integer.parseInt(idEquipo)));
+				
+			}
 			creadorService.insertarJugador(j);
 			return "redirect:/";
 		}	
