@@ -21,4 +21,9 @@ public class HomeController {
 		return "Index";
 	}
 	
+	@GetMapping("/ConsultarDatos")
+	public String ConsultarDatos() {
+		return "ConsultarDatos";
+	}
+	
 }

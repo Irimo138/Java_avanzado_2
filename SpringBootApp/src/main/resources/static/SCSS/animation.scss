@@ -2,6 +2,15 @@
     margin: 0;
     padding:0;
 }
+
+$colorFondo: red;
+$max: 100%;
+$opacidad: .3;
+
+a{
+	text-decoration-line:none;
+}
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -14,13 +23,13 @@
     background-position: center;
     background-size:contain;
     background-repeat: no-repeat;
-    background-image: url(../images/subir.gif);
+    background-image: url(../IMG/subir.gif);
 }
 
 .divContainer{
     width: 100%;
     height: 100%;
-    background-color: red;
+    background-color: $colorFondo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,9 +41,9 @@
 }
 .imagen2{
     width:34%;
-    height: 100%;
-    background-size: 100% 100%;
-    background-image: url(../images/Space.gif);
+    height: $max;
+    background-size: $max 100%;
+    background-image: url(../IMG/Space.gif);
     z-index: 1;
 }
 .divContainer:hover{
@@ -46,19 +55,19 @@
     background-position: center;
     background-size:contain;
     background-repeat: no-repeat;
-    background-image: url(../images/lupa.gif);
+    background-image: url(../IMG/lupa.gif);
 }
 
 @keyframes ocultar3 {
     100%{
-        opacity: 0.3;
+        opacity: $opacidad;
         z-index: 3;
     } 
 }
 
 @keyframes ocultar {
     100%{
-        opacity: 0.3;
+        opacity: $opacidad;
     }
     
 }
