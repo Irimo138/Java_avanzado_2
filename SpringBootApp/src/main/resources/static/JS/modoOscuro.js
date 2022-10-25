@@ -10,7 +10,7 @@ function cambioColor() {
     if(localStorage.getItem("fondo") != "claro"){
         localStorage.setItem("fondo","claro");
         document.querySelector("#cambio").textContent="Modo Oscuro";
-        document.querySelector("#content").setAttribute("class", "claro");
+        document.querySelector("#content").classList.contains;
     }else{
         localStorage.setItem("fondo","oscuro");
         document.querySelector("#cambio").textContent="Modo Claro";
