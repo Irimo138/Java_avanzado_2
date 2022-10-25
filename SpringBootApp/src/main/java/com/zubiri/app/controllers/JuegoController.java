@@ -93,12 +93,10 @@ public class JuegoController  {
 	public String jugarPartida(@ModelAttribute Partida p, int jugador_id, int juego_id) {
 		int puntuacion = (int) ((int) 1 + Math.random()*10000);
 		juegoService.jugarPartida(juego_id, puntuacion, jugador_id);
-		if(puntuacion > 5000) {
 			p.setJuego(juegoService.buscarJuego(juego_id));
 			p.setJugador(creadorService.buscarCreador(jugador_id));
 			p.setPuntuacion(puntuacion);
 			creadorService.ganaJuego(p);
-		}
 		return "redirect:/";
 	}
 

@@ -1,0 +1,56 @@
+@charset "ISO-8859-1";
+*{
+	padding:0;
+	margin:0;
+}
+$negro:  #000000;
+$marino: #00151e;
+$darkGrey: #425859;
+$sec: #9fa4a3;
+$blanco: #e5dfe2;
+
+nav{
+    background-color: $sec;
+	width:100vw;
+	height:5vh;
+	display:flex;
+	flex-direction:row;
+	text-align: center;
+}
+h2{
+	width: 90vw;
+	padding-top: .5vh;
+	padding-left:5vw;
+	padding-bottom: 1.5vh;
+	text-align: center;
+	justify-self: center;
+}
+a{
+	text-decoration-line: none;
+}
+#cambio{
+	justify-self:end;
+	margin-right:3vw;
+}
+.claro{
+	background-color:$blanco;
+    border-color:$negro;
+}
+.oscuro{
+    background-color:$marino;
+    border-color:$blanco;
+}
+
+.claro p{
+	color:$negro;
+}
+.oscuro p{
+    color:$blanco;
+}
+
+.claro form{
+    border-color:$negro;
+}
+.oscuro form{
+    border-color:$blanco;
+}

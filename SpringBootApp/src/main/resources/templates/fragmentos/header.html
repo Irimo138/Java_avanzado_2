@@ -3,16 +3,16 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-
+<link rel="stylesheet" th:href="@{CSS/headerModoOscuro.css}">
+<script type="text/javascript" src="JS/modoOscuro.js"></script>
 </head>
-<body>
+<header>
 	<div th:fragment="header">
 		<nav>
+			<img alt="" src="../../static/IMG/lupa.gif">
 			<a href="/"><h2>Gestor Agenda</h2></a>
+			<button id="cambio">Modo Oscuro</button>
 		</nav>
 	</div>
-</body>
+</header>
 </html>
