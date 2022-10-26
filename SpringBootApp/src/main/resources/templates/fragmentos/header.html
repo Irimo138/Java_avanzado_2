@@ -1,18 +1,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<div th:fragment="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" th:href="@{CSS/headerModoOscuro.css}">
 <script type="text/javascript" src="JS/modoOscuro.js"></script>
-</head>
-<header>
-	<div th:fragment="header">
+
 		<nav>
 			<img alt="" src="../../static/IMG/lupa.gif">
 			<a href="/"><h2>Gestor Agenda</h2></a>
 			<button id="cambio">Modo Oscuro</button>
 		</nav>
-	</div>
-</header>
+</div>
 </html>

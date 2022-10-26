@@ -1,5 +1,6 @@
 package com.zubiri.app.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,11 +28,11 @@ public class Partida {
 	@Min(value = 0, message = "El valor minimo debe de ser de 0")
 	private int Puntuacion;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "jugador_id")
     Jugador jugador;
 
-    @ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "juego_id")
     Juego juego;
 

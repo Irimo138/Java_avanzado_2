@@ -17,6 +17,6 @@ public interface JuegosInterface{
 	Juego buscarJuego(int i);
 	List<Juego> buscarJuegoNombre(String n);
 	Iterable<Juego> mostrarJuego();
-	Page<Juego> obtenerTodosPorNombre();
+	List<Juego> obtenerTodosPorNombre();
 	void jugarPartida(int juego, int puntuacion, int jugador);	
 }

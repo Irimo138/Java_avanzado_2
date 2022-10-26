@@ -79,9 +79,8 @@ public class JuegoService implements JuegosInterface{
 
 
 	@Override
-	public Page<Juego> obtenerTodosPorNombre() {
-		Pageable pageable = PageRequest.of(0, 4);
-		Page<Juego> page =  (Page<Juego>) jdbc2.findAll(pageable);
-		return page;
+	public List<Juego> obtenerTodosPorNombre() {
+		
+		return jdbc2.findAll();
 	}
 }
