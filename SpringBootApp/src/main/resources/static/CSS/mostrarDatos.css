@@ -1,0 +1,110 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  background-color: #9fa4a3;
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+h2 {
+  width: 90vw;
+  padding-top: 0.5vh;
+  padding-bottom: 1.5vh;
+  text-align: center;
+  justify-self: center;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+#cambio {
+  margin-right: 3vw;
+}
+
+#content h2 {
+  width: 100vw;
+  text-align: center;
+}
+
+body {
+  background-color: #e5dfe2;
+  padding: 0;
+  margin: 0;
+}
+
+.oscuro .containers h3 {
+  color: #e5dfe2;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.caja {
+  border: 1px black solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 12.5vw;
+  margin-top: 7.5vh;
+  width: 17.5vw;
+  height: 15vh;
+}
+
+.caja h4 {
+  padding-bottom: 2vh;
+}
+
+.caja h3 {
+  padding-bottom: 2vh;
+}
+
+#content {
+  height: 100vh;
+}
+
+.caja .opciones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 20vw;
+}
+
+.oscuro {
+  background-color: #000000;
+}
+
+.claro {
+  background-color: #e5dfe2;
+}
+
+.oscuro .container div .caja {
+  border-color: #e5dfe2;
+  color: #e5dfe2;
+}
+
+.claro .container div .caja {
+  border-color: #000000;
+  color: #000000;
+}
+
+.claro h2 {
+  color: #000000;
+}
+
+.oscuro h2 {
+  color: #e5dfe2;
+}
+
+/*# sourceMappingURL=mostrarDatos.css.map */

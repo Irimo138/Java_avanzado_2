@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+<title>Mostrar Jugadores</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all" href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{../CSS/APIPage.css}">
+<script type="text/javascript" src="../JS/modoOscuro.js"></script>
+<link rel="stylesheet" th:href="@{../CSS/animacionBoton.css}">
+</head>
+<body>
+<header th:insert="fragmentos/header.html :: header"> </header>
+<section layout:fragment="content" id="content">
+	<h2>Todos los Juegos</h2>
+	<div class="container" >
+		<div th:each="juego : ${juegos}">
+		
+			<div class="caja">
+				<h3 th:text="${juego.nombre}"></h3>	
+				<h4>Partidas Jugadas: <span th:text="${juego.partidasJugadas}"></span></h4>
+				<h4>Puntuacion Máxima: <span th:text="${juego.puntuacionMax}"></span></h4>	
+				<div class="opciones"> 
+					<form action="/editaJuego" method="GET">
+						<input type="hidden" name="idJuego" th:value="${juego.id}">
+						<input type="Submit" class="botoia" value="Editar">
+					</form>
+					<form action="/eliminaJuego" method="POST">
+						<input type="hidden" name="idJuego" th:value="${juego.id}">
+						<input type="Submit" class="botoia" value="Eliminar">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

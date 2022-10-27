@@ -22,11 +22,11 @@ public class restJuegoController {
 		this.juegoService = juegoService;
 	}
 	
-	@GetMapping("/obtenerJuegosPaginados")
+	@GetMapping("/obtenerJuegos")
     public ModelAndView findAll(ModelAndView m){
 		List<Juego> lista = juegoService.obtenerTodosPorNombre();
 		m.addObject("juegos", lista);
-		m.setViewName("MostrarJuegosPaginacion");
+		m.setViewName("MostrarJuegos");
         return m;
     }
 }

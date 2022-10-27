@@ -5,22 +5,22 @@
 <head>
 <title>Mostrar Entrenadores</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" type="text/css" media="all" href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{CSS/mostrarDatos.css}">
 </head>
 
 <body>
-	<section layout:fragment="content"><body>
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 
 	<h2>Listado de ents</h2>
 	<div class="container">
 		<div th:each="ent : ${listaEntrenador}">
-			<div class="entMostrar">
-				<h4 th:text="${ent.nombre}"></h4>
-				<p>Partidas Ganadas: <span th:text="${ent.partidasGanadas}"></span></p>
-				<div class="formContainer">
+			<div class="caja">
+				<h2 th:text="${ent.nombre}"></h2>
+				<h4>Partidas Ganadas: <span th:text="${ent.partidasGanadas}"></span></h4>
+				<div class="opciones">
 					<form action="/editaent" method="GET">
 						<input type="hidden" th:value="${ent.id}" name="ident">
 						<input type="submit" value="Editar">

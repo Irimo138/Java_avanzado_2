@@ -5,27 +5,27 @@
 <head>
 <title>Insertar Juego</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" type="text/css" media="all"	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{CSS/Form.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 	<h2>Insertar juego</h2>
 	<div class="container">
 	<form action="/guardaJuego" method="POST" th:object="${juego} ">
-		Nombre<input type="text" name="nombre"> 
+		<label>Nombre</label><input type="text" name="nombre"> 
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
-		Partidas Jugadas<input type="number" name="partidasJugadas"> 
+		<label>Partidas Jugadas</label><input type="number" name="partidasJugadas"> 
 		<td th:if="${#fields.hasErrors('partidasJugadas')}" th:errors="*{partidasJugadas}"/>
 		<br>
-		Puntuación Maxima<input type="number" name="puntuacionMax"> 
+		<label>Puntuación Maxima</label><input type="number" name="puntuacionMax"> 
 		<td th:if="${#fields.hasErrors('puntuacionMax')}" th:errors="*{puntuacionMax}"/>
 		<br>  
-		<input id="enviar" type="submit" value="Enviar">
+		<input id="enviar" type="submit" class="botoia" value="Enviar">
 	</form>
 </div>
 	</section>

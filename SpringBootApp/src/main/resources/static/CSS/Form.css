@@ -69,3 +69,18 @@ p{
 .oscuro form {
   border-color: #e5dfe2;
 }
+.claro form label{
+  color: #000000;
+}
+
+.oscuro form label{
+  color: #e5dfe2;
+}
+.claro h2{
+  color: #000000;
+}
+
+.oscuro h2{
+  color: #e5dfe2;
+}
+

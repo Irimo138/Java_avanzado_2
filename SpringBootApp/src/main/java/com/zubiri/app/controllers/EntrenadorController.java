@@ -57,15 +57,16 @@ public class EntrenadorController {
 			return "insertEntrenador";
 		} else {
 			e.setDireccion(d);
+			System.err.println(idEquipo);
 			if(idEquipo.equalsIgnoreCase("Ninguno")) {
 				e.setEquipo(null);
 			}else {				
-				e.setEquipo(equipoService.buscarEquipoId(Integer.parseInt(idEquipo)));
+				e.setEquipo(equipoService.buscarEquipoId(Integer.parseInt(idEquipo)).get());
 			}
 			entrenadorService.añadirEntrenador(e);
 			List<Entrenador> listaEntrenadores = entrenadorService.mostrarTodosLosEntrenadors();
 			Entrenador ent = listaEntrenadores.get(listaEntrenadores.size()-1);
-			Equipo equipoAñadir = equipoService.buscarEquipoId(Integer.parseInt(idEquipo));
+			Equipo equipoAñadir = equipoService.buscarEquipoId(Integer.parseInt(idEquipo)).get();
 			equipoAñadir.setEntrenador(ent);
 			equipoService.editarEquipo(equipoAñadir);
 			return "redirect:/";
@@ -75,8 +76,12 @@ public class EntrenadorController {
 	@PostMapping("/modificarentrenador")
 	public String EditarDBEntrenador(@Valid @ModelAttribute Entrenador e, Direccion d,@RequestParam int idEquipo, BindingResult thebindingresult) {
 		e.setDireccion(d);
-		e.setEquipo(equipoService.buscarEquipoId(idEquipo));
-		entrenadorService.editarEntrenador(e);
+		if(equipoService.buscarEquipoId(idEquipo).isEmpty()) {			
+			e.setEquipo(null);
+		}else {			
+			e.setEquipo(equipoService.buscarEquipoId(idEquipo).get());
+			entrenadorService.editarEntrenador(e);
+		}
 		return "redirect:/";
 	}
 	

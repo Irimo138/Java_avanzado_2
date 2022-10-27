@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+<title>Links</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{CSS/MostrarDatos.css}">
+</head>
+
+<body>
+	<section layout:fragment="content" id="content">
+		<article class="containers">
+		<h3>Juegos</h3> 
+			<br>
+			<a th:href="@{/mostrarJuegos}">Mostrar lista de Juegos</a>
+			<br>
+			<a th:href="@{/buscarJuego}">Buscar Juego</a>
+		</article>
+		<article class="containers">
+			<h3>Jugador</h3>
+
+			<a th:href="@{/mostrarJugador}">Mostrar Jugadores</a>
+			</article>
+			<br>
+			<a href="/insertEntrenador">Insertar Entrenador</a>
+			<a href="/mostrarAllEntrenadores">Mostrar Entrenadores</a>
+		</section>
+	
+	
+</body>
+
+</html>

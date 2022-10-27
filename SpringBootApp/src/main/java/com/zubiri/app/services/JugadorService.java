@@ -41,7 +41,7 @@ public class JugadorService implements JugadorInterface{
 
 	@Override
 	public void eliminarJugador(int i) {
-		dbManagerCreadores.eliminarJugador(i);
+		jpa.deleteById(i);
 	}
 
 	@Override

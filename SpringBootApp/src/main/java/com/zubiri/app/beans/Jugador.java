@@ -57,7 +57,7 @@ public class Jugador extends Persona{
 		this.equipo = equipo;
 	}
 
-
+	
 
 	@Embedded
 	private Direccion direccion;
@@ -77,6 +77,16 @@ public class Jugador extends Persona{
 	public void setPartidasGanadas(int partidasJugadas) {
 		this.partidasGanadas = partidasJugadas;
 	}
+
+	public Set<Partida> getPartidas() {
+		return partidas;
+	}
+
+	public void setPartidas(Set<Partida> partidas) {
+		this.partidas = partidas;
+	}
+	
+	
 	
 	
 }

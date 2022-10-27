@@ -1,5 +1,6 @@
 package com.zubiri.app.controllers;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import javax.validation.Valid;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zubiri.app.beans.Juego;
 import com.zubiri.app.beans.Partida;
+import com.zubiri.app.beans.Partida.Id;
 import com.zubiri.app.services.JuegoService;
 import com.zubiri.app.services.JugadorService;
 
@@ -92,10 +94,14 @@ public class JuegoController  {
 	@PostMapping("/simularPartida")
 	public String jugarPartida(@ModelAttribute Partida p, int jugador_id, int juego_id) {
 		int puntuacion = (int) ((int) 1 + Math.random()*10000);
-		juegoService.jugarPartida(juego_id, puntuacion, jugador_id);
+		//juegoService.jugarPartida(juego_id, puntuacion, jugador_id);
 			p.setJuego(juegoService.buscarJuego(juego_id));
 			p.setJugador(creadorService.buscarCreador(jugador_id));
 			p.setPuntuacion(puntuacion);
+			p.setAddedOn(LocalDateTime.now());
+			System.err.println(p.getJuego().getNombre());
+			System.err.println(p.getJugador().getNombre());
+			System.err.println(p.getAddedOn());
 			creadorService.ganaJuego(p);
 		return "redirect:/";
 	}

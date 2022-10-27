@@ -151,7 +151,7 @@ public class DBManagerJuegos {
 				stmt.setInt(3, jugador_id);
 			}else {
 				stmt.setInt(2, j.getPuntuacionMax());
-				stmt.setInt(3, j.getJ().getId());
+				stmt.setObject(3, j.getJ());
 			}
 			stmt.setInt(4, j.getId());
 			

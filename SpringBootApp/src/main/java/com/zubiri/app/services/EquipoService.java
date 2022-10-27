@@ -3,8 +3,6 @@ package com.zubiri.app.services;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.descriptor.TaglibDescriptor;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +23,8 @@ public class EquipoService implements EquipoInterface{
 	}
 
 	@Override
-	public Equipo buscarEquipoId(int i) {
-		return dbEquipo.findById(i).get();
+	public Optional<Equipo> buscarEquipoId(int i) {
+		return dbEquipo.findById(i);
 		
 	}
 

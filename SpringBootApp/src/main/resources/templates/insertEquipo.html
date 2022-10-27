@@ -7,18 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" th:href="@{CSS/Form.css}">
 </head>
-
 <body>
-	<section layout:fragment="content">
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 
 <form action="/saveEquipo" method="POST" th:object="${equipo}">
-		Nombre<input type="text" name="nombre">
-		Partidas Ganadas<input type="text" name="partidasGanadas">
+		<label>Nombre</label> <input type="text" name="nombre">
+		<label> Partidas Ganadas</label> <input type="text" name="partidasGanadas">
 		<br>
-		<input id="enviar" type="Submit" value="Enviar">
+		<input id="enviar" type="Submit" class="botoia" value="Enviar">
 	</form>
 	</section>
 </body>

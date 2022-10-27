@@ -7,19 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" th:href="@{CSS/Form.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content"> 
 	
 	<h2>Editar Equipo: <h2 th:text="${equipo.nombre}"></h2></h2>
 		
 	<form action="/editEquipo" method="POST" th:object="${equipo}">
 		<input type="hidden" th:value="${equipo.id}" name="id">
-		Nombre<input type="text" th:value=${equipo.nombre} name="nombre">
-		Partidas Ganadas<input type="text" th:value=${equipo.partidasGanadas} name="partidasGanadas">
+		<label>Nombre</label><input type="text" th:value=${equipo.nombre} name="nombre">
+		<label>Partidas Ganadas</label><input type="text" th:value=${equipo.partidasGanadas} name="partidasGanadas">
 		<br>
 		<input id="enviar" type="Submit" value="Enviar">
 	</form>

@@ -8,7 +8,7 @@ import com.zubiri.app.beans.Jugador;
 
 public interface EquipoInterface {
 
-	Equipo buscarEquipoId(int i);
+	Optional<Equipo> buscarEquipoId(int i);
 	void editarEquipo(Equipo e);
 	List<Jugador> mostrarJugadoresIdEqupo(int i);
 	List<Equipo> mostrarTodosLosEquipos();

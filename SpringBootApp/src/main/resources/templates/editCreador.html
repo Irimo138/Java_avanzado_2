@@ -7,29 +7,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" th:href="@{CSS/Form.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 	<h2 th:value="${jugador.DNI}"></h2>
 	<h2>Editar Creador: <h2 th:text="${jugador.nombre}"></h2></h2>
 		
 	<form th:action="@{/modificarJugador}" th:method="PUT" th:object="${jugador}">
 		<input type="hidden" th:value="${jugador.id}" name="id">
-		Nombre<input type="text" th:value="${jugador.nombre}" name="nombre" id="nombre">
-		DNI<input type="text" th:value="${jugador.DNI}" name="DNI" id="DNI">
-		Equipo<select name="Equipo_Id" id="Equipo_Id">
+		<label>Nombre</label><input type="text" th:value="${jugador.nombre}" name="nombre" id="nombre">
+		<label>DNI</label><input type="text" th:value="${jugador.DNI}" name="DNI" id="DNI">
+		<label>Equipo</label><select name="Equipo_Id" id="Equipo_Id">
 			<option th:value="${jugador.equipo.id }" th:text="${jugador.equipo.nombre}"></option>
 			<div th:each="equipo : ${equipos}">
 				<option th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
 			</div>
 			</select>
-		CP<input type="text" th:value="${jugador.direccion.CP}" name="CP" id="CP">
-		Calle<input type="text" th:value="${jugador.direccion.calle}" name="calle">
-		Ciudad<input type="text" th:value="${jugador.direccion.ciudad}" name="ciudad">
-		Pais<input type="text" th:value="${jugador.direccion.pais}" name="pais">
+		<label>CP</label><input type="text" th:value="${jugador.direccion.CP}" name="CP" id="CP">
+		<label>Calle</label><input type="text" th:value="${jugador.direccion.calle}" name="calle">
+		<label>Ciudad</label><input type="text" th:value="${jugador.direccion.ciudad}" name="ciudad">
+		<label>Pais</label><input type="text" th:value="${jugador.direccion.pais}" name="pais">
 		<input type="Submit" id="enviar" value="Enviar">
 	</form>
 	</section>

@@ -71,7 +71,7 @@ public class JugadorController {
 			return "editCreador";
 		}else{
 		j.setDireccion(d);
-		j.setEquipo(equipoService.buscarEquipoId(Equipo_Id));
+		j.setEquipo(equipoService.buscarEquipoId(Equipo_Id).get());
 		creadorService.editarJugador(j);
 		return "redirect:/";
 		}
@@ -86,7 +86,7 @@ public class JugadorController {
 			if(idEquipo.equalsIgnoreCase("Ninguno")) {
 				j.setEquipo(null);
 			}else {				
-				j.setEquipo(equipoService.buscarEquipoId(Integer.parseInt(idEquipo)));
+				j.setEquipo(equipoService.buscarEquipoId(Integer.parseInt(idEquipo)).get());
 				
 			}
 			creadorService.insertarJugador(j);

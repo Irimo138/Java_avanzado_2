@@ -13,21 +13,21 @@
 <body>   
  <header th:insert="fragments/header.html :: header"> </header>
 	<section layout:fragment="content" id="content">
-<p>Jugar partida</p>
+<h2>Jugar partida</h2>
 
 	<form action="/simularPartida" method="POST" th:object="${partida}">
-		<select name="jugador_id">
+		<label>Jugador</label><select name="jugador_id">
 			<div th:each="j : ${jugadores}">
 				<option th:text="${j.nombre}" name="jugador_id" th:value="${j.id}">
 			</div>
 		</select>
 		
-		<select name="juego_id">
+		<label>Juego</label><select name="juego_id">
 			<div th:each="j : ${juegos}">
 				<option th:text="${j.nombre}" name="juego_id" th:value="${j.id}">
 			</div>
 		</select>	
-		<input type="submit" id="enviar" value="Jugar">	
+		<input type="submit" id="enviar" class="botoia" value="Jugar">	
 	</form>
 	</section>
 </body>

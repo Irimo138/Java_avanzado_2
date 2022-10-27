@@ -1,0 +1,15 @@
+button:hover {
+  animation: agrandar 0.3s forwards;
+}
+
+.botoia:hover {
+  animation: agrandar 0.3s forwards;
+}
+
+@keyframes agrandar {
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/*# sourceMappingURL=animacionBoton.css.map */

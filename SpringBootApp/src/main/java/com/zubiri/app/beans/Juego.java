@@ -1,6 +1,5 @@
 package com.zubiri.app.beans;
 
-
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -23,71 +22,82 @@ import groovyjarjarantlr4.v4.runtime.misc.Nullable;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
-@NoArgsConstructor(access = AccessLevel.PUBLIC, force=true)
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 @Entity
 @Table(name = "Juegos")
 public class Juego {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@NotNull
-	@Size(min = 3, message ="No cumple con los minimos caracteres necesarios (3)")
+	@Size(min = 3, message = "No cumple con los minimos caracteres necesarios (3)")
 	private String nombre;
-	
-	@NotNull(message="Minimo debe de ser 0")
-	@Min(value = 0, message="Minimo debe de ser 0")
+
+	@NotNull(message = "Minimo debe de ser 0")
+	@Min(value = 0, message = "Minimo debe de ser 0")
 	private int puntuacionMax;
-	
+
 	@Nullable
 	private int partidasJugadas;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "id_jugador", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Jugador j;
-	
+
 	@OneToMany(mappedBy = "juego")
-    Set<Partida> partidas;
-	
+	Set<Partida> Partidas;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public int getPuntuacionMax() {
 		return puntuacionMax;
 	}
+
 	public void setPuntuacionMax(int puntuacionMax) {
 		this.puntuacionMax = puntuacionMax;
 	}
+
 	public int getPartidasJugadas() {
 		return partidasJugadas;
 	}
+
 	public void setPartidasJugadas(int partidasJugadas) {
 		this.partidasJugadas = partidasJugadas;
 	}
+
 	public Jugador getJ() {
 		return j;
 	}
+
 	public void setJ(Jugador j) {
 		this.j = j;
 	}
+
 	public Set<Partida> getPartidas() {
-		return partidas;
+		return Partidas;
 	}
+
 	public void setPartidas(Set<Partida> partidas) {
-		this.partidas = partidas;
+		this.Partidas = partidas;
 	}
-	
-	
+
 }

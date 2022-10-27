@@ -5,27 +5,34 @@
 <head>
 <title>Mostrar Jugadores</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" type="text/css" media="all" href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{CSS/MostrarDatos.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 
-	<p>Aqui el listado de Jugadores</p>
-	<div th:each="creador : ${listaJugadores}">
-		<p th:text="${creador.nombre}">jaja</p>
-		<form action="/editarJugador" method="GET">
-			<input type="hidden" th:value="${creador.id}" name="idCreador">
-			<input type="submit" value="editar">
-		</form>
-		<form action="/eliminarJugador" method="POST">
-			<input type="hidden" th:value="${creador.id}" name="idCreador">
-			<input type="submit" value="Eliminar">
-		</form>
-		
+	<h2>Lista de jugadores</h2>
+	<div class="container">
+		<div th:each="creador : ${listaJugadores}">
+			<div class="caja">
+			<h2 th:text="${creador.nombre}"></h2>
+				<h3 th:text="${creador.direccion.pais}"></h3>
+				<div class="opciones">
+					<form action="/editarJugador" method="GET">
+						<input type="hidden" th:value="${creador.id}" name="idCreador">
+						<input type="submit" class="botoia" value="editar">
+					</form>
+					<form action="/eliminarJugador" method="POST">
+						<input type="hidden" th:value="${creador.id}" name="idCreador">
+						<input type="submit" class="botoia" value="Eliminar">
+					</form>
+				</div>
+			</div>
+			
+		</div>
 	</div>
 </section>
 </body>

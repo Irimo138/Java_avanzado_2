@@ -1,0 +1,115 @@
+*{
+	padding:0;
+	margin:0;
+}
+$negro:  #000000;
+$marino: #00151e;
+$darkGrey: #425859;
+$sec: #9fa4a3;
+$blanco: #e5dfe2;
+
+nav{
+    background-color: $sec;
+	width:100vw;
+	height:5vh;
+	display:flex;
+	flex-direction:row;
+	text-align: center;
+}
+h2{
+	width: 90vw;
+	padding-top: .5vh;
+	padding-bottom: 1.5vh;
+	text-align: center;
+	justify-self: center;
+}
+a{
+	text-decoration-line: none;
+}
+#cambio{
+	margin-right:3vw;
+}
+
+@mixin position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin standar-border {
+    border: 1px black solid;
+    border-radius: 5px;
+}
+
+@mixin margins {
+    margin-left: 12.5vw;
+    margin-top: 7.5vh;
+}
+
+#content h2{
+	width:100vw;
+	text-align: center;
+}
+
+body{
+    background-color: $blanco;
+    padding:0;
+    margin:0;
+}
+
+.container{
+	width:100vw;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.caja{
+	@include standar-border();
+    @include position();
+    @include margins();
+    width:17.5vw; 
+    height: 15vh;
+}
+.caja h4{
+	padding-bottom:2vh;
+}
+
+.caja h3{
+	padding-bottom:2vh;
+}
+
+#content{
+	height:100vh;
+}
+.caja .opciones{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width:20vw;
+}
+.claro{
+	background-color: $negro;
+}
+
+.oscuro{
+	background-color: $blanco;
+}
+
+.claro .container div .caja{
+    border-color:$blanco;
+    color: $blanco;
+}
+.oscuro .container div .caja{
+    border-color:$negro;
+    color: $negro;
+}
+
+.oscuro h2{
+	color: $negro;
+}
+
+.claro h2{
+	color: $blanco;
+}
+

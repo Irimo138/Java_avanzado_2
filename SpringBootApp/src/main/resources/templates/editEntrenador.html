@@ -7,29 +7,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" th:href="@{CSS/Form.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 	
 	<h2>Editar Creador: <h2 th:text="${entrenador.nombre}"></h2></h2>
 		
 	<form th:action="@{/modificarentrenador}" th:method="POST" th:object="${entrenador}">
 		<input type="hidden" th:value="${entrenador.id}" name="id">
-		Nombre<input type="text" name="nombre" th:value="${entrenador.nombre}">
-		DNI<input type="text" name="DNI" th:value="${entrenador.DNI}">
-		Equipo<select name="idEquipo" id="idEquipo">
+		<label>Nombre</label><input type="text" name="nombre" th:value="${entrenador.nombre}">
+		<label>DNI</label><input type="text" name="DNI" th:value="${entrenador.DNI}">
+		<label>Equipo</label><select name="idEquipo" id="idEquipo">
 			<option th:value="0" th:text="Ninguno"></option>
 			<div th:each="equipo : ${equipos}">
 				<option th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
 			</div>
 			</select>
-		CP<input type="text" th:value="${entrenador.direccion.CP}" name="CP" id="CP">
-		Calle<input type="text" th:value="${entrenador.direccion.calle}" name="calle">
-		Ciudad<input type="text" th:value="${entrenador.direccion.ciudad}" name="ciudad">
-		Pais<input type="text" th:value="${entrenador.direccion.pais}" name="pais">
+		<label>CP</label><input type="text" th:value="${entrenador.direccion.CP}" name="CP" id="CP">
+		<label>Calle</label><input type="text" th:value="${entrenador.direccion.calle}" name="calle">
+		<label>Ciudad</label><input type="text" th:value="${entrenador.direccion.ciudad}" name="ciudad">
+		<label>Pais</label><input type="text" th:value="${entrenador.direccion.pais}" name="pais">
 		<br>
 		<input type="submit" id="enviar" value="Enviar">
 	</form>

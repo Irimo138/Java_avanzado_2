@@ -5,30 +5,30 @@
 <head>
 <title>Insertar Entrenador</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" type="text/css" media="all"	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{CSS/Form.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 
 <form action="/guardarEntrenador" method="POST" th:object="${Entrenador}">
-		Nombre<input type="text" name="nombre">
-		DNI<input type="text" name="DNI" id="DNI">
-		CP<input type="text" name="CP" id="CP">
-		Calle<input type="text" name="calle">
-		Ciudad<input type="text" name="ciudad">
-		Pais<input type="text" name="pais">
-		Equipo<select name="idEquipo" id="idEquipo">
+		<label>Nombre</label><input type="text" name="nombre">
+		<label>DNI</label><input type="text" name="DNI" id="DNI">
+		<label>CP</label><input type="text" name="CP" id="CP">
+		<label>Calle</label><input type="text" name="calle">
+		<label>Ciudad</label><input type="text" name="ciudad">
+		<label>Pais </label><input type="text" name="pais">
+		<label>Equipo</label><select name="idEquipo" id="idEquipo">
 			<option th:text="Ninguno"></option>
 			<div th:each="equipo : ${equipos}">
 				<option th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
 			</div>
 			</select>
-		Partidas ganadas<input type="text" name="partidasGanadas">
-		<input id="enviar" type="Submit" value="Enviar">
+		<label>Partidas ganadas</label><input type="text" name="partidasGanadas">
+		<input id="enviar" type="Submit" class="botoia" value="Enviar">
 	</form>
 	</section>
 </body>

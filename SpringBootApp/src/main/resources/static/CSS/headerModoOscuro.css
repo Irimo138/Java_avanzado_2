@@ -5,7 +5,7 @@
 
 nav {
   background-color: #9fa4a3;
-  width:100vw;
+  width: 100vw;
   height: 5vh;
   display: flex;
   flex-direction: row;
@@ -13,9 +13,8 @@ nav {
 }
 
 h2 {
-  width: 85vw;
+  width: 90vw;
   padding-top: 0.5vh;
-  margin-left: 7vw;
   padding-bottom: 1.5vh;
   text-align: center;
   justify-self: center;
@@ -27,8 +26,33 @@ a {
 
 #cambio {
   justify-self: end;
+  margin-right: 3vw;
 }
 
+.claro {
+  background-color: #e5dfe2;
+  border-color: #000000;
+}
 
+.oscuro {
+  background-color: #00151e;
+  border-color: #e5dfe2;
+}
+
+.claro p {
+  color: #000000;
+}
+
+.oscuro p {
+  color: #e5dfe2;
+}
+
+.claro form {
+  border-color: #000000;
+}
+
+.oscuro form {
+  border-color: #e5dfe2;
+}
 
 /*# sourceMappingURL=headerModoOscuro.css.map */

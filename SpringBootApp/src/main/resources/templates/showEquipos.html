@@ -7,34 +7,36 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all"
 	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" th:href="@{CSS/mostrarDatos.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
-
-	<p>Aqui el listado de Empresas</p>
+	
+<header th:insert="fragmentos/header.html :: header"> </header>
+	<section layout:fragment="content" id="content">
 	<h2>Listado de Juegos</h2>
 	<div class="container">
 	<div th:each="equipo : ${listaEquipos}">
-			<div class="juegoMostrar">
-				<h4 th:text="equipo"></h4>
-				<p>Partidas Jugadas: <span th:text="${equipo.partidasGanadas}"></span></p>
-				<div class="formContainer">
+			<div class="caja">
+				<h3 th:text="${equipo.nombre}"></h3>	
+				<h4>Partidas Jugadas: <span th:text="${equipo.partidasGanadas}"></span></h4>
+					
+				<div class="opciones"> 
 					<form action="/editaFormEquipo" method="GET">
 						<input type="hidden" th:value="${equipo.id}" name="idEquipo">
-						<input type="submit" value="Editar">
+						<input type="submit" class="botoia" value="Editar">
 					</form>
 					<form action="/eliminarEquipo" method="POST">
 						<input type="hidden" th:value="${equipo.id}" name="idEquipo">
-						<input type="submit" value="Borrar">
+						<input type="submit" class="botoia" value="Borrar">
 					</form>
 				</div>
 			</div>
+		</div>
 		</div>
 		</div>
 		</section>
 </body>
 
 </html>
+					

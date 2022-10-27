@@ -5,17 +5,16 @@
 <head>
 <title>Buscar Juegos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
-	<link rel="stylesheet" th:href="@{styles.css}">
-<link rel="stylesheet" th:href="@{Form.css}">
+<link rel="stylesheet" type="text/css" media="all" href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{CSS/Form.css}">
 </head>
 
 <body>
-	<section layout:fragment="content">
-<p>Buscar Juego </p>
+<header th:insert="fragmentos/header.html :: header"> </header>
+<section layout:fragment="content" id="content">
+<h2>Buscar Juego </h2>
 <form action="/buscar" method="GET" th:object="${juego}">
-		Nombre: <input type="text" name="nombre">
+		<label>Nombre: </label><input type="text" name="nombre">
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
 		<br>
