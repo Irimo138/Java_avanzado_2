@@ -51,15 +51,15 @@ body {
 }
 
 .caja {
-  border: 1px black solid;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 12.5vw;
   margin-top: 7.5vh;
   width: 17.5vw;
-  height: 15vh;
+  height: 20vh;
+  border: 1px black dashed;
+  border-radius: 5px;
 }
 
 .caja h4 {

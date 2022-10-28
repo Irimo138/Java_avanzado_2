@@ -7,6 +7,7 @@ $marino: #00151e;
 $darkGrey: #425859;
 $sec: #9fa4a3;
 $blanco: #e5dfe2;
+$fondo:null;
 
 nav{
     background-color: $sec;
@@ -36,8 +37,13 @@ a{
     align-items: center;
 }
 
-@mixin standar-border {
+@mixin standar-border() {
     border: 1px black solid;
+    border-radius: 5px;
+}
+
+@mixin secondary-border() {
+    border: 1px black dashed;
     border-radius: 5px;
 }
 
@@ -58,6 +64,7 @@ body{
 }
 .oscuro .containers h3{
 	color:$blanco;
+	$fondo:$blanco;
 }
 
 .container{
@@ -68,11 +75,16 @@ body{
 }
 
 .caja{
-	@include standar-border();
     @include position();
     @include margins();
     width:17.5vw; 
-    height: 15vh;
+    height:20vh;
+    @if $fondo == $negro{
+		@include standar-border();
+		}
+	@else{
+		@include secondary-border();
+		}
 }
 .caja h4{
 	padding-bottom:2vh;
@@ -93,6 +105,7 @@ body{
 }
 .oscuro{
 	background-color: $negro;
+	$fondo : $negro;
 }
 
 .claro{
