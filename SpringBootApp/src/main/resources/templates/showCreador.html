@@ -19,7 +19,8 @@
 		<div th:each="creador : ${listaJugadores}">
 			<div class="caja">
 			<h2 th:text="${creador.nombre}"></h2>
-				<h3 th:text="${creador.direccion.pais}"></h3>
+				<h4>Pais: <span th:text="${creador.direccion.pais}"></span></h4>
+				<h4>Ciudad: <span th:text="${creador.direccion.ciudad}"></span></h4>
 				<div class="opciones">
 					<form action="/editarJugador" method="GET">
 						<input type="hidden" th:value="${creador.id}" name="idCreador">

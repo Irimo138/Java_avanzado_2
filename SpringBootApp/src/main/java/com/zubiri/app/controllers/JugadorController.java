@@ -41,7 +41,7 @@ public class JugadorController {
 		return "CreadorForm";
 	}
 	
-	@GetMapping("/mostrarJugador")
+	@GetMapping("/mostrarAllJugadores")
 	public String mostrarCreador(Model m) {
 		List<Jugador> lista = creadorService.mostrarJugador();
 		m.addAttribute("listaJugadores", lista);

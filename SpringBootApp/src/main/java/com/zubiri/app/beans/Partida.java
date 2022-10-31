@@ -32,13 +32,19 @@ public class Partida {
 
 		@Column(name = "juego_id")
 		private int juego_id;
+		
+		@Column(updatable = false)
+		@NotNull
+		@CreationTimestamp
+		private LocalDateTime addedOn;
 
 		public Id() {
 		}
 
-		public Id(int jugador_id, int juego_id) {
+		public Id(int jugador_id, int juego_id, LocalDateTime addedOn) {
 			this.jugador_id = jugador_id;
 			this.juego_id = juego_id;
+			this.addedOn = addedOn;
 		}
 	}
 
@@ -48,11 +54,6 @@ public class Partida {
 	@Column
 	@NotNull
 	private int puntuacion;
-
-	@Column(updatable = false)
-	@NotNull
-	@CreationTimestamp
-	private LocalDateTime addedOn;
 
 	@ManyToOne
 	@JoinColumn(name = "jugador_id", insertable = false, updatable = false)
@@ -88,14 +89,6 @@ public class Partida {
 
 	public void setPuntuacion(int puntuacion) {
 		this.puntuacion = puntuacion;
-	}
-
-	public LocalDateTime getAddedOn() {
-		return addedOn;
-	}
-
-	public void setAddedOn(LocalDateTime addedOn) {
-		this.addedOn = addedOn;
 	}
 
 	public Jugador getJugador() {

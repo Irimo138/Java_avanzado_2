@@ -94,14 +94,14 @@ public class JuegoController  {
 	@PostMapping("/simularPartida")
 	public String jugarPartida(@ModelAttribute Partida p, int jugador_id, int juego_id) {
 		int puntuacion = (int) ((int) 1 + Math.random()*10000);
-		//juegoService.jugarPartida(juego_id, puntuacion, jugador_id);
+			juegoService.jugarPartida(juego_id, puntuacion, jugador_id);
 			p.setJuego(juegoService.buscarJuego(juego_id));
 			p.setJugador(creadorService.buscarCreador(jugador_id));
 			p.setPuntuacion(puntuacion);
-			p.setAddedOn(LocalDateTime.now());
-			System.err.println(p.getJuego().getNombre());
+			p.setId(new Id(jugador_id, juego_id, LocalDateTime.now()));
+			/*System.err.println(p.getJuego().getNombre());
 			System.err.println(p.getJugador().getNombre());
-			System.err.println(p.getAddedOn());
+			System.err.println(p.getAddedOn());*/
 			creadorService.ganaJuego(p);
 		return "redirect:/";
 	}

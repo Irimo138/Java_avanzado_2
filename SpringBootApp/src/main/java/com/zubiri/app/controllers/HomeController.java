@@ -26,9 +26,9 @@ public class HomeController {
 		return "agregarDatos";
 	}
 	
-	@GetMapping("/muchosLinks")
-	public String muchosLinks() {
-		return "Links";
+	@GetMapping("/consultarDatos")
+	public String consultarDatos() {
+		return "consultarDatos";
 	}
 	
 }
