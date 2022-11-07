@@ -5,9 +5,9 @@
 <head>
 <title>Mostrar Juegos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" type="text/css" media="all" href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
 <link rel="stylesheet" th:href="@{CSS/MostrarDatos.css}">
+<script type="text/javascript" src="JS/API.js"></script>
 </head>
 
 <body>
@@ -16,9 +16,10 @@
 	<section layout:fragment="content" id="content">
 
 	<h2>Listado de Juegos</h2>
-	<div class="container">
-		<div th:each="juego : ${listaJuegos}">
-			<div class="caja">
+	<input type="text" id="buscador"></input>
+	<input type="hidden" th:value="${listaJuegos}" id="datos">
+	<div class="container" id="container">
+			<!-- <div class="caja">
 				<h3 th:text="${juego.nombre}"></h3>
 				<h4>Partidas Jugadas: <span th:text="${juego.partidasJugadas}"></span></h4>
 				<h4>Puntuación máxima: <span th:text="${juego.puntuacionMax}"></span></h4>
@@ -33,7 +34,7 @@
 					</form>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	</div>
 	</section>
 </body>

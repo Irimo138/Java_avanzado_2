@@ -23,10 +23,8 @@ public class restJuegoController {
 	}
 	
 	@GetMapping("/obtenerJuegos")
-    public ModelAndView findAll(ModelAndView m){
+    public List<Juego> findAll(ModelAndView m){
 		List<Juego> lista = juegoService.obtenerTodosPorNombre();
-		m.addObject("juegos", lista);
-		m.setViewName("MostrarJuegos");
-        return m;
+        return lista;
     }
 }
