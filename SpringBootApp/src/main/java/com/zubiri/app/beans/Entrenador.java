@@ -25,6 +25,7 @@ import lombok.NoArgsConstructor;
 public class Entrenador extends Persona{
 	
 	public Entrenador() {}
+	
 	public Entrenador(@NotNull int id,
 			@NotBlank @Size(min = 3, max = 50, message = "No cumple con los minimos caracteres necesarios (3)") String nombre,
 			@NotNull String dNI, @NotNull String nombre2) {

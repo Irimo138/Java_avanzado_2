@@ -19,23 +19,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force=true)
 @Entity
 @Table(name = "Jugadores")
 public class Jugador extends Persona{
 
-	public Jugador() {
-	
-	}
-
+	public Jugador() {}
 	public Jugador(@NotNull int id,
 			@NotBlank @Size(min = 3, max = 50, message = "No cumple con los minimos caracteres necesarios (3)") String nombre,
 			@NotNull String dNI, @NotNull String nombre2) {
 		super(id, nombre, dNI);
-		// TODO Auto-generated constructor stub
-	}
-
-	
+	}	
 
 	@Nullable
 	@Min(value = 0, message = "El valor minimo debe de ser de 0")

@@ -38,8 +38,7 @@ public class Partida {
 		@CreationTimestamp
 		private LocalDateTime addedOn;
 
-		public Id() {
-		}
+		public Id() {}
 
 		public Id(int jugador_id, int juego_id, LocalDateTime addedOn) {
 			this.jugador_id = jugador_id;
