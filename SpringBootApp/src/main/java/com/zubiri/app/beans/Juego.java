@@ -17,8 +17,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.lang.Nullable;
 
-import groovyjarjarantlr4.v4.runtime.misc.Nullable;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;

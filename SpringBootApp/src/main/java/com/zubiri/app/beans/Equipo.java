@@ -2,7 +2,6 @@ package com.zubiri.app.beans;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +14,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import groovyjarjarantlr4.v4.runtime.misc.Nullable;
+import org.springframework.lang.Nullable;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
