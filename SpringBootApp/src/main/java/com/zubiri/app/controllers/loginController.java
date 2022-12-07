@@ -47,7 +47,7 @@ public class loginController {
 		String rol = "ADMIN";
 		userRepository.save(new User(name, passString, null, rol));
 		String name2 = "IriM";
-		String rol2 = "MANAGER";
+		String rol2 = "CURRENT";
 		userRepository.save(new User(name2, passString, null, rol2));
 		return "Agregado";
 	}

@@ -16,20 +16,11 @@ import com.zubiri.app.services.AuthenticationProviderService;
 import com.zubiri.app.services.JpaUserDetailsService;
 
 
-
-@Order(2)
 @Configuration
 public class ProjectConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private AuthenticationProviderService authenticationProviderService;
-
-	@Autowired
-	private JpaUserDetailsService userDetailsService;
-	
-	@Autowired
-	private DBUserRepository userRepository;
-
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) {
@@ -47,12 +38,13 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		http.formLogin().defaultSuccessUrl("/", true).loginPage("/login").failureUrl("/login?error=true");
 		http.authorizeRequests()
-			.mvcMatchers("/hello").permitAll()
-			.mvcMatchers("/ciao").hasRole("MANAGER")
+			.mvcMatchers("/consultarDatos").hasAnyRole("ADMIN", "CURRENT")
+			.mvcMatchers("/consultarDatos").hasRole("ADMIN")
+			.mvcMatchers("/agregarDatos").hasRole("ADMIN")
 			.mvcMatchers("/addUsers").permitAll()
 			.mvcMatchers("/register").permitAll()
-			.mvcMatchers("/").permitAll()
 			.mvcMatchers("/login").permitAll()
+			.mvcMatchers("/").permitAll()
 			.anyRequest().authenticated();
 	}
 
