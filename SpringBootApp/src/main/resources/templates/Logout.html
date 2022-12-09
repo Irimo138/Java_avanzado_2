@@ -1,0 +1,17 @@
+<!DOCTYPE unspecified PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/layout}">
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col">
+	<h1 class="flex justify-center align-center text-5xl h-1/6">Register</h1>
+	<div class="flex justify-center">
+		<form class="bg-blue-200 flex flex-col flex flex-col justify-around p-3 w-1/4" action="/logout" method="post">
+			<h1>Salte puto</h1>
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			<input class="border-2 my-3" type="submit" value="Logout">
+		</form>
+	</div>
+</body>
+</html>

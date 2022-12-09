@@ -34,10 +34,15 @@ public class loginController {
 	}
 	
 	@PostMapping("/registerUser")
-	public String registerUser(@RequestParam String password, String nombre) {
+	public String registerUser(@RequestParam String password, String nombre, String DNI, String correo) {
 		String passString = bCryptPasswordEncoder.encode(password);
-		userRepository.save(new User(nombre, passString, null, null));
-		return "redirect:/index";
+		userRepository.save(new User(nombre, passString, DNI, correo, "CURRENT"));
+		return "redirect:/";
+	}
+	
+	@GetMapping("/logout")
+	public String Logout() {
+		return "logout.html";
 	}
 	
 	@GetMapping("/addUsers")
@@ -45,11 +50,15 @@ public class loginController {
 		String passString = bCryptPasswordEncoder.encode("12345");
 		String name = "IriA";
 		String rol = "ADMIN";
-		userRepository.save(new User(name, passString, null, rol));
+		String dni = "72557824T";
+		String correo = "@adminT";
+		userRepository.save(new User(name, passString, dni,correo, rol));
 		String name2 = "IriM";
 		String rol2 = "CURRENT";
-		userRepository.save(new User(name2, passString, null, rol2));
-		return "Agregado";
+		String dni2 = "72557824X";
+		String correo2 = "@current";
+		userRepository.save(new User(name2, passString,dni2, correo2, rol2));
+		return "redirect:/";
 	}
 	
 }

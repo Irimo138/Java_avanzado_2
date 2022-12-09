@@ -2,6 +2,7 @@ package com.zubiri.app.beans;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,25 +23,34 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+
+	@Column(unique = true)
 	private String username;
+
 	private String password;
-	
+
 	@Nullable
 	private String role;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	private List<Authority> authorityes;
+	
+	@Column(unique = true)
+	private String correo;
+	
+	@Column(unique = true)
+	private String dni;
 
 	public User() {
 	}
-	
-	
 
-	public User(String username, String password, List<Authority> authority, String role) {
+	public User(String username, String password, String dNI, String correo, String role) {
+		super();
 		this.username = username;
 		this.password = password;
-		this.authorityes = authority;
+		this.dni = dNI;
 		this.role = role;
+		this.correo = correo;
 	}
 
 	public int getId() {
@@ -77,6 +87,22 @@ public class User {
 
 	public String getRole() {
 		return role;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public void setRole(String role) {
