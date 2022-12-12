@@ -38,6 +38,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 			.mvcMatchers("/consultarDatos").hasAnyRole("ADMIN", "CURRENT")
 			.mvcMatchers("/consultarDatos").hasRole("ADMIN")
 			.mvcMatchers("/agregarDatos").hasRole("ADMIN")
+			.mvcMatchers("/CSS/*").permitAll()
 			.mvcMatchers("/addUsers").permitAll()
 			.mvcMatchers("/register").permitAll()
 			.mvcMatchers("/registerUser").permitAll()

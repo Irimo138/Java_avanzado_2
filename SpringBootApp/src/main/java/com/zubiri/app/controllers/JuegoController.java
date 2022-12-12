@@ -74,6 +74,11 @@ public class JuegoController  {
 		return "showJuegos";
 	}
 	
+	@GetMapping("/apiExterna")
+	public String apiExterna() {
+		return "showAPI";
+	}
+	
 	/*@GetMapping("/obtenerJuegosPaginados")
 	public ModelAndView obtenerPorNombre(ModelAndView m) {
 		Page<Juego> lista = juegoService.obtenerTodosPorNombre();
