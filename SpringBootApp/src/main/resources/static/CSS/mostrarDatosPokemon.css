@@ -48,7 +48,7 @@ body {
   margin-top: 7.5vh;
   width: 17.5vw;
   height: 15vh;
-  border: 1px black dashed;
+  border: 1px black solid;
   border-radius: 5px;
 }
 
@@ -77,6 +77,10 @@ body {
 
 .claro {
   background-color: #e5dfe2;
+}
+
+.oscuro #mostrar .caja{
+  border-color: #e5dfe2;
 }
 
 .oscuro .container div .caja {
