@@ -1,5 +1,6 @@
 package com.zubiri.app.Interfaces;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface JuegosInterface{
 	Juego buscarJuego(int i);
 	List<Juego> buscarJuegoNombre(String n);
 	Iterable<Juego> mostrarJuego();
-	List<Juego> obtenerTodosPorNombre();
+	Serializable obtenerTodosPorNombre();
 	void jugarPartida(int juego, int puntuacion, int jugador);	
 }

@@ -28,6 +28,7 @@
 			</div>
 			</select>
 		<label>Partidas ganadas</label><input type="text" name="partidasGanadas">
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		<input id="enviar" type="Submit" class="botoia" value="Enviar">
 	</form>
 	</section>

@@ -31,7 +31,9 @@
 		<label>Calle</label><input type="text" th:value="${entrenador.direccion.calle}" name="calle">
 		<label>Ciudad</label><input type="text" th:value="${entrenador.direccion.ciudad}" name="ciudad">
 		<label>Pais</label><input type="text" th:value="${entrenador.direccion.pais}" name="pais">
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		<br>
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		<input type="submit" id="enviar" value="Enviar">
 	</form>
 	</section>

@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="JS/modoOscuro.js"></script>
 </head>
 <body>   
- <header th:insert="fragments/header.html :: header"> </header>
+ <header th:insert="fragmentos/header.html :: header"> </header>
 	<section layout:fragment="content" id="content">
 <h2>Jugar partida</h2>
 
@@ -27,6 +27,7 @@
 				<option th:text="${j.nombre}" name="juego_id" th:value="${j.id}">
 			</div>
 		</select>	
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		<input type="submit" id="enviar" class="botoia" value="Jugar">	
 	</form>
 	</section>

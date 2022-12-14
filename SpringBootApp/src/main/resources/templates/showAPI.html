@@ -5,15 +5,20 @@
 <head>
 <title>Editar Equipo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet" th:href="@{CSS/MostrarDatosPokemon.css}">
 <script type="text/javascript" src="JS/pokeAPI.js"></script>
 	
 </head>
 	
+<body>
 <header th:insert="fragmentos/header.html :: header"> </header>
 	<section layout:fragment="content" id="content">
-<body>
 	
+	<div id="mostrar">
+		
+	</div>
+	<input type="button" id="atras" name="atras" onclick="atras()" value="<--">
+	<input type="button" id="adelante" name="adelante" onclick="adelante()" value="-->">
+	</section>
 </body>
 </html>

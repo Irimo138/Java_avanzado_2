@@ -19,6 +19,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.lang.Nullable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -44,11 +46,13 @@ public class Juego {
 	@Nullable
 	private int partidasJugadas;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@ManyToOne(fetch = FetchType.EAGER, optional = true)
 	@JoinColumn(name = "id_jugador", nullable = true)
+	@JsonIgnore
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Jugador j;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "juego")
 	Set<Partida> Partidas;
 

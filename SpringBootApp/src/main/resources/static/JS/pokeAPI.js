@@ -1,11 +1,50 @@
 window.onload = iniciar();
 
+var numero;
+var dataPoke;
 function iniciar() {
+	setVariable();
 	llamadaAPI();
 }
 
+function funciones(){
+	document.getElementById("adelante").addEventListener("click", adelante);
+}
+
+function setVariable(){
+	numero = 0;
+}
+
+function adelante(){
+		numero +=20;
+		llamadaAPI();
+	
+}
+
+function atras(){
+		numero -=20;
+		llamadaAPI();
+}
+
 function printar(data) {
-	console.log(data);
+	var images = numero;
+	var datos = data.results;
+	console.log(datos[0]);
+	cuerpo = document.getElementById("mostrar");
+	cuerpo.innerHTML="";
+	for(var i = 0; i <= 20; i++){
+		var anadir = document.createElement("div");
+		anadir.className="caja";
+		var nombre = document.createElement("h2");
+		nombre.textContent = datos[i].name;
+		var imagen = document.createElement("img");
+		imagen.src= "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+(images+1)+".png";
+		images++;
+		console.log(dataPoke);
+		anadir.appendChild(nombre);
+		anadir.appendChild(imagen);
+		cuerpo.appendChild(anadir);
+	}
 }
 
 function llamadaAPI() {
@@ -20,7 +59,7 @@ function llamadaAPI() {
 	};
 
 	// Endpoint de la API y método que se va a usar para llamar
-	xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20", true);
+	xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon?offset="+numero+"&limit=21", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 	// Si quisieramos mandar parámetros a nuestra API, podríamos hacerlo desde el método send()
 	xhttp.send();

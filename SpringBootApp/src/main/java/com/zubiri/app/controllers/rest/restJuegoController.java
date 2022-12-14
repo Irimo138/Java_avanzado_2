@@ -1,5 +1,6 @@
 package com.zubiri.app.controllers.rest;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class restJuegoController {
 	}
 	
 	@GetMapping("/obtenerJuegos")
-    public List<Juego> findAll(ModelAndView m){
-		List<Juego> lista = juegoService.obtenerTodosPorNombre();
+    public Serializable findAll(ModelAndView m){
+		Serializable lista = juegoService.obtenerTodosPorNombre();
         return lista;
     }
 }

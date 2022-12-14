@@ -1,17 +1,14 @@
 package com.zubiri.app.services;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zubiri.app.Interfaces.DBJuegosRepository;
 import com.zubiri.app.Interfaces.JuegosInterface;
 import com.zubiri.app.beans.Juego;
@@ -78,9 +75,9 @@ public class JuegoService implements JuegosInterface{
 	}
 
 
-	@Override
-	public List<Juego> obtenerTodosPorNombre() {
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	public Serializable obtenerTodosPorNombre() {
 		
-		return jdbc2.findAll();
+		return (Serializable) jdbc2.findAll();
 	}
 }

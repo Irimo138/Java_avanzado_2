@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="JS/modoOscuro.js"></script>
 
 	<nav>
+		<a sec:authorize="hasRole('ROLE_ADMIN')" href="/apiExterna">API externa</a>
 		<a href="/"><h2>Gestor Agenda</h2></a>
 		<button id="cambio">Modo Oscuro</button>
 		<a href="/logout" sec:authorize="!hasRole('ROLE_ANONYMOUS')"><svg

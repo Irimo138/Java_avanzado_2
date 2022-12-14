@@ -36,13 +36,16 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin().defaultSuccessUrl("/", true).loginPage("/login").failureUrl("/login?error=true");
 		http.addFilterAfter(new CsrfTokenLoggerFilter(), CsrfFilter.class).authorizeRequests()
 			.mvcMatchers("/consultarDatos").hasAnyRole("ADMIN", "CURRENT")
-			.mvcMatchers("/consultarDatos").hasRole("ADMIN")
+			.mvcMatchers("/guardaJugador").hasRole("ADMIN")
 			.mvcMatchers("/agregarDatos").hasRole("ADMIN")
 			.mvcMatchers("/CSS/*").permitAll()
+			.mvcMatchers("/JS/*").permitAll()
 			.mvcMatchers("/addUsers").permitAll()
 			.mvcMatchers("/register").permitAll()
 			.mvcMatchers("/registerUser").permitAll()
 			.mvcMatchers("/login").permitAll()
+			.mvcMatchers("/api").permitAll()
+			.mvcMatchers("/api/*").permitAll()
 			.mvcMatchers("/").permitAll()
 			.anyRequest().authenticated();
 	}

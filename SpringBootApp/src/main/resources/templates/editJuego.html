@@ -27,6 +27,7 @@
 		<label>Puntuación Maxima</label><input type="number" name="puntuacionMax"> 
 		<td th:if="${#fields.hasErrors('puntuacionMax')}" th:errors="*{puntuacionMax}"/>
 		<br>  
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		<input type="submit" id="enviar" class="botoia" value="Enviar">
 	</form>
 	</section>

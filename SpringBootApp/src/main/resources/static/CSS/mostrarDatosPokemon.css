@@ -12,14 +12,6 @@ nav {
   text-align: center;
 }
 
-h2 {
-  width: 90vw;
-  padding-top: 0.5vh;
-  padding-bottom: 1.5vh;
-  text-align: center;
-  justify-self: center;
-}
-
 a {
   text-decoration-line: none;
 }
@@ -29,7 +21,6 @@ a {
 }
 
 #content h2 {
-  width: 100vw;
   text-align: center;
 }
 
@@ -39,16 +30,17 @@ body {
   margin: 0;
 }
 
-.container {
-  width: 100vw;
+.oscuro .containers h3 {
+  color: #e5dfe2;
+}
+
+#mostrar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .caja {
-  border: 1px black solid;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +48,8 @@ body {
   margin-top: 7.5vh;
   width: 17.5vw;
   height: 15vh;
+  border: 1px black dashed;
+  border-radius: 5px;
 }
 
 .caja h4 {
@@ -67,7 +61,7 @@ body {
 }
 
 #content {
-  height: 95vh;
+  height: 100vh;
 }
 
 .caja .opciones {
@@ -77,30 +71,30 @@ body {
   width: 20vw;
 }
 
-.claro {
+.oscuro {
   background-color: #000000;
 }
 
-.oscuro {
+.claro {
   background-color: #e5dfe2;
 }
 
-.claro .container div .caja {
+.oscuro .container div .caja {
   border-color: #e5dfe2;
   color: #e5dfe2;
 }
 
-.oscuro .container div .caja {
+.claro .container div .caja {
   border-color: #000000;
   color: #000000;
 }
 
-.oscuro h2 {
+.claro h2 {
   color: #000000;
 }
 
-.claro h2 {
+.oscuro h2 {
   color: #e5dfe2;
 }
 
-/*# sourceMappingURL=APIPage.css.map */
+/*# sourceMappingURL=mostrarDatos.css.map */

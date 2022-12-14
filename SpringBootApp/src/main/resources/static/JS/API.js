@@ -1,6 +1,7 @@
 window.onload = iniciar();
 
 function iniciar() {
+	llamadaAPI();
 	document.addEventListener("keydown", llamadaAPI);
 }
 

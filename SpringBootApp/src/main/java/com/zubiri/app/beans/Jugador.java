@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.lang.Nullable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,6 +38,7 @@ public class Jugador extends Persona{
 	private int partidasGanadas;
 	
 	@OneToMany(mappedBy = "jugador")
+	@JsonIgnore
     Set<Partida> partidas;
 	
 	@ManyToOne
