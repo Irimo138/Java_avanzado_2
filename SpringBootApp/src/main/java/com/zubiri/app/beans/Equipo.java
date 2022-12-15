@@ -15,6 +15,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.lang.Nullable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,6 +40,7 @@ public class Equipo {
 	private int partidasGanadas;
 	
 	@OneToMany
+	@JsonIgnore
 	@JoinColumn(
 			name = "Equipo_Id",
 			nullable = true

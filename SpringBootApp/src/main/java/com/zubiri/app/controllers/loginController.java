@@ -61,4 +61,9 @@ public class loginController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/showUsers")
+	public String Show() {
+		return "showUsers";
+	}
+	
 }

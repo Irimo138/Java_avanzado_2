@@ -48,11 +48,11 @@ public class Juego {
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = true)
 	@JoinColumn(name = "id_jugador", nullable = true)
-	@JsonIgnore
+	
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Jugador j;
-
-	@JsonIgnore
+	
+	
 	@OneToMany(mappedBy = "juego")
 	Set<Partida> Partidas;
 

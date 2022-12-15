@@ -23,11 +23,11 @@
 				<h4>Ciudad: <span th:text="${creador.direccion.ciudad}"></span></h4>
 				<div class="opciones">
 					<form action="/editarJugador" method="GET">
-						<input type="hidden" th:value="${creador.id}" name="idCreador">
+						<input type="hidden" th:value="${creador.id}" name="idCreador" id="idCreador">
 						<input type="submit" class="botoia" value="editar">
 					</form>
 					<form action="/eliminarJugador" method="POST">
-						<input type="hidden" th:value="${creador.id}" name="idCreador">
+						<input type="hidden" th:value="${creador.id}" name="idCreador" id="idCreador">
 						<input type="submit" class="botoia" value="Eliminar">
 					</form>
 				</div>

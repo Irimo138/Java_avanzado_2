@@ -1,58 +1,62 @@
 * {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 nav {
-  background-color: #9fa4a3;
-  width: 100%;
-  height: 5vh;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
+	background-color: #9fa4a3;
+	height: 5vh;
+	display: flex;
+	flex-direction: row;
+	text-align: center;
 }
 
 nav h2 {
-  width: 90vw;
-  padding-top: 0.5vh;
-  padding-bottom: 1.5vh;
-  text-align: center;
-  justify-self: center;
+	width: 90vw;
+	padding-top: 0.5vh;
+	padding-bottom: 1.5vh;
+	text-align: center;
+	justify-self: center;
+}
+
+.log {
+	justify-self: center;
+	align-self:center;
 }
 
 a {
-  text-decoration-line: none;
+	text-decoration-line: none;
 }
 
 #cambio {
-  justify-self: end;
-  margin-right: 3vw;
+	justify-self: end;
+	margin-right: 3vw;
 }
 
 .claro {
-  background-color: #e5dfe2;
-  border-color: #000000;
+	background-color: #e5dfe2;
+	border-color: #000000;
 }
 
 .oscuro {
-  background-color: #00151e;
-  border-color: #e5dfe2;
+	background-color: #00151e;
+	border-color: #e5dfe2;
 }
 
 .claro p {
-  color: #000000;
+	color: #000000;
 }
 
 .oscuro p {
-  color: #e5dfe2;
+	color: #e5dfe2;
 }
 
 .claro form {
-  border-color: #000000;
+	border-color: #000000;
 }
 
 .oscuro form {
-  border-color: #e5dfe2;
+	border-color: #e5dfe2;
 }
 
 /*# sourceMappingURL=headerModoOscuro.css.map */

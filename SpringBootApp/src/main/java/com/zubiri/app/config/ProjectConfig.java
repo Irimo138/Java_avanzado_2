@@ -37,6 +37,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 		http.addFilterAfter(new CsrfTokenLoggerFilter(), CsrfFilter.class).authorizeRequests()
 			.mvcMatchers("/consultarDatos").hasAnyRole("ADMIN", "CURRENT")
 			.mvcMatchers("/guardaJugador").hasRole("ADMIN")
+			.mvcMatchers("/eliminaJuego").hasRole("ADMIN")
 			.mvcMatchers("/agregarDatos").hasRole("ADMIN")
 			.mvcMatchers("/CSS/*").permitAll()
 			.mvcMatchers("/JS/*").permitAll()
