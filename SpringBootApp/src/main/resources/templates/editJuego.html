@@ -18,7 +18,7 @@
 		
 	<form th:action="@{/modificarJuego}" th:method="PUT" th:object="${juego}">
 		<input type="hidden" name="id" th:value="${juego.id}">
-		<label>Nombre</label><input type="text" name="nombre"> 
+		<label>Nombre</label><input type="text" th:value="${juego.nombre}" name="nombre"> 
 		<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
 		<br>
 		<label>Partidas Jugadas</label><input type="number" name="partidasJugadas"> 
