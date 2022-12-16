@@ -37,7 +37,7 @@ public class EquipoController{
 	
 	@GetMapping("/editaFormEquipo")
 	public String mostrarFormEditEquipo(@RequestParam int idEquipo, Model m) {
-		m.addAttribute("equipo", equipoService.buscarEquipoId(idEquipo));
+		m.addAttribute("equipo", equipoService.buscarEquipoId(idEquipo).get());
 		return "editEquipo";
 	}
 	

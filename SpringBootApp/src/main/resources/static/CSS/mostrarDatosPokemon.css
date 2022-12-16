@@ -5,7 +5,6 @@
 
 nav {
   background-color: #9fa4a3;
-  width: 100vw;
   height: 5vh;
   display: flex;
   flex-direction: row;
@@ -38,6 +37,13 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.foot{
+	margin-top:2vh;
+	width:100%;
+	display:flex;
+	justify-content: space-around;
 }
 
 .caja {

@@ -19,13 +19,14 @@
 				<h3 th:text="${equipo.nombre}"></h3>	
 				<h4>Partidas Jugadas: <span th:text="${equipo.partidasGanadas}"></span></h4>
 					
-				<div class="opciones"> 
+				<div sec:authorize="hasRole('ROLE_ADMIN')" class="opciones"> 
 					<form action="/editaFormEquipo" method="GET">
 						<input type="hidden" th:value="${equipo.id}" name="idEquipo">
 						<input type="submit" class="botoia" value="Editar">
 					</form>
 					<form action="/eliminarEquipo" method="POST">
 						<input type="hidden" th:value="${equipo.id}" name="idEquipo">
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 						<input type="submit" class="botoia" value="Borrar">
 					</form>
 				</div>

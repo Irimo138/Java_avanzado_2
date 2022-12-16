@@ -21,10 +21,10 @@
 			<h2 th:text="${creador.nombre}"></h2>
 				<h4>Pais: <span th:text="${creador.direccion.pais}"></span></h4>
 				<h4>Ciudad: <span th:text="${creador.direccion.ciudad}"></span></h4>
-				<div class="opciones">
+				<div sec:authorize="hasRole('ROLE_ADMIN')" class="opciones">
 					<form action="/editarJugador" method="GET">
 						<input type="hidden" th:value="${creador.id}" name="idCreador" id="idCreador">
-						<input type="submit" class="botoia" value="editar">
+						<input type="submit" class="botoia" value="Editar">
 					</form>
 					<form action="/eliminarJugador" method="POST">
 						<input type="hidden" th:value="${creador.id}" name="idCreador" id="idCreador">

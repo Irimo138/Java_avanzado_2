@@ -14,11 +14,6 @@
 			<input type="hidden" th:name="${_csrf.parameterName}"
 				th:value="${_csrf.token}" /> <input class="border-2 my-3"
 				type="submit" value="Logout">
-	<a sec:authorize="hasRole('ROLE_ADMIN')" href="/apiExterna">
-		<div class="w-20 h-20 p-2 rounded-md animate-spin">
-			<a href="/apiExterna"> <img src="../IMG/pokeball2.jpg"></a>
-		</div>
-	</a>
 		</form>
 	</div>
 </body>

@@ -62,13 +62,13 @@ public class EntrenadorController {
 				e.setEquipo(null);
 			}else {				
 				e.setEquipo(equipoService.buscarEquipoId(Integer.parseInt(idEquipo)).get());
+				List<Entrenador> listaEntrenadores = entrenadorService.mostrarTodosLosEntrenadors();
+				Entrenador ent = listaEntrenadores.get(listaEntrenadores.size()-1);
+				Equipo equipoAñadir = equipoService.buscarEquipoId(Integer.parseInt(idEquipo)).get();
+				equipoAñadir.setEntrenador(ent);
+				equipoService.editarEquipo(equipoAñadir);
 			}
 			entrenadorService.añadirEntrenador(e);
-			List<Entrenador> listaEntrenadores = entrenadorService.mostrarTodosLosEntrenadors();
-			Entrenador ent = listaEntrenadores.get(listaEntrenadores.size()-1);
-			Equipo equipoAñadir = equipoService.buscarEquipoId(Integer.parseInt(idEquipo)).get();
-			equipoAñadir.setEntrenador(ent);
-			equipoService.editarEquipo(equipoAñadir);
 			return "redirect:/";
 		}
 	}
@@ -80,8 +80,8 @@ public class EntrenadorController {
 			e.setEquipo(null);
 		}else {			
 			e.setEquipo(equipoService.buscarEquipoId(idEquipo).get());
-			entrenadorService.editarEntrenador(e);
 		}
+		entrenadorService.editarEntrenador(e);
 		return "redirect:/";
 	}
 	

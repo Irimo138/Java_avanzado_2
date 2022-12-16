@@ -14,13 +14,14 @@
 <header th:insert="fragmentos/header.html :: header"> </header>
 	<section layout:fragment="content" id="content">
 
-	<h2>List de Entrenadores</h2>
+	<h2>Lista de Entrenadores</h2>
 	<div class="container">
 		<div th:each="ent : ${listaEntrenador}">
 			<div class="caja">
 				<h2 th:text="${ent.nombre}"></h2>
 				<h4>Partidas Ganadas: <span th:text="${ent.partidasGanadas}"></span></h4>
-				<div class="opciones">
+				<h4>Pais: <span th:text="${ent.direccion.pais}"></span></h4>
+				<div sec:authorize="hasRole('ROLE_ADMIN')" class="opciones">
 					<form action="/editaent" method="GET">
 						<input type="hidden" th:value="${ent.id}" name="ident">
 						<input type="submit" value="Editar">
